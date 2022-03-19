@@ -14,6 +14,10 @@
 		96905EF65AED1B983A6B3ABC /* libPods-MedFSApp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 58EEBF8E8E6FB1BC6CAF49B5 /* libPods-MedFSApp.a */; };
 		B18059E884C0ABDD17F3DC3D /* ExpoModulesProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC715A2D49A985799AEE119 /* ExpoModulesProvider.swift */; };
 		BB2F792D24A3F905000567C9 /* Expo.plist in Resources */ = {isa = PBXBuildFile; fileRef = BB2F792C24A3F905000567C9 /* Expo.plist */; };
+		8D1CD7AEC47F42F6AC88E956 /* CircularXXTT-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0164DE0688D04B46B6C01952 /* CircularXXTT-Bold.ttf */; };
+		BD659F4ECA9D42D7B5E427C3 /* CircularXXTT-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CC71F25749274F63AB3440C2 /* CircularXXTT-Medium.ttf */; };
+		DA6498CFD67F42B6B92E66B8 /* CircularXXTT-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 07880B29F8BB4B72A5669DCE /* CircularXXTT-Regular.ttf */; };
+		15F487D948094F418D0DA94C /* SFProDisplay-Heavy.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2B1EEA15854A46A4B7F6584B /* SFProDisplay-Heavy.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +35,10 @@
 		BB2F792C24A3F905000567C9 /* Expo.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Expo.plist; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		FAC715A2D49A985799AEE119 /* ExpoModulesProvider.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ExpoModulesProvider.swift; path = "Pods/Target Support Files/Pods-MedFSApp/ExpoModulesProvider.swift"; sourceTree = "<group>"; };
+		0164DE0688D04B46B6C01952 /* CircularXXTT-Bold.ttf */ = {isa = PBXFileReference; name = "CircularXXTT-Bold.ttf"; path = "../assets/fonts/CircularXXTT-Bold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		CC71F25749274F63AB3440C2 /* CircularXXTT-Medium.ttf */ = {isa = PBXFileReference; name = "CircularXXTT-Medium.ttf"; path = "../assets/fonts/CircularXXTT-Medium.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		07880B29F8BB4B72A5669DCE /* CircularXXTT-Regular.ttf */ = {isa = PBXFileReference; name = "CircularXXTT-Regular.ttf"; path = "../assets/fonts/CircularXXTT-Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		2B1EEA15854A46A4B7F6584B /* SFProDisplay-Heavy.ttf */ = {isa = PBXFileReference; name = "SFProDisplay-Heavy.ttf"; path = "../assets/fonts/SFProDisplay-Heavy.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +93,7 @@
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
 				D65327D7A22EEC0BE12398D9 /* Pods */,
 				D7E4C46ADA2E9064B798F356 /* ExpoModulesProviders */,
+				6D0D819CCF524943BFFEB687 /* Resources */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -132,6 +141,18 @@
 			);
 			name = ExpoModulesProviders;
 			sourceTree = "<group>";
+		};
+		6D0D819CCF524943BFFEB687 /* Resources */ = {
+			isa = "PBXGroup";
+			children = (
+				0164DE0688D04B46B6C01952 /* CircularXXTT-Bold.ttf */,
+				CC71F25749274F63AB3440C2 /* CircularXXTT-Medium.ttf */,
+				07880B29F8BB4B72A5669DCE /* CircularXXTT-Regular.ttf */,
+				2B1EEA15854A46A4B7F6584B /* SFProDisplay-Heavy.ttf */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+			path = "";
 		};
 /* End PBXGroup section */
 
@@ -196,6 +217,10 @@
 				BB2F792D24A3F905000567C9 /* Expo.plist in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				3E461D99554A48A4959DE609 /* SplashScreen.storyboard in Resources */,
+				8D1CD7AEC47F42F6AC88E956 /* CircularXXTT-Bold.ttf in Resources */,
+				BD659F4ECA9D42D7B5E427C3 /* CircularXXTT-Medium.ttf in Resources */,
+				DA6498CFD67F42B6B92E66B8 /* CircularXXTT-Regular.ttf in Resources */,
+				15F487D948094F418D0DA94C /* SFProDisplay-Heavy.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -7,18 +7,22 @@ import { StyleSheet, Text, View } from 'react-native';
 import PreHome from './Screens/PreHome';
 import Login from './Screens/Login';
 import SignUp from './Screens/SignUp';
-import { SafeAreaProvider } from 'react-native-safe-area-context';
+import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
 
 export default function App() {
   const Stack = createStackNavigator();
   return (
     <NavigationContainer>
+    <StatusBar style='auto'/>
       <SafeAreaProvider>
+      <SafeAreaView style={styles.container}>
+      {/* <PreHome/> */}
       <Stack.Navigator>
         <Stack.Screen name='PreHome' component={PreHome} options={{headerShown:false}}/>
         <Stack.Screen name='Login' component={Login} options={{headerShown:false}}/>
         <Stack.Screen name='SignUp' component={SignUp} options={{headerShown:false}}/>
         </Stack.Navigator>
+      </SafeAreaView>
       </SafeAreaProvider>
       </NavigationContainer>
     
@@ -27,6 +31,8 @@ export default function App() {
 
 const styles = StyleSheet.create({
   container: {
-    
+    backgroundColor: '#fff',
+    height:'100%',
+    paddingTop: Platform.OS === "android" ? StatusBar.currentHeight : 0
   },
 });
