@@ -18,6 +18,8 @@
 		BD659F4ECA9D42D7B5E427C3 /* CircularXXTT-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CC71F25749274F63AB3440C2 /* CircularXXTT-Medium.ttf */; };
 		DA6498CFD67F42B6B92E66B8 /* CircularXXTT-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 07880B29F8BB4B72A5669DCE /* CircularXXTT-Regular.ttf */; };
 		15F487D948094F418D0DA94C /* SFProDisplay-Heavy.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2B1EEA15854A46A4B7F6584B /* SFProDisplay-Heavy.ttf */; };
+		A03952C957A040F8B81A6D08 /* SFNS-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 01782BC08F324CB9B257F2DA /* SFNS-Bold.ttf */; };
+		74BFCC90EF534FC4BA9D0B7D /* SFNS-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 323A28903A02424092BEAE10 /* SFNS-Thin.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,6 +41,8 @@
 		CC71F25749274F63AB3440C2 /* CircularXXTT-Medium.ttf */ = {isa = PBXFileReference; name = "CircularXXTT-Medium.ttf"; path = "../assets/fonts/CircularXXTT-Medium.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 		07880B29F8BB4B72A5669DCE /* CircularXXTT-Regular.ttf */ = {isa = PBXFileReference; name = "CircularXXTT-Regular.ttf"; path = "../assets/fonts/CircularXXTT-Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 		2B1EEA15854A46A4B7F6584B /* SFProDisplay-Heavy.ttf */ = {isa = PBXFileReference; name = "SFProDisplay-Heavy.ttf"; path = "../assets/fonts/SFProDisplay-Heavy.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		01782BC08F324CB9B257F2DA /* SFNS-Bold.ttf */ = {isa = PBXFileReference; name = "SFNS-Bold.ttf"; path = "../assets/fonts/SFNS-Bold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		323A28903A02424092BEAE10 /* SFNS-Thin.ttf */ = {isa = PBXFileReference; name = "SFNS-Thin.ttf"; path = "../assets/fonts/SFNS-Thin.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -149,6 +153,8 @@
 				CC71F25749274F63AB3440C2 /* CircularXXTT-Medium.ttf */,
 				07880B29F8BB4B72A5669DCE /* CircularXXTT-Regular.ttf */,
 				2B1EEA15854A46A4B7F6584B /* SFProDisplay-Heavy.ttf */,
+				01782BC08F324CB9B257F2DA /* SFNS-Bold.ttf */,
+				323A28903A02424092BEAE10 /* SFNS-Thin.ttf */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -221,6 +227,8 @@
 				BD659F4ECA9D42D7B5E427C3 /* CircularXXTT-Medium.ttf in Resources */,
 				DA6498CFD67F42B6B92E66B8 /* CircularXXTT-Regular.ttf in Resources */,
 				15F487D948094F418D0DA94C /* SFProDisplay-Heavy.ttf in Resources */,
+				A03952C957A040F8B81A6D08 /* SFNS-Bold.ttf in Resources */,
+				74BFCC90EF534FC4BA9D0B7D /* SFNS-Thin.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
