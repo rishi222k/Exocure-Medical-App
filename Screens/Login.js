@@ -70,16 +70,21 @@ const Login = () => {
         </View>
 
         <View style={{flexDirection:'row',alignItems:'center',justifyContent:'space-around', marginTop:40,  marginBottom:40}}>
-        <View style={styles.ops}>
-          <Googlesvg 
-          width={30}
-          height={30}
-          /></View>
-        <View style={styles.ops}>
-          <Facebooksvg 
-          width={31}
-          height={31}
-          /></View>
+        <TouchableOpacity>
+          <View style={styles.ops}>
+            <Googlesvg 
+            width={30}
+            height={30}
+            /></View>
+        </TouchableOpacity>
+      
+        <TouchableOpacity>
+          <View style={styles.ops}>
+            <Facebooksvg 
+            width={31}
+            height={31}
+            /></View>
+        </TouchableOpacity>
         </View>
       
       <Text style={{fontFamily:"CircularXXTTMedium",fontSize:17,width:"95%",color:"#6F6F6F", marginBottom:35,textAlign:'center'}}> Don't have an existing account? {'\n'} 
