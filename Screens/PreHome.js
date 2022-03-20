@@ -1,24 +1,39 @@
 import { StyleSheet, Text, View,ImageBackground,Image,TouchableOpacity,Button} from 'react-native'
+import { useFonts } from 'expo-font';
 import React from 'react'
 
 const PreHome = () => {
+
+  const [loaded] = useFonts({
+    CircularXXTTBold: require('../assets/fonts/CircularXXTTBold.ttf'),
+    CircularXXTTMedium: require('../assets/fonts/CircularXXTTMedium.ttf'),
+    CircularXXTTRegular: require('../assets/fonts/CircularXXTTRegular.ttf'),
+    SFNSBold: require('../assets/fonts/SFNSBold.ttf'),
+    SFNSThin: require('../assets/fonts/SFNSThin.ttf'),
+    SFProDisplayHeavy: require('../assets/fonts/SFProDisplayHeavy.ttf'),
+  });
+
+  if (!loaded) {
+    return null;
+  }
+
   return (
     <View>
     <ImageBackground source={require('../Images/PreHome-Bg.png')} resizeMode="cover" style={styles.imagebg}>
     <View style={styles.container}>
     <Image source={require('../Images/Logo.png')} resizeMode="contain" style={{width:140,height:140}}/>
-    <Text style={{fontFamily:"SFNS-Bold",fontSize:40,marginVertical:15}}>MedFS</Text>
-    <Text style={{fontFamily:"CircularXXTT-Regular",fontSize:20.3,width:"85%",color:'#6F6F6F',lineHeight:27}}>A medical application to assess early signs of peripheral neuropathy to prevent Diabetic foot syndrome (DFS)</Text>
+    <Text style={{fontFamily:"SFNSBold",fontSize:40,marginVertical:15}}>MedFS</Text>
+    <Text style={{fontFamily:"CircularXXTTRegular",fontSize:19,width:"90%",color:'#6F6F6F',lineHeight:27}}>A medical application to assess early signs of peripheral neuropathy to prevent Diabetic foot syndrome (DFS)</Text>
     </View>
     <View style={{height:'20%',width:'100%'}}>
     <TouchableOpacity>
     <View style={styles.but1}>
-    <Text style={{fontFamily:"CircularXXTT-Bold",color:"white", fontSize:18,textAlign:'center'}}>Create an account</Text>
+    <Text style={{fontFamily:"CircularXXTTBold",color:"white", fontSize:18,textAlign:'center'}}>Create an account</Text>
     </View>
     </TouchableOpacity>
     <TouchableOpacity>
     <View style={styles.but2}>
-    <Text style={{fontFamily:"CircularXXTT-Bold",color:"#FFB31D", fontSize:18,textAlign:'center',}}>Login</Text>
+    <Text style={{fontFamily:"CircularXXTTBold",color:"#FFB31D", fontSize:18,textAlign:'center',}}>Login</Text>
     </View>
     </TouchableOpacity>
     </View>
@@ -50,7 +65,7 @@ const styles = StyleSheet.create({
     width:"70%",
     borderRadius:5,
     marginBottom:12,
-    paddingVertical:12,
+    paddingVertical:11,
     alignSelf:'center',
     borderWidth: 3,
     borderColor:"#FFB31D",
