@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "868739580870",
+    "project_id": "medfs-medical-app",
+    "storage_bucket": "medfs-medical-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:868739580870:android:119f66040fd3339d6fe8c7",
+        "android_client_info": {
+          "package_name": "com.medfsapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "868739580870-f5p4grdublqb59lsbjacs87gda3kr3bj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAsSzyjOGLLMXxBecRO0k1Ip-Qp1nYHbKQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "868739580870-f5p4grdublqb59lsbjacs87gda3kr3bj.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
