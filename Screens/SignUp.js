@@ -98,7 +98,7 @@ const SignUp = () => {
         /></View>
       </View>
       
-      <Text style={{fontFamily:"CircularXXTTMedium",fontSize:17,width:"95%",color:"#6F6F6F", marginBottom:35,textAlign:'center'}}> Already have an account? 
+      <Text style={{fontFamily:"CircularXXTTMedium",fontSize:17,width:"95%",color:"#6F6F6F", marginBottom:35,textAlign:'center'}}> Already have an account?  {'\n'} 
         <Text 
         style={{fontFamily:"CircularXXTTMedium",fontSize:17,color:"#FFB31D"}}
         onPress={()=> navigation.navigate("Login")}> Login here
