@@ -1,9 +1,10 @@
 import { StyleSheet, Text, View,Image,ScrollView,TouchableOpacity } from 'react-native'
 import { TextInput } from 'react-native-paper';
-import { useState } from "react";
+import { useState, useContext } from "react";
 import Googlesvg from '../Images/google.svg';
 import Facebooksvg from '../Images/facebook-logo-2019.svg';
 import { useNavigation } from '@react-navigation/native';
+import {AuthContext, AuthProvider} from '../Navigation/AuthProvider';
 import React from 'react'
 
 const SignUp = () => {
@@ -14,6 +15,8 @@ const SignUp = () => {
   const [email, setEmail] = useState("")
   const [age, setAge] = useState("")
   const [password, setPassword] = useState("")
+
+  const {register} = useContext(AuthContext);
 
   return (
     <ScrollView style={{ backgroundColor:"#fff",height:"100%"}}>
@@ -47,7 +50,6 @@ const SignUp = () => {
       style={styles.text}
       theme={{colors: { background: '#fff',primary:'#0012FF'},}}
       onChangeText={(text) => setEmail(text)}
-      spellCheck={false}
     />
     <TextInput
       placeholder='Enter your age'
@@ -71,7 +73,8 @@ const SignUp = () => {
     <Text style={{fontFamily:"CircularXXTTMedium",fontSize:15,width:"95%",color:"#6F6F6F", marginBottom:35,}}>By signing up, you agree to our <Text style={{color:"#FFB31D"}}> Terms & Conditions</Text> and <Text style={{color:"#FFB31D"}}>Privacy Policy </Text> </Text>
     </View>
 
-      <TouchableOpacity>
+      <TouchableOpacity 
+      onPress={()=>{register(email,password)}}>
         <View style={styles.but1}>
           <Text style={{fontFamily:"CircularXXTTBold",color:"white", fontSize:18,textAlign:'center'}}>Sign up with email</Text>
         </View>

@@ -6,18 +6,20 @@ import { createStackNavigator } from '@react-navigation/stack';
 import { StyleSheet, Text, View } from 'react-native';
 import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
 import SignedOut from './Navigation/SignedOut';
+import NavAuth from './Navigation/NavAuth';
+import { AuthProvider } from './Navigation/AuthProvider';
 
 export default function App() {
-  const Stack = createStackNavigator();
   return (
-    <NavigationContainer>
-    <StatusBar style='auto'/>
     <SafeAreaProvider>
+    <StatusBar style='auto'/>
       <SafeAreaView style={styles.container}>
-        <SignedOut/>
+      <AuthProvider>
+      <NavAuth/>
+      </AuthProvider>
       </SafeAreaView>
     </SafeAreaProvider>
-    </NavigationContainer>
+    
     
   );
 }

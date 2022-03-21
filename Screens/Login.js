@@ -5,7 +5,8 @@ import NavHeader from '../Components/NavHeader'
 import Googlesvg from '../Images/google.svg';
 import Facebooksvg from '../Images/facebook-logo-2019.svg';
 import { useNavigation } from '@react-navigation/native';
-import { useState } from "react";
+import {AuthContext, AuthProvider} from '../Navigation/AuthProvider';
+import { useState,useContext } from "react";
 
 const Login = () => {
 
@@ -15,6 +16,9 @@ const Login = () => {
   const [email, setEmail] = useState("")
   const [age, setAge] = useState("")
   const [password, setPassword] = useState("")
+
+  const {login} = useContext(AuthContext);
+
 
   return (
     <ScrollView style={{ backgroundColor:"#fff",height:"100%"}}>
@@ -52,7 +56,8 @@ const Login = () => {
           />
         </View>
 
-        <TouchableOpacity>
+        <TouchableOpacity 
+         onPress={()=>{login(email,password)}}>
           <View style={styles.but1}>
             <Text style={{fontFamily:"CircularXXTTBold",color:"white", fontSize:18,textAlign:'center'}}>Login with email</Text>
           </View>
