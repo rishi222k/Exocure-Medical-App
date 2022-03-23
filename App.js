@@ -8,12 +8,14 @@ import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
 import SignedOut from './Navigation/SignedOut';
 import NavAuth from './Navigation/NavAuth';
 import { AuthProvider } from './Navigation/AuthProvider';
+import SignedIn from './Navigation/SignedIn';
 
 export default function App() {
   return (
     <SafeAreaProvider>
     <StatusBar style='auto'/>
       <SafeAreaView style={styles.container}>
+      {/* <SignedIn/> */}
       <AuthProvider>
       <NavAuth/>
       </AuthProvider>
