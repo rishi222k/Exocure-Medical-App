@@ -1,16 +1,57 @@
-import { View, Text,Button } from 'react-native'
+import { View, Text,Button,ScrollView,TouchableOpacity, StyleSheet, } from 'react-native'
 import { useNavigation } from '@react-navigation/native';
+import SensIllus from '../Images/SenseIllus.svg'
+import Plus from '../Images/plus.svg'
 import React from 'react'
 
 
 const Sense = () => {
 
   const navigation = useNavigation();
+
   return (
-    <View style={{backgroundColor:"#fff",height:"100%"}}>
-    <Text> Sense Tab </Text>
+    <ScrollView style={{backgroundColor:"#fff",height:"100%",}}>
+    <View style={{backgroundColor:"#fff",height:"100%",paddingHorizontal:"7%"}}>
+    <Text style={{fontFamily:"SFNSBold",fontSize:25,marginTop:30}}>Connect a new device </Text>
+    <Text style={{fontFamily:"CircularXXTTRegular",fontSize:19,color:'#4C4C4C',lineHeight:27,marginTop:20}}>To begin the foot detection, a MedFS device needs to be connected with the app via Bluetooth. Keep the device close to your mobile before establishing a connection. </Text>
+
+    <View style={{width:"100%",alignItems:"center",marginTop:30,}}>
+    <SensIllus
+      width={270}
+      height={270}
+    /></View>
+
+    <TouchableOpacity 
+         onPress={()=>{navigation.navigate("Connect")}}>
+          <View style={styles.but1}>
+            <Text style={{fontFamily:"CircularXXTTBold",color:"white", fontSize:18,textAlign:'center',marginRight:10}}>
+            Set up now 
+            </Text>
+            <Plus 
+            width={15}
+            height={15}
+            />
+          </View>
+      </TouchableOpacity>
+    
     </View>
+    </ScrollView>
   )
 }
 
 export default Sense
+
+const styles = StyleSheet.create({
+  but1:{
+    width:"80%",
+    flexDirection:"row",
+    alignItems:"center",
+    justifyContent:"center",
+    backgroundColor:"#FFB31D",
+    borderRadius:5,
+    marginBottom:45,
+    paddingVertical:12,
+    alignSelf:'center',
+    marginTop:25
+  },
+})

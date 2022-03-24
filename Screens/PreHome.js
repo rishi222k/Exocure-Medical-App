@@ -29,18 +29,21 @@ const PreHome = () => {
     <Text style={{fontFamily:"CircularXXTTRegular",fontSize:19,width:"90%",color:'#6F6F6F',lineHeight:27}}>A medical application to assess early signs of peripheral neuropathy and prevent Diabetic foot syndrome (DFS)</Text>
     </View>
     <View style={{height:'20%',width:'100%'}}>
+
     <TouchableOpacity 
     onPress={()=> navigation.navigate("SignUp")}>
     <View style={styles.but1}>
     <Text style={{fontFamily:"CircularXXTTBold",color:"white", fontSize:18,textAlign:'center'}}>Create an account</Text>
     </View>
     </TouchableOpacity>
+
     <TouchableOpacity
      onPress={()=> navigation.navigate("Login")}>
     <View style={styles.but2}>
     <Text style={{fontFamily:"CircularXXTTBold",color:"#FFB31D", fontSize:18,textAlign:'center',}}>Login</Text>
     </View>
     </TouchableOpacity>
+    
     </View>
     </ImageBackground>
     </View>
