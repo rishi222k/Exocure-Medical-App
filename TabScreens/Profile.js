@@ -4,9 +4,11 @@ import Security from '../Images/security.svg'
 import Notification from '../Images/Notifications.svg'
 import Medical from '../Images/MedicalIcon.svg'
 import React, { useContext } from 'react'
+import { useNavigation } from '@react-navigation/native';
 
 const Profile = () => {
   const {user,logout} = useContext(AuthContext);
+  const navigation = useNavigation();
   return (
     <ScrollView style={{backgroundColor:"#fff",height:"100%"}}>
     <View style={{backgroundColor:"#fff",height:"100%",paddingHorizontal:"6%"}}>
@@ -45,7 +47,8 @@ const Profile = () => {
     </View>
 
     <View style={{marginTop:20,marginBottom:40}}>
-    <TouchableOpacity>
+    <TouchableOpacity 
+    onPress={()=> navigation.navigate("MedicalInfo")}>
     <View style={[styles.Menubar,{borderTopLeftRadius:10,borderTopEndRadius:10,}]}>
       <Medical
         width={20}
@@ -81,15 +84,6 @@ const Profile = () => {
             </Text>
           </View>
     </TouchableOpacity>
-    
-    {/* <View style={{alignItems:'center',justifyContent:'center'}}>
-      <Text style={{marginBottom:15 }}>Welcome {user.uid} </Text>
-      <Button
-      onPress={()=> logout()}
-      title="Log Out"
-      color="#841584"
-    />
-    </View> */}
     </View>
     </ScrollView>
   )

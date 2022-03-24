@@ -8,6 +8,7 @@ import TabNavigation from './TabNavigation';
 import Onboarding from '../Screens/Onboarding'
 import NavHeader from '../Components/NavHeader';
 import Acknowledgment from '../Screens/Acknowledgment';
+import MedicalInfo from '../Screens/MedicalInfo';
 
 const SignedIn = () => {
     const Stack = createStackNavigator();
@@ -20,6 +21,7 @@ const SignedIn = () => {
         <Stack.Screen name='Connect' component={Connect} options={{headerShown:false}}/>
         <Stack.Screen name='OnBoarding' component={Onboarding} options={{headerShown:false}}/>
         <Stack.Screen name='Acknowledgment' component={Acknowledgment} options={{headerShown:false}}/>
+        <Stack.Screen name='MedicalInfo' component={MedicalInfo} options={{headerShown:false}}/>
     </Stack.Navigator>
     </NavigationContainer>
     </>
