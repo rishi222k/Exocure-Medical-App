@@ -9,6 +9,7 @@ import Onboarding from '../Screens/Onboarding'
 import NavHeader from '../Components/NavHeader';
 import Acknowledgment from '../Screens/Acknowledgment';
 import MedicalInfo from '../Screens/MedicalInfo';
+import Diagnosis from '../Screens/Diagnosis';
 
 const SignedIn = () => {
     const Stack = createStackNavigator();
@@ -22,6 +23,7 @@ const SignedIn = () => {
         <Stack.Screen name='OnBoarding' component={Onboarding} options={{headerShown:false}}/>
         <Stack.Screen name='Acknowledgment' component={Acknowledgment} options={{headerShown:false}}/>
         <Stack.Screen name='MedicalInfo' component={MedicalInfo} options={{headerShown:false}}/>
+        <Stack.Screen name='Diagnosis' component={Diagnosis} options={{headerShown:false}} />
     </Stack.Navigator>
     </NavigationContainer>
     </>

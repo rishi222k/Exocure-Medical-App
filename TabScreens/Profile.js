@@ -7,7 +7,9 @@ import React, { useContext } from 'react'
 import { useNavigation } from '@react-navigation/native';
 
 const Profile = () => {
+
   const {user,logout} = useContext(AuthContext);
+  
   const navigation = useNavigation();
   return (
     <ScrollView style={{backgroundColor:"#fff",height:"100%"}}>
