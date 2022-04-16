@@ -20,7 +20,7 @@ const Onboarding = () => {
       <Text style={{fontFamily:"CircularXXTTBold",fontSize:17,color:'#FFB31D',marginTop:35,marginBottom:7}}>Note: </Text>
       <Text style={{fontFamily:"CircularXXTTBold",fontSize:17,color:'#4B4B4B',}}>Make sure to finish scanning from all the 16 motors to get accurate results.</Text>
       <TouchableOpacity 
-         onPress={()=>{navigation.navigate("Acknowledgment")}}>
+         onPress={()=>{navigation.navigate("Diagnosis")}}>
           <View style={styles.but1}>
             <Text style={{fontFamily:"CircularXXTTBold",color:"white", fontSize:18,textAlign:'center',marginRight:10}}>
             Start 

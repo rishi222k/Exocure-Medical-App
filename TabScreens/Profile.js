@@ -81,7 +81,7 @@ const Profile = () => {
     <TouchableOpacity 
     onPress={()=> logout()}>
         <View style={styles.but2}>
-            <Text style={{fontFamily:"CircularXXTTBold",color:"white", fontSize:16,textAlign:'center'}}>
+            <Text style={{fontFamily:"CircularXXTTBold",color:"white", fontSize:18,textAlign:'center'}}>
             Logout
             </Text>
           </View>
