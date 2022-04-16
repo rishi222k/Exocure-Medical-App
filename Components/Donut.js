@@ -161,10 +161,15 @@ const Donut = () => {
     animatedmid.addListener((v) => {
       const maxPerc = 100 * v.value / data[1].max;
       const strokeDashoffset = data[1].circumference - (data[1].circumference * maxPerc) / 100;
+      var temp= v.value+1;
+
+      if (v.value===8){
+        temp=1;
+      }
 
       if (midInputRef?.current) {
         midInputRef.current.setNativeProps({
-          text: `${Math.round(v.value)}`,
+          text: `${Math.round(temp)}`,
         });
       }
       if (midCircleRef?.current) {

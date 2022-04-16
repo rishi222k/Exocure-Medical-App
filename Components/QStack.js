@@ -15,13 +15,14 @@ const QStack = () => {
   const Ques1 = () => {
     const navigation = useNavigation();
     const [Qone, setQone] = useState();
+
     useEffect(() => {
 
       const timer= setTimeout(() => {
         navigation.navigate('Ques2')
       }, 5000);
 
-      return () => clearTimeout(timer);
+      
     });
     
     return (
@@ -53,7 +54,7 @@ const QStack = () => {
         navigation.navigate('Ques3')
       }, 5000);
       
-      return () => clearTimeout(timer);
+      
     });
     
     return (
@@ -85,7 +86,7 @@ const QStack = () => {
         navigation.navigate('Ques4')
       }, 5000);
       
-      return () => clearTimeout(timer);
+      
     });
     
     return (
@@ -117,7 +118,7 @@ const QStack = () => {
         navigation.navigate('Ques5')
       }, 5000);
       
-      return () => clearTimeout(timer);
+      
     });
     
     return (
@@ -149,7 +150,7 @@ const QStack = () => {
         navigation.navigate('Ques6')
       }, 5000);
       
-      return () => clearTimeout(timer);
+      
     });
     
     return (
@@ -181,7 +182,7 @@ const QStack = () => {
         navigation.navigate('Ques7')
       }, 5000);
       
-      return () => clearTimeout(timer);
+     
     });
     
     return (
@@ -213,7 +214,7 @@ const QStack = () => {
         navigation.navigate('Ques8')
       }, 5000);
       
-      return () => clearTimeout(timer);
+      
     });
     
     return (
@@ -245,7 +246,7 @@ const QStack = () => {
         navigation.navigate('Ques9')
       }, 5000);
       
-      return () => clearTimeout(timer);
+      
     });
     
     return (
@@ -277,7 +278,7 @@ const QStack = () => {
         navigation.navigate('Ques10')
       }, 5000);
       
-      return () => clearTimeout(timer);
+      
     });
     
     return (
@@ -309,7 +310,7 @@ const QStack = () => {
         navigation.navigate('Ques11')
       }, 5000);
       
-      return () => clearTimeout(timer);
+      
     });
     
     return (
@@ -341,7 +342,7 @@ const QStack = () => {
         navigation.navigate('Ques12')
       }, 5000);
       
-      return () => clearTimeout(timer);
+      
     });
     
     return (
@@ -373,7 +374,7 @@ const QStack = () => {
         navigation.navigate('Ques13')
       }, 5000);
       
-      return () => clearTimeout(timer);
+      
     });
     
     return (
@@ -405,7 +406,7 @@ const QStack = () => {
         navigation.navigate('Ques14')
       }, 5000);
       
-      return () => clearTimeout(timer);
+      
     });
     
     return (
@@ -437,7 +438,7 @@ const QStack = () => {
         navigation.navigate('Ques15')
       }, 5000);
       
-      return () => clearTimeout(timer);
+      
     });
     
     return (
@@ -469,7 +470,7 @@ const QStack = () => {
         navigation.navigate('Ques16')
       }, 5000);
       
-      return () => clearTimeout(timer);
+      
     });
     
     return (
