@@ -1,12 +1,16 @@
 import { View, Text,Button,ScrollView,Image,StyleSheet,TouchableOpacity } from 'react-native'
+import {AuthContext, AuthProvider} from '../Navigation/AuthProvider';
+import firestore from '@react-native-firebase/firestore';
 import data from '../QData'
-import React,{useState} from 'react'
+import React,{useState, useContext} from 'react'
 import { RadioButton} from 'react-native-paper';
 import { useNavigation } from '@react-navigation/native';
 
 const Questionnaire = () => {
 
   const navigation = useNavigation();
+  const {user,logout} = useContext(AuthContext);
+
 
   const [QRone, setQRone] = useState();
   const [QRtwo, setQRtwo] = useState();
@@ -21,8 +25,18 @@ const Questionnaire = () => {
   const [QReleven, setQReleven] = useState();
   const [QRtwelve, setQRtwelve] = useState();
 
-  const onSubmit=()=>{
-    navigation.navigate("TabNavigation")
+  const onSubmit= async()=>{
+    
+    await firestore().collection('Users').doc(user.uid).update({
+      questionnaire:true,
+      question1: QRone,
+    })
+    .then(() => {
+      console.log('Data updated on cloud firestore!');
+    });
+    
+    navigation.navigate("TabNavigation");
+
   }
 
   return (

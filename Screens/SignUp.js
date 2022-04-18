@@ -74,7 +74,7 @@ const SignUp = () => {
     </View>
 
       <TouchableOpacity 
-      onPress={()=>{register(email,password)}}>
+      onPress={()=>{register(name,age,email,password)}}>
         <View style={styles.but1}>
           <Text style={{fontFamily:"CircularXXTTBold",color:"white", fontSize:18,textAlign:'center'}}>Sign up with email</Text>
         </View>
