@@ -12,24 +12,35 @@ const Questionnaire = () => {
   const {user,logout} = useContext(AuthContext);
 
 
-  const [QRone, setQRone] = useState();
-  const [QRtwo, setQRtwo] = useState();
-  const [QRthree, setQRthree] = useState();
-  const [QRfour, setQRfour] = useState();
-  const [QRfive, setQRfive] = useState();
-  const [QRsix, setQRsix] = useState();
-  const [QRseven, setQRseven] = useState();
-  const [QReight, setQReight] = useState();
-  const [QRnine, setQRnine] = useState();
-  const [QRten, setQRten] = useState();
-  const [QReleven, setQReleven] = useState();
-  const [QRtwelve, setQRtwelve] = useState();
+  const [QRone, setQRone] = useState(null);
+  const [QRtwo, setQRtwo] = useState(null);
+  const [QRthree, setQRthree] = useState(null);
+  const [QRfour, setQRfour] = useState(null);
+  const [QRfive, setQRfive] = useState(null);
+  const [QRsix, setQRsix] = useState(null);
+  const [QRseven, setQRseven] = useState(null);
+  const [QReight, setQReight] = useState(null);
+  const [QRnine, setQRnine] = useState(null);
+  const [QRten, setQRten] = useState(null);
+  const [QReleven, setQReleven] = useState(null);
+  const [QRtwelve, setQRtwelve] = useState(null);
 
   const onSubmit= async()=>{
     
     await firestore().collection('Users').doc(user.uid).update({
       questionnaire:true,
       question1: QRone,
+      question2: QRtwo,
+      question3: QRthree,
+      question4: QRfour,
+      question5: QRfive,
+      question6: QRsix,
+      question7: QRseven,
+      question8: QReight,
+      question9: QRnine,
+      question10: QRten,
+      question11: QReleven,
+      question12: QRtwelve,
     })
     .then(() => {
       console.log('Data updated on cloud firestore!');
