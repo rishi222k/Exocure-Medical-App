@@ -1,11 +1,45 @@
 import { View, Text,Button,ScrollView,Image,StyleSheet,TouchableOpacity } from 'react-native'
 import MedicalIcon2 from '../Images/MedicalIcon2.svg'
-import React from 'react'
+import React,{useState, useContext,useEffect} from 'react'
+import firestore from '@react-native-firebase/firestore';
+import {AuthContext, AuthProvider} from '../Navigation/AuthProvider';
 import { useNavigation } from '@react-navigation/native';
 
 const MedicalInfo = () => {
 
     const navigation = useNavigation();
+    const {user,logout} = useContext(AuthContext);
+  const [Condition, setCondition] = useState(); 
+  const [Pain, setPain] = useState(); 
+  const [Deformity, setDeformity] = useState(); 
+  const [Comorb, setComorb] = useState(); 
+  const [Angle, setAngle] = useState(); 
+  const [Duration, setDuration] = useState(); 
+  const [Footwear, setFootwear] = useState(); 
+  const [Swell, setSwell] = useState(); 
+  const [Hormone, setHormone] = useState(); 
+
+
+    useEffect(() => {
+        const userdata= async()=>{ 
+          const users = await firestore().collection('Users').doc(user.uid).get()
+          .then(documentSnapshot => {
+            
+            setCondition(documentSnapshot.data().question6);
+            setPain(documentSnapshot.data().question12);
+            setDeformity(documentSnapshot.data().question10);
+            setComorb(documentSnapshot.data().question7);
+            setAngle(documentSnapshot.data().question9);
+            setDuration(documentSnapshot.data().question4);
+            setFootwear(documentSnapshot.data().question5);
+            setSwell(documentSnapshot.data().question8);
+            setHormone(documentSnapshot.data().question11);
+            
+          });
+        };
+    
+      userdata();
+      }, []);
 
   return (
     <ScrollView style={{backgroundColor:"#fff",height:"100%"}}>
@@ -22,41 +56,41 @@ const MedicalInfo = () => {
     <View>
         <View style={styles.innercontainer}>
             <Text style={styles.title}>Condition of foot</Text>
-            <Text style={styles.entry}>Bony prominence</Text>
+            <Text style={styles.entry}>{Condition}</Text>
         </View>
         <View style={styles.innercontainer}>
             <Text style={styles.title}>Pain</Text>
-            <Text style={styles.entry}>Forefoot</Text>
+            <Text style={styles.entry}>{Pain}</Text>
         </View>
         <View style={styles.innercontainer}>
             <Text style={styles.title}>Foot deformity</Text>
-            <Text style={styles.entry}>Cosmetic allergy</Text>
+            <Text style={styles.entry}>{Deformity}</Text>
         </View>
         <View style={styles.innercontainer}>
             <Text style={styles.title}>Movement of ankle joint</Text>
-            <Text style={styles.entry}>0-35 degree</Text>
+            <Text style={styles.entry}>{Angle}</Text>
         </View>
         <View style={styles.innercontainer}>
             <Text style={styles.title}>Comorbidities</Text>
-            <Text style={styles.entry}>Myocardial infarction</Text>
+            <Text style={styles.entry}>{Comorb}</Text>
         </View>
     </View>
     <View>
         <View style={styles.innercontainer}>
             <Text style={styles.title}>Duration of diabetes</Text>
-            <Text style={styles.entry}>below 10 years</Text>
+            <Text style={styles.entry}>{Duration}</Text>
         </View>
         <View style={styles.innercontainer}>
             <Text style={styles.title}>Type of footwear</Text>
-            <Text style={styles.entry}>Laced shoe</Text>
+            <Text style={styles.entry}>{Footwear}</Text>
         </View>
         <View style={styles.innercontainer}>
             <Text style={styles.title}>Swelling</Text>
-            <Text style={styles.entry}>Whole foot</Text>
+            <Text style={styles.entry}>{Swell}</Text>
         </View>
         <View style={styles.innercontainer}>
             <Text style={styles.title}>Change in hormone level</Text>
-            <Text style={styles.entry}>Menstruation</Text>
+            <Text style={styles.entry}>{Hormone}</Text>
         </View>
     </View>
     </View>
@@ -93,11 +127,11 @@ const styles = StyleSheet.create({
         backgroundColor:"#F2F2F2",
         paddingHorizontal:15,
         paddingVertical:25,
-        borderRadius:10
+        borderRadius:10,
       },
       innercontainer:{
           marginBottom:15,
-          width:"75%"
+          width:"65%"
       },
       but2:{
         width:"60%",

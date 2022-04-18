@@ -3,14 +3,40 @@ import {AuthContext, AuthProvider} from '../Navigation/AuthProvider';
 import Security from '../Images/security.svg'
 import Notification from '../Images/Notifications.svg'
 import Medical from '../Images/MedicalIcon.svg'
-import React, { useContext } from 'react'
+import React,{useState, useContext,useEffect} from 'react'
 import { useNavigation } from '@react-navigation/native';
+import firestore from '@react-native-firebase/firestore';
 
 const Profile = () => {
 
   const {user,logout} = useContext(AuthContext);
-  
+  const [name, setname] = useState(); 
+  const [email, setemail] = useState(); 
+  const [age, setage] = useState(); 
+  const [Occupation, setOccupation] = useState(); 
+  const [Residence, setResidence] = useState(); 
+  const [Edu, setEdu] = useState(); 
   const navigation = useNavigation();
+
+   useEffect(() => {
+    const userdata= async()=>{ 
+      const users = await firestore().collection('Users').doc(user.uid).get()
+      .then(documentSnapshot => {
+        
+        setname(documentSnapshot.data().name);
+        setemail(documentSnapshot.data().email);
+        setage(documentSnapshot.data().age);
+        setOccupation(documentSnapshot.data().question2);
+        setResidence(documentSnapshot.data().question3);
+        setEdu(documentSnapshot.data().question1);
+        
+      });
+    };
+
+  userdata();
+  }, []);
+
+
   return (
     <ScrollView style={{backgroundColor:"#fff",height:"100%"}}>
     <View style={{backgroundColor:"#fff",height:"100%",paddingHorizontal:"6%"}}>
@@ -20,30 +46,30 @@ const Profile = () => {
       resizeMode="contain" 
       style={{width:75,height:75,marginRight:25}}/>
       <View>
-        <Text style={{fontFamily:"CircularXXTTBold",fontSize:21, color:"#3A3A3A"}}>Rishi Raghu</Text>
-        <Text style={{fontFamily:"CircularXXTTMedium",fontSize:16,color:"#3A3A3A"}}>rishi@gmail.com</Text>
+        <Text style={{fontFamily:"CircularXXTTBold",fontSize:21, color:"#3A3A3A"}}>{name}</Text>
+        <Text style={{fontFamily:"CircularXXTTMedium",fontSize:16,color:"#3A3A3A"}}>{email}</Text>
       </View>
     </View>
     
     <View style={{flexDirection:"row",marginLeft:10}}>
-      <View style={{marginVertical:30,marginRight:25}}>
+      <View style={{marginVertical:30,marginRight:25,width:150}}>
         <View style={{marginBottom:15}}>
           <Text style={styles.title}>Age</Text>
-          <Text style={styles.entry}>21</Text>
+          <Text style={styles.entry}>{age}</Text>
         </View>
         <View>
           <Text style={styles.title}>Occupation</Text>
-          <Text style={styles.entry}>Unemployed</Text>
+          <Text style={styles.entry}>{Occupation}</Text>
         </View>
       </View>
       <View style={{marginVertical:30}}>
         <View style={{marginBottom:15}}>
           <Text style={styles.title}>Residence</Text>
-          <Text style={styles.entry}>Urban</Text>
+          <Text style={styles.entry}>{Residence}</Text>
         </View>
         <View>
           <Text style={styles.title}>Education</Text>
-          <Text style={styles.entry}>Bachelor's Degree</Text>
+          <Text style={styles.entry}>{Edu}</Text>
         </View>
       </View>
     </View>
@@ -97,7 +123,8 @@ const styles = StyleSheet.create({
   title:{
     fontFamily:"CircularXXTTBold",
     fontSize:15,
-    color:'#FFAA00'
+    color:'#FFAA00',
+
   },
   entry:{
     fontFamily:"CircularXXTTMedium",
@@ -123,6 +150,7 @@ const styles = StyleSheet.create({
     borderRadius:5,
     paddingVertical:12,
     alignSelf:'center',
-    marginTop:25
+    marginTop:25,
+    marginBottom:25
   },
 })
