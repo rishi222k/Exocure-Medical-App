@@ -1,28 +1,30 @@
 import { StyleSheet, Text, View,TouchableOpacity } from 'react-native'
-import React,{ useState,useEffect } from 'react'
+import React,{ useState,useEffect,useContext } from 'react'
 import { NavigationContainer, useNavigation } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-
-
+import firestore from '@react-native-firebase/firestore';
+import {AuthContext, AuthProvider} from '../Navigation/AuthProvider';
 
 
 const QStack = () => {
 
   
   const Stack= createStackNavigator();
+  const {user,logout} = useContext(AuthContext);
   
 
   const Ques1 = () => {
     const navigation = useNavigation();
-    const [Qone, setQone] = useState();
+    const [Qone, setQone] = useState(false);
 
     useEffect(() => {
 
-      const timer= setTimeout(() => {
+      const timer= setTimeout(async() => {
         navigation.navigate('Ques2')
+        await firestore().collection('Diagnosis').doc(user.uid).set({
+          sense1: Qone,
+        });
       }, 5000);
-
-      
     });
     
     return (
@@ -30,12 +32,12 @@ const QStack = () => {
         <Text style={styles.queshead}>Question 1 of 8</Text>
         <Text style={styles.question}>Can you feel sensory vibrations on your right leg from motor 1 ?</Text>
         <View style={styles.ansrow}>
-        <TouchableOpacity onPress={()=>{setQone(true)}}>
+        <TouchableOpacity onPress={()=>{setQone(true);}}>
           <View style={[styles.but1, Qone ? styles.newbg : styles.oldbg]}>
           <Text style={[styles.opstext, Qone ? styles.newtxt : styles.oldtxt]}>Yes</Text>
           </View>
         </TouchableOpacity>
-        <TouchableOpacity onPress={()=>{setQone(false)}}>
+        <TouchableOpacity onPress={()=>{setQone(false);}}>
           <View style={[styles.but1, Qone ?  styles.oldbg : styles.newbg ]}>
               <Text style={[styles.opstext, Qone ?  styles.oldtxt : styles.newtxt ]}>No</Text>
           </View>
@@ -47,11 +49,14 @@ const QStack = () => {
   
   const Ques2 = () => {
     const navigation = useNavigation();
-    const [Qtwo, setQtwo] = useState();
+    const [Qtwo, setQtwo] = useState(false);
     
     useEffect(() => {
-      const timer= setTimeout(() => {
+      const timer= setTimeout(async() => {
         navigation.navigate('Ques3')
+        await firestore().collection('Diagnosis').doc(user.uid).update({
+          sense2: Qtwo,
+        });
       }, 5000);
       
       
@@ -79,11 +84,14 @@ const QStack = () => {
 
   const Ques3 = () => {
     const navigation = useNavigation();
-    const [Qthree, setQthree] = useState();
+    const [Qthree, setQthree] = useState(false);
 
      useEffect(() => {
-      const timer= setTimeout(() => {
+      const timer= setTimeout(async() => {
         navigation.navigate('Ques4')
+        await firestore().collection('Diagnosis').doc(user.uid).update({
+          sense3: Qthree,
+        });
       }, 5000);
       
       
@@ -111,11 +119,14 @@ const QStack = () => {
 
   const Ques4 = () => {
     const navigation = useNavigation();
-    const [Qfour, setQfour] = useState();
+    const [Qfour, setQfour] = useState(false);
 
      useEffect(() => {
-      const timer= setTimeout(() => {
+      const timer= setTimeout(async() => {
         navigation.navigate('Ques5')
+        await firestore().collection('Diagnosis').doc(user.uid).update({
+          sense4: Qfour,
+        });
       }, 5000);
       
       
@@ -143,11 +154,14 @@ const QStack = () => {
 
   const Ques5 = () => {
     const navigation = useNavigation();
-    const [Qfive, setQfive] = useState();
+    const [Qfive, setQfive] = useState(false);
 
      useEffect(() => {
-      const timer= setTimeout(() => {
+      const timer= setTimeout(async() => {
         navigation.navigate('Ques6')
+        await firestore().collection('Diagnosis').doc(user.uid).update({
+          sense5: Qfive,
+        });
       }, 5000);
       
       
@@ -175,11 +189,14 @@ const QStack = () => {
 
   const Ques6 = () => {
     const navigation = useNavigation();
-    const [Qsix, setQsix] = useState();
+    const [Qsix, setQsix] = useState(false);
 
      useEffect(() => {
-      const timer= setTimeout(() => {
+      const timer= setTimeout(async() => {
         navigation.navigate('Ques7')
+        await firestore().collection('Diagnosis').doc(user.uid).update({
+          sense6: Qsix,
+        });
       }, 5000);
       
      
@@ -207,11 +224,14 @@ const QStack = () => {
 
   const Ques7 = () => {
     const navigation = useNavigation();
-    const [Qseven, setQseven] = useState();
+    const [Qseven, setQseven] = useState(false);
 
      useEffect(() => {
-      const timer= setTimeout(() => {
+      const timer= setTimeout(async() => {
         navigation.navigate('Ques8')
+        await firestore().collection('Diagnosis').doc(user.uid).update({
+          sense7: Qseven,
+        });
       }, 5000);
       
       
@@ -239,11 +259,14 @@ const QStack = () => {
 
   const Ques8 = () => {
     const navigation = useNavigation();
-    const [Qeight, setQeight] = useState();
+    const [Qeight, setQeight] = useState(false);
 
      useEffect(() => {
-      const timer= setTimeout(() => {
+      const timer= setTimeout(async() => {
         navigation.navigate('Ques9')
+        await firestore().collection('Diagnosis').doc(user.uid).update({
+          sense8: Qeight,
+        });
       }, 5000);
       
       
@@ -271,11 +294,14 @@ const QStack = () => {
 
   const Ques9 = () => {
     const navigation = useNavigation();
-    const [Qnine, setQnine] = useState();
+    const [Qnine, setQnine] = useState(false);
 
      useEffect(() => {
-      const timer= setTimeout(() => {
+      const timer= setTimeout(async() => {
         navigation.navigate('Ques10')
+        await firestore().collection('Diagnosis').doc(user.uid).update({
+          sense9: Qnine,
+        });
       }, 5000);
       
       
@@ -303,11 +329,14 @@ const QStack = () => {
 
   const Ques10 = () => {
     const navigation = useNavigation();
-    const [Qten, setQten] = useState();
+    const [Qten, setQten] = useState(false);
 
      useEffect(() => {
-      const timer= setTimeout(() => {
+      const timer= setTimeout(async() => {
         navigation.navigate('Ques11')
+        await firestore().collection('Diagnosis').doc(user.uid).update({
+          sense10: Qten,
+        });
       }, 5000);
       
       
@@ -335,11 +364,14 @@ const QStack = () => {
 
   const Ques11 = () => {
     const navigation = useNavigation();
-    const [Qelev, setQelev] = useState();
+    const [Qelev, setQelev] = useState(false);
 
      useEffect(() => {
-      const timer= setTimeout(() => {
+      const timer= setTimeout(async() => {
         navigation.navigate('Ques12')
+        await firestore().collection('Diagnosis').doc(user.uid).update({
+          sense11: Qelev,
+        });
       }, 5000);
       
       
@@ -367,11 +399,14 @@ const QStack = () => {
 
   const Ques12 = () => {
     const navigation = useNavigation();
-    const [Qtwel, setQtwel] = useState();
+    const [Qtwel, setQtwel] = useState(false);
 
      useEffect(() => {
-      const timer= setTimeout(() => {
+      const timer= setTimeout(async() => {
         navigation.navigate('Ques13')
+        await firestore().collection('Diagnosis').doc(user.uid).update({
+          sense12: Qtwel,
+        });
       }, 5000);
       
       
@@ -399,11 +434,14 @@ const QStack = () => {
 
   const Ques13 = () => {
     const navigation = useNavigation();
-    const [Qthir, setQthir] = useState();
+    const [Qthir, setQthir] = useState(false);
 
      useEffect(() => {
-      const timer= setTimeout(() => {
+      const timer= setTimeout(async() => {
         navigation.navigate('Ques14')
+        await firestore().collection('Diagnosis').doc(user.uid).update({
+          sense13: Qthir,
+        });
       }, 5000);
       
       
@@ -431,11 +469,14 @@ const QStack = () => {
 
   const Ques14 = () => {
     const navigation = useNavigation();
-    const [Qfourt, setQfourt] = useState();
+    const [Qfourt, setQfourt] = useState(false);
 
      useEffect(() => {
-      const timer= setTimeout(() => {
+      const timer= setTimeout(async() => {
         navigation.navigate('Ques15')
+        await firestore().collection('Diagnosis').doc(user.uid).update({
+          sense14: Qfourt,
+        });
       }, 5000);
       
       
@@ -463,11 +504,14 @@ const QStack = () => {
 
   const Ques15 = () => {
     const navigation = useNavigation();
-    const [Qfift, setQfift] = useState();
+    const [Qfift, setQfift] = useState(false);
 
      useEffect(() => {
-      const timer= setTimeout(() => {
+      const timer= setTimeout(async() => {
         navigation.navigate('Ques16')
+        await firestore().collection('Diagnosis').doc(user.uid).update({
+          sense15: Qfift,
+        });
       }, 5000);
       
       
@@ -495,7 +539,15 @@ const QStack = () => {
 
   const Ques16 = () => {
     
-    const [Qsixt, setQsixt] = useState();
+    const [Qsixt, setQsixt] = useState(false);
+
+    useEffect(() => {
+      const timer= setTimeout(async() => {
+        await firestore().collection('Diagnosis').doc(user.uid).update({
+          sense16: Qsixt,
+        });
+      }, 5000);
+    });
     
     return (
       <View style={styles.stackscreen}>
