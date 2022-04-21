@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="113.061" height="320.494" viewBox="0 0 113.061 320.494">
+  <defs>
+    <radialGradient id="radial-gradient" cx="0.5" cy="0.5" r="0.998" gradientTransform="matrix(-1, 0, 0, 0.501, 1, 0.249)" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#e7f0fd"/>
+      <stop offset="1" stop-color="#ace1ee"/>
+    </radialGradient>
+  </defs>
+  <g id="Left_Leg" data-name="Left Leg" transform="translate(-4.261)">
+    <path id="LeftLeg" d="M322.417,402.486c.246,22.317,7.2,43.445,11.139,65.1,4.812,26.436,8.7,53.037,13.1,79.55,1.669,10.07,3.289,20.168,5.52,30.121,3.288,14.669,13.1,23.166,27.5,26.29,14.423,3.131,27.133-.027,37.007-11.669,5.994-7.067,7.436-15.388,6.356-24.242-2.209-18.133-4.653-36.236-6.879-54.366-1.375-11.191-3.092-22.381-3.642-33.621-.791-16.158,2.578-31.766,9.156-46.546,9.939-22.335,15.138-45.565,13.426-70.029-1.478-21.087-5.944-41.394-17.188-59.786-14.225-23.269-44.259-25.763-61.845-4.792-10.636,12.684-17.088,27.65-22.69,43.057C326.209,361.271,321.8,381.433,322.417,402.486Z" transform="translate(-318.099 -284.192)" fill="url(#radial-gradient)"/>
+    <g id="Group_664" data-name="Group 664" transform="translate(4.261 79.377)">
+      <ellipse id="Ellipse_21" data-name="Ellipse 21" cx="22.5" cy="22.5" rx="22.5" ry="22.5" fill="#ffc82e" opacity="0.2"/>
+      <ellipse id="Ellipse_20" data-name="Ellipse 20" cx="17.5" cy="17.5" rx="17.5" ry="17.5" transform="translate(5 5)" fill="#ffc82e" opacity="0.23"/>
+      <ellipse id="Ellipse_19" data-name="Ellipse 19" cx="11.5" cy="11.5" rx="11.5" ry="11.5" transform="translate(11 11)" fill="#fa0" opacity="0.32"/>
+      <ellipse id="Ellipse_18" data-name="Ellipse 18" cx="4.5" cy="4.5" rx="4.5" ry="4.5" transform="translate(18 18)" fill="#fa0" opacity="0.7"/>
+    </g>
+    <g id="Group_678" data-name="Group 678" transform="translate(72 103.377)">
+      <ellipse id="Ellipse_21-2" data-name="Ellipse 21" cx="22.5" cy="22.5" rx="22.5" ry="22.5" fill="#ffc82e" opacity="0.2"/>
+      <ellipse id="Ellipse_20-2" data-name="Ellipse 20" cx="17.5" cy="17.5" rx="17.5" ry="17.5" transform="translate(5 5)" fill="#ffc82e" opacity="0.23"/>
+      <ellipse id="Ellipse_19-2" data-name="Ellipse 19" cx="11.5" cy="11.5" rx="11.5" ry="11.5" transform="translate(11 11)" fill="#fa0" opacity="0.32"/>
+      <ellipse id="Ellipse_18-2" data-name="Ellipse 18" cx="4.5" cy="4.5" rx="4.5" ry="4.5" transform="translate(18 18)" fill="#fa0" opacity="0.7"/>
+    </g>
+    <g id="Group_683" data-name="Group 683" transform="translate(11 227.377)">
+      <ellipse id="Ellipse_21-3" data-name="Ellipse 21" cx="22.5" cy="22.5" rx="22.5" ry="22.5" fill="#ffc82e" opacity="0.2"/>
+      <ellipse id="Ellipse_20-3" data-name="Ellipse 20" cx="17.5" cy="17.5" rx="17.5" ry="17.5" transform="translate(5 5)" fill="#ffc82e" opacity="0.23"/>
+      <ellipse id="Ellipse_19-3" data-name="Ellipse 19" cx="11.5" cy="11.5" rx="11.5" ry="11.5" transform="translate(11 11)" fill="#fa0" opacity="0.32"/>
+      <ellipse id="Ellipse_18-3" data-name="Ellipse 18" cx="4.5" cy="4.5" rx="4.5" ry="4.5" transform="translate(18 18)" fill="#fa0" opacity="0.7"/>
+    </g>
+    <g id="Group_679" data-name="Group 679" transform="translate(5 148.377)">
+      <ellipse id="Ellipse_21-4" data-name="Ellipse 21" cx="22.5" cy="22.5" rx="22.5" ry="22.5" fill="#ffc82e" opacity="0.2"/>
+      <ellipse id="Ellipse_20-4" data-name="Ellipse 20" cx="17.5" cy="17.5" rx="17.5" ry="17.5" transform="translate(5 5)" fill="#ffc82e" opacity="0.23"/>
+      <ellipse id="Ellipse_19-4" data-name="Ellipse 19" cx="11.5" cy="11.5" rx="11.5" ry="11.5" transform="translate(11 11)" fill="#fa0" opacity="0.32"/>
+      <ellipse id="Ellipse_18-4" data-name="Ellipse 18" cx="4.5" cy="4.5" rx="4.5" ry="4.5" transform="translate(18 18)" fill="#fa0" opacity="0.7"/>
+    </g>
+    <g id="Group_682" data-name="Group 682" transform="translate(31 8.378)">
+      <ellipse id="Ellipse_21-5" data-name="Ellipse 21" cx="22.5" cy="22.5" rx="22.5" ry="22.5" fill="#ffc82e" opacity="0.2"/>
+      <ellipse id="Ellipse_20-5" data-name="Ellipse 20" cx="17.5" cy="17.5" rx="17.5" ry="17.5" transform="translate(5 5)" fill="#ffc82e" opacity="0.23"/>
+      <ellipse id="Ellipse_19-5" data-name="Ellipse 19" cx="11.5" cy="11.5" rx="11.5" ry="11.5" transform="translate(11 11)" fill="#fa0" opacity="0.32"/>
+      <ellipse id="Ellipse_18-5" data-name="Ellipse 18" cx="4.5" cy="4.5" rx="4.5" ry="4.5" transform="translate(18 18)" fill="#fa0" opacity="0.7"/>
+    </g>
+    <g id="Group_680" data-name="Group 680" transform="translate(49.261 183.377)">
+      <ellipse id="Ellipse_21-6" data-name="Ellipse 21" cx="22.5" cy="22.5" rx="22.5" ry="22.5" transform="translate(0 0)" fill="#ffc82e" opacity="0.2"/>
+      <ellipse id="Ellipse_20-6" data-name="Ellipse 20" cx="17.5" cy="17.5" rx="17.5" ry="17.5" transform="translate(5 5)" fill="#ffc82e" opacity="0.23"/>
+      <ellipse id="Ellipse_19-6" data-name="Ellipse 19" cx="11.5" cy="11.5" rx="11.5" ry="11.5" transform="translate(11 11)" fill="#fa0" opacity="0.32"/>
+      <ellipse id="Ellipse_18-6" data-name="Ellipse 18" cx="4.5" cy="4.5" rx="4.5" ry="4.5" transform="translate(18 18)" fill="#fa0" opacity="0.7"/>
+    </g>
+    <g id="Group_681" data-name="Group 681" transform="translate(60.792 263.377)">
+      <ellipse id="Ellipse_21-7" data-name="Ellipse 21" cx="22.5" cy="22.5" rx="22.5" ry="22.5" fill="#ffc82e" opacity="0.2"/>
+      <ellipse id="Ellipse_20-7" data-name="Ellipse 20" cx="17.5" cy="17.5" rx="17.5" ry="17.5" transform="translate(5 5)" fill="#ffc82e" opacity="0.23"/>
+      <ellipse id="Ellipse_19-7" data-name="Ellipse 19" cx="11.5" cy="11.5" rx="11.5" ry="11.5" transform="translate(11 11)" fill="#fa0" opacity="0.32"/>
+      <ellipse id="Ellipse_18-7" data-name="Ellipse 18" cx="4.5" cy="4.5" rx="4.5" ry="4.5" transform="translate(18 18)" fill="#fa0" opacity="0.7"/>
+    </g>
+    <g id="Group_677" data-name="Group 677" transform="translate(69 53.377)">
+      <ellipse id="Ellipse_21-8" data-name="Ellipse 21" cx="22.5" cy="22.5" rx="22.5" ry="22.5" transform="translate(0 0)" fill="#ffc82e" opacity="0.2"/>
+      <ellipse id="Ellipse_20-8" data-name="Ellipse 20" cx="17.5" cy="17.5" rx="17.5" ry="17.5" transform="translate(5 5)" fill="#ffc82e" opacity="0.23"/>
+      <ellipse id="Ellipse_19-8" data-name="Ellipse 19" cx="11.5" cy="11.5" rx="11.5" ry="11.5" transform="translate(11 11)" fill="#fa0" opacity="0.32"/>
+      <ellipse id="Ellipse_18-8" data-name="Ellipse 18" cx="4.5" cy="4.5" rx="4.5" ry="4.5" transform="translate(18 18)" fill="#fa0" opacity="0.7"/>
+    </g>
+  </g>
+</svg>
