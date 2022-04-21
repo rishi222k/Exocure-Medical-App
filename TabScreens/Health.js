@@ -25,8 +25,8 @@ const Health = () => {
       </View>
     </View>
     <HealthIllus
-      width={200}
-      height={200}
+      width={230}
+      height={230}
       style={{alignSelf:"center"}}
     />
     <Text style={{fontFamily:"CircularXXTTMedium",fontSize:17,color:"#3A3A3A",textAlign:"center",paddingHorizontal:25}}>Connect with podiatric specialists and healthcare providers near your area to get the best help </Text>
@@ -62,15 +62,15 @@ const styles = StyleSheet.create({
       lineHeight:25
     },
     container:{
-      marginTop:30,
+      marginTop:20,
       backgroundColor:"#F2F2F2",
       paddingHorizontal:25,
-      paddingVertical:25,
+      paddingVertical:20,
       borderRadius:10,
-      marginBottom:25
+      marginBottom:25,
     },
     innercontainer:{
-      marginBottom:25
+      marginBottom:15
     },
     but2:{
     width:"75%",
