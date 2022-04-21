@@ -2,13 +2,13 @@ import { View, Text,Button,ScrollView,Image,StyleSheet,TouchableOpacity } from '
 import MedicalIcon2 from '../Images/MedicalIcon2.svg'
 import React,{useState, useContext,useEffect} from 'react'
 import firestore from '@react-native-firebase/firestore';
-import {AuthContext, AuthProvider} from '../Navigation/AuthProvider';
+import {AuthContext} from '../Navigation/AuthProvider';
 import { useNavigation } from '@react-navigation/native';
 
 const MedicalInfo = () => {
 
-    const navigation = useNavigation();
-    const {user,logout} = useContext(AuthContext);
+  const navigation = useNavigation();
+  const {user,logout} = useContext(AuthContext);
   const [Condition, setCondition] = useState(); 
   const [Pain, setPain] = useState(); 
   const [Deformity, setDeformity] = useState(); 
