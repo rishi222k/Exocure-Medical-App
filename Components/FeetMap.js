@@ -8,6 +8,7 @@ import React,{useState, useContext,useEffect,useRef} from 'react'
 const FeetMap = () => {
 
   const {user,logout} = useContext(AuthContext);
+
   const [senseone, setsenseone] = useState(true);
   const [sensetwo, setsensetwo] = useState(true);
   const [sensethree, setsensethree] = useState(true);
@@ -53,8 +54,25 @@ const FeetMap = () => {
     };
 
   userdata();
+  const left = [senseone, sensetwo, sensethree, sensefour, sensefive,sensesix,sensesevn,senseight];
+  const right = [sensedone, sensedtwo, sensedthree, sensedfour, sensedfive,sensedsix,sensedsevn,sensedeight];
+
+  const countload=async()=>{
+
+    await firestore().collection('Diagnosis').doc(user.uid).update({
+      cleft:8-left.filter(Boolean).length,
+      cright:8-right.filter(Boolean).length,
+    })
+    .then(() => {
+      console.log('Count updated on cloud firestore!');
+    });
+  }
+
+  countload();
+  
 
   }, [sensedeight]);
+  
 
   return (
     <View style={{flexDirection:"row",justifyContent:"space-between"}}>
@@ -200,7 +218,7 @@ const FeetMap = () => {
     <Ellipse id="Ellipse_18-8" data-name="Ellipse 18" cx="4.5" cy="4.5" rx="4.5" ry="4.5" transform="translate(18 18)" fill="#fa0" opacity="0.7"/>
   </G>
   </Svg>
-  <Text style={{textAlign:"center",marginTop:20,fontFamily:"CircularXXTTBold",fontSize:22,color:'#C2C2C2',}}>Right</Text>
+  <Text style={styles.legend}>Right</Text>
   </View>
 
 
@@ -215,4 +233,12 @@ const styles = StyleSheet.create({
   deactivate:{
     display:"none",
   },
+  legend:{
+    textAlign:"center",
+    marginTop:20,
+    fontFamily:"CircularXXTTBold",
+    fontSize:22,
+    color:'#C2C2C2',
+    marginBottom:10
+  }
 })
