@@ -1,8 +1,45 @@
 import { View, Text,Button,ScrollView,Image,StyleSheet,TouchableOpacity } from 'react-native'
-import React from 'react'
+import React,{useState, useContext,useEffect} from 'react'
+import firestore from '@react-native-firebase/firestore';
+import {AuthContext} from '../Navigation/AuthProvider';
+import { useNavigation } from '@react-navigation/native';
 import FeetMap from '../Components/FeetMap'
 
 const Diagnostics = () => {
+  const navigation = useNavigation();
+  const {user,logout} = useContext(AuthContext);
+  const [Condition, setCondition] = useState(); 
+  const [Pain, setPain] = useState(); 
+  const [Deformity, setDeformity] = useState(); 
+  const [Comorb, setComorb] = useState(); 
+  const [Angle, setAngle] = useState(); 
+  const [Duration, setDuration] = useState(); 
+  const [Footwear, setFootwear] = useState(); 
+  const [Swell, setSwell] = useState(); 
+  const [Hormone, setHormone] = useState(); 
+
+
+    useEffect(() => {
+        const userdata= async()=>{ 
+          const users = await firestore().collection('Users').doc(user.uid).get()
+          .then(documentSnapshot => {
+            
+            setCondition(documentSnapshot.data().question6);
+            setPain(documentSnapshot.data().question12);
+            setDeformity(documentSnapshot.data().question10);
+            setComorb(documentSnapshot.data().question7);
+            setAngle(documentSnapshot.data().question9);
+            setDuration(documentSnapshot.data().question4);
+            setFootwear(documentSnapshot.data().question5);
+            setSwell(documentSnapshot.data().question8);
+            setHormone(documentSnapshot.data().question11);
+            
+          });
+        };
+    
+      userdata();
+      }, []);
+
   return (
     <ScrollView style={{backgroundColor:"#fff",height:"100%"}}>
     <View style={{backgroundColor:"#fff",height:"100%",paddingHorizontal:"6%"}}>
@@ -62,8 +99,82 @@ const Diagnostics = () => {
     </View>
     </View>
 
+    <View style={styles.ncontainer}>
+    <Text style={styles.containertitle}>Medical Information</Text>
+    <View>
+        <View style={styles.innercontainer}>
+            <Text style={styles.title}>Condition of foot</Text>
+            <Text style={styles.entry}>{Condition}</Text>
+        </View>
+        <View style={styles.innercontainer}>
+            <Text style={styles.title}>Pain</Text>
+            <Text style={styles.entry}>{Pain}</Text>
+        </View>
+        <View style={styles.innercontainer}>
+            <Text style={styles.title}>Foot deformity</Text>
+            <Text style={styles.entry}>{Deformity}</Text>
+        </View>
+        <View style={styles.innercontainer}>
+            <Text style={styles.title}>Movement of ankle joint</Text>
+            <Text style={styles.entry}>{Angle}</Text>
+        </View>
+        <View style={styles.innercontainer}>
+            <Text style={styles.title}>Comorbidities</Text>
+            <Text style={styles.entry}>{Comorb}</Text>
+        </View>
+    </View>
+    <View>
+        <View style={styles.innercontainer}>
+            <Text style={styles.title}>Duration of diabetes</Text>
+            <Text style={styles.entry}>{Duration}</Text>
+        </View>
+        <View style={styles.innercontainer}>
+            <Text style={styles.title}>Type of footwear</Text>
+            <Text style={styles.entry}>{Footwear}</Text>
+        </View>
+        <View style={styles.innercontainer}>
+            <Text style={styles.title}>Swelling</Text>
+            <Text style={styles.entry}>{Swell}</Text>
+        </View>
+        <View style={styles.innercontainer}>
+            <Text style={styles.title}>Change in hormone level</Text>
+            <Text style={styles.entry}>{Hormone}</Text>
+        </View>
+    </View>
+    </View>
 
-    <View></View>
+    <View style={[styles.container,{marginBottom:40}]}>
+    <View style={{flexDirection:"row",justifyContent:"space-between"}}>
+    <View>
+        <Text style={styles.ntitle}>Level of Severity</Text>
+        <Text style={styles.entry}>64%</Text>
+    </View>
+    <View>
+      <Text style={styles.ntitle}>Medication</Text>
+      <Text style={styles.entry}>Recommended</Text>
+    </View>
+    </View>
+    </View>
+
+    <View style={{flexDirection:'row',alignItems:'center',justifyContent:'space-around',}}>
+    <TouchableOpacity
+    onPress={()=>{navigation.navigate('TabNavigation', { screen: 'Health' })}}>
+        <View style={[styles.but1]}>
+            <Text style={{fontFamily:"CircularXXTTBold",color:"white", fontSize:18,textAlign:'center'}}>
+            Get Help
+            </Text>
+          </View>
+    </TouchableOpacity>
+    <TouchableOpacity 
+    onPress={()=>{navigation.navigate('TabNavigation', { screen: 'Sense' })}}>
+        <View style={[styles.but2]}>
+            <Text style={{fontFamily:"CircularXXTTBold",color:"#FFB31D", fontSize:18,textAlign:'center'}}>
+            New Diagnosis
+            </Text>
+          </View>
+    </TouchableOpacity>
+    </View>
+
     </View>
     </ScrollView>
   )
@@ -76,6 +187,12 @@ const styles = StyleSheet.create({
       fontFamily:"CircularXXTTBold",
       fontSize:16.5,
       color:'#FFAA00',
+      marginBottom:3,
+    },
+    ntitle:{
+      fontFamily:"CircularXXTTBold",
+      fontSize:16.5,
+      color:'#0012FF',
       marginBottom:3,
     },
     entry:{
@@ -91,6 +208,14 @@ const styles = StyleSheet.create({
       paddingVertical:20,
       borderRadius:10,
     },
+    ncontainer:{
+      marginTop:30,
+      backgroundColor:"#FFF",
+      paddingLeft:20,
+      paddingRight:30,
+      paddingVertical:0,
+      borderRadius:10,
+    },
     innercontainer:{
         marginBottom:15,
         width:"100%"
@@ -100,5 +225,23 @@ const styles = StyleSheet.create({
       fontSize:20,
       color:'#0012FF',
       marginBottom:20
-    }
+    },
+    but1:{
+      width:160,
+      borderRadius:5,
+      paddingVertical:13,
+      alignSelf:'center',
+      marginBottom:30,
+      backgroundColor:"#FFB31D",
+    },
+    but2:{
+      width:160,
+      borderRadius:5,
+      borderColor:"#FFB31D",
+      borderWidth:2.5,
+      paddingVertical:11,
+      alignSelf:'center',
+      marginBottom:30,
+      backgroundColor:"#FFF",
+    },
   })

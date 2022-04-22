@@ -25,13 +25,13 @@ const Diagnosis = () => {
     
     <Donut/>
     <View style={{flexDirection:'row',alignItems:'center',justifyContent:'space-around',}}>
-    <TouchableOpacity>
+    {/* <TouchableOpacity>
         <View style={[styles.but1,{backgroundColor:"#FFB31D",}]}>
             <Text style={{fontFamily:"CircularXXTTBold",color:"white", fontSize:18,textAlign:'center'}}>
             Pause
             </Text>
           </View>
-    </TouchableOpacity>
+    </TouchableOpacity> */}
     <TouchableOpacity 
     onPress={()=>{
     navigation.navigate('OnBoarding');
@@ -39,7 +39,7 @@ const Diagnosis = () => {
     }}>
         <View style={[styles.but1,{backgroundColor:"#FF5400",}]}>
             <Text style={{fontFamily:"CircularXXTTBold",color:"white", fontSize:18,textAlign:'center'}}>
-            Stop
+            Stop Diagnosis
             </Text>
           </View>
     </TouchableOpacity>
@@ -57,7 +57,7 @@ export default Diagnosis
 
 const styles = StyleSheet.create({
   but1:{
-    width:130,
+    width:230,
     borderRadius:5,
     paddingVertical:13,
     alignSelf:'center',
