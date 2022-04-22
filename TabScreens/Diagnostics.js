@@ -1,13 +1,21 @@
-import { View, Text,Button,ScrollView,Image,StyleSheet,TouchableOpacity } from 'react-native'
+import { RefreshControl,View, Text,Button,ScrollView,Image,StyleSheet,TouchableOpacity } from 'react-native'
 import React,{useState, useContext,useEffect} from 'react'
 import firestore from '@react-native-firebase/firestore';
 import {AuthContext} from '../Navigation/AuthProvider';
 import { useNavigation } from '@react-navigation/native';
 import FeetMap from '../Components/FeetMap'
+import DummyDiag from '../DummyScreens/DummyDiag';
+
+const wait = (timeout) => {
+  return new Promise(resolve => setTimeout(resolve, timeout));
+}
 
 const Diagnostics = () => {
   const navigation = useNavigation();
   const {user,logout} = useContext(AuthContext);
+  const [diagcheck, setdiagcheck] = useState(false);
+  const [refreshing, setRefreshing] = React.useState(false);
+
   const [Condition, setCondition] = useState(); 
   const [Pain, setPain] = useState(); 
   const [Deformity, setDeformity] = useState(); 
@@ -18,31 +26,50 @@ const Diagnostics = () => {
   const [Swell, setSwell] = useState(); 
   const [Hormone, setHormone] = useState(); 
 
+  const userdata= async()=>{ 
+    const users = await firestore().collection('Users').doc(user.uid).get()
+    .then(documentSnapshot => {
+      setCondition(documentSnapshot.data().question6);
+      setPain(documentSnapshot.data().question12);
+      setDeformity(documentSnapshot.data().question10);
+      setComorb(documentSnapshot.data().question7);
+      setAngle(documentSnapshot.data().question9);
+      setDuration(documentSnapshot.data().question4);
+      setFootwear(documentSnapshot.data().question5);
+      setSwell(documentSnapshot.data().question8);
+      setHormone(documentSnapshot.data().question11);
+    });
+  };
+
+  const sensedata= async()=>{ 
+    const users = await firestore().collection('Diagnosis').doc(user.uid).get()
+    .then(documentSnapshot => {
+      setdiagcheck(documentSnapshot.data().diagcheck);
+    });
+  
+  };
+
+  const onRefresh = React.useCallback(() => {
+    setRefreshing(true);
+    userdata();
+    sensedata();
+    wait(2000).then(() => setRefreshing(false));
+  }, []);
 
     useEffect(() => {
-        const userdata= async()=>{ 
-          const users = await firestore().collection('Users').doc(user.uid).get()
-          .then(documentSnapshot => {
-            
-            setCondition(documentSnapshot.data().question6);
-            setPain(documentSnapshot.data().question12);
-            setDeformity(documentSnapshot.data().question10);
-            setComorb(documentSnapshot.data().question7);
-            setAngle(documentSnapshot.data().question9);
-            setDuration(documentSnapshot.data().question4);
-            setFootwear(documentSnapshot.data().question5);
-            setSwell(documentSnapshot.data().question8);
-            setHormone(documentSnapshot.data().question11);
-            
-          });
-        };
-    
       userdata();
+      sensedata();
       }, []);
 
   return (
-    <ScrollView style={{backgroundColor:"#fff",height:"100%"}}>
-    <View style={{backgroundColor:"#fff",height:"100%",paddingHorizontal:"6%"}}>
+    <ScrollView 
+    style={{backgroundColor:"#fff",height:"100%"}}
+    refreshControl={
+    <RefreshControl
+      refreshing={refreshing}
+      onRefresh={onRefresh}
+    />}>
+    {!diagcheck? <DummyDiag/>:<View style={{backgroundColor:"#fff",height:"100%",paddingHorizontal:"6%"}}>
     <Text style={{fontFamily:"SFNSBold",fontSize:25,marginVertical:30}}>Diagnostics Report</Text>
     <FeetMap/>
 
@@ -175,7 +202,7 @@ const Diagnostics = () => {
     </TouchableOpacity>
     </View>
 
-    </View>
+    </View>}
     </ScrollView>
   )
 }

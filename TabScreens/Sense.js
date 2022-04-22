@@ -35,6 +35,7 @@ const Sense = () => {
         sense14:true,
         sense15:true,
         sense16:true,
+        diagcheck:false,
       })
       .then(() => {
         console.log('Sense data set on cloud firestore!');

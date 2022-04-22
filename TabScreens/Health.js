@@ -1,14 +1,51 @@
-import { View, Text,Button,ScrollView,Image,StyleSheet,TouchableOpacity } from 'react-native'
+import { RefreshControl, View, Text,Button,ScrollView,Image,StyleSheet,TouchableOpacity } from 'react-native'
 import { useNavigation } from '@react-navigation/native';
 import HealthIllus from '../Images/HealthIllus.svg'
 import Frontarrow from '../Images/frontarrow.svg'
-import React from 'react'
+import DummyHealth from '../DummyScreens/DummyHealth';
+import React,{useState, useContext,useEffect} from 'react'
+import firestore from '@react-native-firebase/firestore';
+import {AuthContext} from '../Navigation/AuthProvider';
+
+const wait = (timeout) => {
+  return new Promise(resolve => setTimeout(resolve, timeout));
+}
 
 const Health = () => {
   const navigation = useNavigation();
+  const [diagcheck, setdiagcheck] = useState(false);
+  const {user,logout} = useContext(AuthContext);
+  const [refreshing, setRefreshing] = React.useState(false);
+
+  const sensedata= async()=>{ 
+    const users = await firestore().collection('Diagnosis').doc(user.uid).get()
+    .then(documentSnapshot => {
+      setdiagcheck(documentSnapshot.data().diagcheck);
+    });
+  
+  };
+
+  const onRefresh = React.useCallback(() => {
+    setRefreshing(true);
+    sensedata();
+    wait(2000).then(() => setRefreshing(false));
+  }, []);
+
+  useEffect(() => {
+
+  sensedata();
+  }, [])
+  
+
   return (
-    <ScrollView style={{backgroundColor:"#fff",height:"100%"}}>
-    <View style={{backgroundColor:"#fff",height:"100%",paddingHorizontal:"6%"}}>
+    <ScrollView 
+    style={{backgroundColor:"#fff",height:"100%"}}
+    refreshControl={
+      <RefreshControl
+        refreshing={refreshing}
+        onRefresh={onRefresh}/>
+    }>
+    {!diagcheck? <DummyHealth/> :<View style={{backgroundColor:"#fff",height:"100%",paddingHorizontal:"6%"}}>
     <Text style={{fontFamily:"SFNSBold",fontSize:25,marginTop:30}}>Healthcare Support</Text>
     <View style={styles.container}>
       <View style={styles.innercontainer}>
@@ -41,7 +78,7 @@ const Health = () => {
             />
           </View>
     </TouchableOpacity>
-    </View>
+    </View>}
     </ScrollView>
   )
 }

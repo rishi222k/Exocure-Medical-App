@@ -23,6 +23,7 @@ const QStack = () => {
         navigation.navigate('Ques2')
         await firestore().collection('Diagnosis').doc(user.uid).update({
           sense1: Qone,
+          diagcheck:true,
         });
       }, 5000);
     });
