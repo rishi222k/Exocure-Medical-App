@@ -8,23 +8,23 @@ import React,{useState, useContext,useEffect,useRef} from 'react'
 const FeetMap = () => {
 
   const {user,logout} = useContext(AuthContext);
-  const [senseone, setsenseone] = useState(false);
-  const [sensetwo, setsensetwo] = useState(false);
-  const [sensethree, setsensethree] = useState(false);
-  const [sensefour, setsensefour] = useState(false);
-  const [sensefive, setsensefive] = useState(false);
-  const [sensesix, setsensesix] = useState(false);
-  const [sensesevn, setsensesevn] = useState(false);
-  const [senseight, setsenseight] = useState(false);
+  const [senseone, setsenseone] = useState(true);
+  const [sensetwo, setsensetwo] = useState(true);
+  const [sensethree, setsensethree] = useState(true);
+  const [sensefour, setsensefour] = useState(true);
+  const [sensefive, setsensefive] = useState(true);
+  const [sensesix, setsensesix] = useState(true);
+  const [sensesevn, setsensesevn] = useState(true);
+  const [senseight, setsenseight] = useState(true);
 
-  const [sensedone, setsensedone] = useState(false);
-  const [sensedtwo, setsensedtwo] = useState(false);
-  const [sensedthree, setsensedthree] = useState(false);
-  const [sensedfour, setsensedfour] = useState(false);
-  const [sensedfive, setsensedfive] = useState(false);
-  const [sensedsix, setsensedsix] = useState(false);
-  const [sensedsevn, setsensedsevn] = useState(false);
-  const [sensedeight, setsensedeight] = useState(false);
+  const [sensedone, setsensedone] = useState(true);
+  const [sensedtwo, setsensedtwo] = useState(true);
+  const [sensedthree, setsensedthree] = useState(true);
+  const [sensedfour, setsensedfour] = useState(true);
+  const [sensedfive, setsensedfive] = useState(true);
+  const [sensedsix, setsensedsix] = useState(true);
+  const [sensedsevn, setsensedsevn] = useState(true);
+  const [sensedeight, setsensedeight] = useState(true);
 
   useEffect(() => {
     const userdata= async()=>{ 
@@ -54,7 +54,7 @@ const FeetMap = () => {
 
   userdata();
 
-  }, []);
+  }, [sensedeight]);
 
   return (
     <View style={{flexDirection:"row",justifyContent:"space-between"}}>
