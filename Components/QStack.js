@@ -21,7 +21,7 @@ const QStack = () => {
 
       const timer= setTimeout(async() => {
         navigation.navigate('Ques2')
-        await firestore().collection('Diagnosis').doc(user.uid).set({
+        await firestore().collection('Diagnosis').doc(user.uid).update({
           sense1: Qone,
         });
       }, 5000);

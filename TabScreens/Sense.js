@@ -2,12 +2,49 @@ import { View, Text,Button,ScrollView,TouchableOpacity, StyleSheet, } from 'reac
 import { useNavigation } from '@react-navigation/native';
 import SensIllus from '../Images/SenseIllus.svg'
 import Plus from '../Images/plus.svg'
-import React from 'react'
+import firestore from '@react-native-firebase/firestore';
+import {AuthContext} from '../Navigation/AuthProvider';
+import React,{useState, useContext,useEffect,useRef} from 'react'
 
 
 const Sense = () => {
 
   const navigation = useNavigation();
+  const {user,logout} = useContext(AuthContext);
+
+  useEffect(() => {
+
+    const uploaddata=async()=>{
+
+      await firestore().collection('Diagnosis').doc(user.uid).set({
+        cleft:0,
+        cright:0,
+        sense1:true,
+        sense2:true,
+        sense3:true,
+        sense4:true,
+        sense5:true,
+        sense6:true,
+        sense7:true,
+        sense8:true,
+        sense9:true,
+        sense10:true,
+        sense11:true,
+        sense12:true,
+        sense13:true,
+        sense14:true,
+        sense15:true,
+        sense16:true,
+      })
+      .then(() => {
+        console.log('Sense data set on cloud firestore!');
+      });
+    }
+  
+    uploaddata();
+  
+    
+  }, [])
 
   return (
     <ScrollView style={{backgroundColor:"#fff",height:"100%",}}>
