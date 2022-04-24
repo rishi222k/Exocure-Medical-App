@@ -6,6 +6,7 @@ import Medical from '../Images/MedicalIcon.svg'
 import React,{useState, useContext,useEffect} from 'react'
 import { useNavigation } from '@react-navigation/native';
 import firestore from '@react-native-firebase/firestore';
+import data from '../QDictionary'
 
 const Profile = () => {
 
@@ -26,9 +27,9 @@ const Profile = () => {
         setname(documentSnapshot.data().name);
         setemail(documentSnapshot.data().email);
         setage(documentSnapshot.data().age);
-        setOccupation(documentSnapshot.data().question2);
-        setResidence(documentSnapshot.data().question3);
-        setEdu(documentSnapshot.data().question1);
+        setOccupation(data[1][documentSnapshot.data().question2]);
+        setResidence(data[2][documentSnapshot.data().question3]);
+        setEdu(data[0][documentSnapshot.data().question1]);
         
       });
     };
@@ -62,7 +63,7 @@ const Profile = () => {
           <Text style={styles.entry}>{Occupation}</Text>
         </View>
       </View>
-      <View style={{marginVertical:30}}>
+      <View style={{marginVertical:30,width:150}}>
         <View style={{marginBottom:15}}>
           <Text style={styles.title}>Residence</Text>
           <Text style={styles.entry}>{Residence}</Text>

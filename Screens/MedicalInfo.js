@@ -4,6 +4,7 @@ import React,{useState, useContext,useEffect} from 'react'
 import firestore from '@react-native-firebase/firestore';
 import {AuthContext} from '../Navigation/AuthProvider';
 import { useNavigation } from '@react-navigation/native';
+import data from '../QDictionary'
 
 const MedicalInfo = () => {
 
@@ -25,15 +26,15 @@ const MedicalInfo = () => {
           const users = await firestore().collection('Users').doc(user.uid).get()
           .then(documentSnapshot => {
             
-            setCondition(documentSnapshot.data().question6);
-            setPain(documentSnapshot.data().question12);
-            setDeformity(documentSnapshot.data().question10);
-            setComorb(documentSnapshot.data().question7);
-            setAngle(documentSnapshot.data().question9);
-            setDuration(documentSnapshot.data().question4);
-            setFootwear(documentSnapshot.data().question5);
-            setSwell(documentSnapshot.data().question8);
-            setHormone(documentSnapshot.data().question11);
+            setCondition(data[5][documentSnapshot.data().question6]);
+            setPain(data[11][documentSnapshot.data().question12]);
+            setDeformity(data[9][documentSnapshot.data().question10]);
+            setComorb(data[6][documentSnapshot.data().question7]);
+            setAngle(data[8][documentSnapshot.data().question9]);
+            setDuration(data[3][documentSnapshot.data().question4]);
+            setFootwear(data[4][documentSnapshot.data().question5]);
+            setSwell(data[7][documentSnapshot.data().question8]);
+            setHormone(data[10][documentSnapshot.data().question11]);
             
           });
         };

@@ -5,74 +5,8 @@ import {AuthContext} from '../Navigation/AuthProvider';
 import React,{useState, useContext,useEffect,useRef} from 'react'
 
 
-const FeetMap = () => {
+const FeetMap = ({senseone,sensetwo,sensethree,sensefour,sensefive,sensesix,sensesevn,senseight,sensedone,sensedtwo,sensedthree,sensedfour,sensedfive,sensedsix,sensedsevn,sensedeight}) => {
 
-  const {user,logout} = useContext(AuthContext);
-
-  const [senseone, setsenseone] = useState(true);
-  const [sensetwo, setsensetwo] = useState(true);
-  const [sensethree, setsensethree] = useState(true);
-  const [sensefour, setsensefour] = useState(true);
-  const [sensefive, setsensefive] = useState(true);
-  const [sensesix, setsensesix] = useState(true);
-  const [sensesevn, setsensesevn] = useState(true);
-  const [senseight, setsenseight] = useState(true);
-
-  const [sensedone, setsensedone] = useState(true);
-  const [sensedtwo, setsensedtwo] = useState(true);
-  const [sensedthree, setsensedthree] = useState(true);
-  const [sensedfour, setsensedfour] = useState(true);
-  const [sensedfive, setsensedfive] = useState(true);
-  const [sensedsix, setsensedsix] = useState(true);
-  const [sensedsevn, setsensedsevn] = useState(true);
-  const [sensedeight, setsensedeight] = useState(true);
-
-  useEffect(() => {
-    const userdata= async()=>{ 
-      const users = await firestore().collection('Diagnosis').doc(user.uid).get()
-      .then(documentSnapshot => {
-        
-        setsenseone(documentSnapshot.data().sense1);
-        setsensetwo(documentSnapshot.data().sense2);
-        setsensethree(documentSnapshot.data().sense3);
-        setsensefour(documentSnapshot.data().sense4);
-        setsensefive(documentSnapshot.data().sense5);
-        setsensesix(documentSnapshot.data().sense6);
-        setsensesevn(documentSnapshot.data().sense7);
-        setsenseight(documentSnapshot.data().sense8);
-
-        setsensedone(documentSnapshot.data().sense9);
-        setsensedtwo(documentSnapshot.data().sense10);
-        setsensedthree(documentSnapshot.data().sense11);
-        setsensedfour(documentSnapshot.data().sense12);
-        setsensedfive(documentSnapshot.data().sense13);
-        setsensedsix(documentSnapshot.data().sense14);
-        setsensedsevn(documentSnapshot.data().sense15);
-        setsensedeight(documentSnapshot.data().sense16);
-        
-      });
-    };
-
-  userdata();
-  const left = [senseone, sensetwo, sensethree, sensefour, sensefive,sensesix,sensesevn,senseight];
-  const right = [sensedone, sensedtwo, sensedthree, sensedfour, sensedfive,sensedsix,sensedsevn,sensedeight];
-
-  const countload=async()=>{
-
-    await firestore().collection('Diagnosis').doc(user.uid).update({
-      cleft:8-left.filter(Boolean).length,
-      cright:8-right.filter(Boolean).length,
-    })
-    .then(() => {
-      console.log('Count updated on cloud firestore!');
-    });
-  }
-
-  countload();
-  
-
-  }, [sensedeight]);
-  
 
   return (
     <View style={{flexDirection:"row",justifyContent:"space-between"}}>

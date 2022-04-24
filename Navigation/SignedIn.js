@@ -1,5 +1,5 @@
-import { View, Text } from 'react-native'
-import React,{useState, useContext} from 'react'
+import { View, Text,LogBox } from 'react-native'
+import React,{useState, useContext,useEffect} from 'react'
 import {AuthContext, AuthProvider} from '../Navigation/AuthProvider';
 import firestore from '@react-native-firebase/firestore';
 import { NavigationContainer } from '@react-navigation/native';
@@ -17,16 +17,24 @@ import Questionnaire from '../Screens/Questionnaire';
 const SignedIn = () => {
     const Stack = createStackNavigator();
     const {user,logout} = useContext(AuthContext);
-    const [check, setcheck] = useState(false)
+    const [check, setcheck] = useState()
+
 
     const getUser = async()=>{
-      const users = await firestore().collection('Users').doc(user.uid).get().then(documentSnapshot => { 
+      const users = await firestore().collection('Users').doc(user.uid).get()
+      .then(documentSnapshot => { 
       setcheck(documentSnapshot.data().questionnaire); 
       });
       
     };
 
-    getUser();
+    useEffect(() => {
+
+      getUser();
+
+      }, []);
+
+      LogBox.ignoreLogs(['Possible Unhandled Promise Rejection (id: 0)']);
     
     
   return (

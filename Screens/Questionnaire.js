@@ -24,6 +24,7 @@ const Questionnaire = () => {
   const [QRten, setQRten] = useState(null);
   const [QReleven, setQReleven] = useState(null);
   const [QRtwelve, setQRtwelve] = useState(null);
+  const [QRthirteen, setQRthirteen] = useState(null);
 
   const onSubmit= async()=>{
     
@@ -41,6 +42,7 @@ const Questionnaire = () => {
       question10: QRten,
       question11: QReleven,
       question12: QRtwelve,
+      question13: QRthirteen,
     })
     .then(() => {
       console.log('Data updated on cloud firestore!');
@@ -54,30 +56,50 @@ const Questionnaire = () => {
     <ScrollView style={{backgroundColor:"#fff",height:"100%"}}>
     <View style={{backgroundColor:"#fff",height:"100%",paddingHorizontal:"6%"}}>
 
+    {/* Question 13 */}
+    <View style={styles.qbox}>
+      <Text style={styles.questionhead}>Question {data[12].qid}</Text>
+      <Text style={styles.question}>{data[12].question}</Text>
+      <RadioButton.Group onValueChange={newValue => setQRthirteen(newValue)} value={QRthirteen}>
+      <View style={styles.radio}>
+        <RadioButton value={data[12].valone} color="#FFAA00"/>
+        <Text style={styles.entry}>{data[12].opone}</Text>
+      </View>
+      <View style={styles.radio}>
+        <RadioButton value={data[12].valtwo} color="#FFAA00"/>
+        <Text style={styles.entry}>{data[12].optwo}</Text>
+      </View>
+    </RadioButton.Group>
+    </View>
+
     {/* Question 1 */}
     <View style={styles.qbox}>
       <Text style={styles.questionhead}>Question {data[0].qid}</Text>
       <Text style={styles.question}>{data[0].question}</Text>
       <RadioButton.Group onValueChange={newValue => setQRone(newValue)} value={QRone}>
       <View style={styles.radio}>
-        <RadioButton value={data[0].opone} color="#FFAA00"/>
+        <RadioButton value={data[0].valone} color="#FFAA00"/>
         <Text style={styles.entry}>{data[0].opone}</Text>
       </View>
       <View style={styles.radio}>
-        <RadioButton value={data[0].optwo} color="#FFAA00"/>
+        <RadioButton value={data[0].valtwo} color="#FFAA00"/>
         <Text style={styles.entry}>{data[0].optwo}</Text>
       </View>
       <View style={styles.radio}>
-        <RadioButton value={data[0].opthree} color="#FFAA00"/>
+        <RadioButton value={data[0].valthree} color="#FFAA00"/>
         <Text style={styles.entry}>{data[0].opthree}</Text>
       </View>
       <View style={styles.radio}>
-        <RadioButton value={data[0].opfour} color="#FFAA00"/>
+        <RadioButton value={data[0].valfour} color="#FFAA00"/>
         <Text style={styles.entry}>{data[0].opfour}</Text>
       </View>
       <View style={styles.radio}>
-        <RadioButton value={data[0].opfive} color="#FFAA00"/>
+        <RadioButton value={data[0].valfive} color="#FFAA00"/>
         <Text style={styles.entry}>{data[0].opfive}</Text>
+      </View>
+      <View style={styles.radio}>
+        <RadioButton value={data[0].valsix} color="#FFAA00"/>
+        <Text style={styles.entry}>{data[0].opsix}</Text>
       </View>
     </RadioButton.Group>
     </View>
@@ -88,24 +110,28 @@ const Questionnaire = () => {
       <Text style={styles.question}>{data[1].question}</Text>
       <RadioButton.Group onValueChange={newValue => setQRtwo(newValue)} value={QRtwo}>
       <View style={styles.radio}>
-        <RadioButton value={data[1].opone} color="#FFAA00"/>
+        <RadioButton value={data[1].valone} color="#FFAA00"/>
         <Text style={styles.entry}>{data[1].opone}</Text>
       </View>
       <View style={styles.radio}>
-        <RadioButton value={data[1].optwo} color="#FFAA00"/>
+        <RadioButton value={data[1].valtwo} color="#FFAA00"/>
         <Text style={styles.entry}>{data[1].optwo}</Text>
       </View>
       <View style={styles.radio}>
-        <RadioButton value={data[1].opthree} color="#FFAA00"/>
+        <RadioButton value={data[1].valthree} color="#FFAA00"/>
         <Text style={styles.entry}>{data[1].opthree}</Text>
       </View>
       <View style={styles.radio}>
-        <RadioButton value={data[1].opfour} color="#FFAA00"/>
+        <RadioButton value={data[1].valfour} color="#FFAA00"/>
         <Text style={styles.entry}>{data[1].opfour}</Text>
       </View>
       <View style={styles.radio}>
-        <RadioButton value={data[1].opfive} color="#FFAA00"/>
+        <RadioButton value={data[1].valfive} color="#FFAA00"/>
         <Text style={styles.entry}>{data[1].opfive}</Text>
+      </View>
+      <View style={styles.radio}>
+        <RadioButton value={data[1].valsix} color="#FFAA00"/>
+        <Text style={styles.entry}>{data[1].opsix}</Text>
       </View>
     </RadioButton.Group>
     </View>
@@ -116,15 +142,15 @@ const Questionnaire = () => {
       <Text style={styles.question}>{data[2].question}</Text>
       <RadioButton.Group onValueChange={newValue => setQRthree(newValue)} value={QRthree}>
       <View style={styles.radio}>
-        <RadioButton value={data[2].opone} color="#FFAA00"/>
+        <RadioButton value={data[2].valone} color="#FFAA00"/>
         <Text style={styles.entry}>{data[2].opone}</Text>
       </View>
       <View style={styles.radio}>
-        <RadioButton value={data[2].optwo} color="#FFAA00"/>
+        <RadioButton value={data[2].valtwo} color="#FFAA00"/>
         <Text style={styles.entry}>{data[2].optwo}</Text>
       </View>
       <View style={styles.radio}>
-        <RadioButton value={data[2].opthree} color="#FFAA00"/>
+        <RadioButton value={data[2].valthree} color="#FFAA00"/>
         <Text style={styles.entry}>{data[2].opthree}</Text>
       </View>
     </RadioButton.Group>
@@ -136,19 +162,19 @@ const Questionnaire = () => {
       <Text style={styles.question}>{data[3].question}</Text>
       <RadioButton.Group onValueChange={newValue => setQRfour(newValue)} value={QRfour}>
       <View style={styles.radio}>
-        <RadioButton value={data[3].opone} color="#FFAA00"/>
+        <RadioButton value={data[3].valone} color="#FFAA00"/>
         <Text style={styles.entry}>{data[3].opone}</Text>
       </View>
       <View style={styles.radio}>
-        <RadioButton value={data[3].optwo} color="#FFAA00"/>
+        <RadioButton value={data[3].valtwo} color="#FFAA00"/>
         <Text style={styles.entry}>{data[3].optwo}</Text>
       </View>
       <View style={styles.radio}>
-        <RadioButton value={data[3].opthree} color="#FFAA00"/>
+        <RadioButton value={data[3].valthree} color="#FFAA00"/>
         <Text style={styles.entry}>{data[3].opthree}</Text>
       </View>
       <View style={styles.radio}>
-        <RadioButton value={data[3].opfour} color="#FFAA00"/>
+        <RadioButton value={data[3].valfour} color="#FFAA00"/>
         <Text style={styles.entry}>{data[3].opfour}</Text>
       </View>
     </RadioButton.Group>
@@ -160,23 +186,23 @@ const Questionnaire = () => {
       <Text style={styles.question}>{data[4].question}</Text>
       <RadioButton.Group onValueChange={newValue => setQRfive(newValue)} value={QRfive}>
       <View style={styles.radio}>
-        <RadioButton value={data[4].opone} color="#FFAA00"/>
+        <RadioButton value={data[4].valone} color="#FFAA00"/>
         <Text style={styles.entry}>{data[4].opone}</Text>
       </View>
       <View style={styles.radio}>
-        <RadioButton value={data[4].optwo} color="#FFAA00"/>
+        <RadioButton value={data[4].valtwo} color="#FFAA00"/>
         <Text style={styles.entry}>{data[4].optwo}</Text>
       </View>
       <View style={styles.radio}>
-        <RadioButton value={data[4].opthree} color="#FFAA00"/>
+        <RadioButton value={data[4].valthree} color="#FFAA00"/>
         <Text style={styles.entry}>{data[4].opthree}</Text>
       </View>
       <View style={styles.radio}>
-        <RadioButton value={data[4].opfour} color="#FFAA00"/>
+        <RadioButton value={data[4].valfour} color="#FFAA00"/>
         <Text style={styles.entry}>{data[4].opfour}</Text>
       </View>
       <View style={styles.radio}>
-        <RadioButton value={data[4].opfive} color="#FFAA00"/>
+        <RadioButton value={data[4].valfive} color="#FFAA00"/>
         <Text style={styles.entry}>{data[4].opfive}</Text>
       </View>
     </RadioButton.Group>
@@ -188,27 +214,27 @@ const Questionnaire = () => {
       <Text style={styles.question}>{data[5].question}</Text>
       <RadioButton.Group onValueChange={newValue => setQRsix(newValue)} value={QRsix}>
       <View style={styles.radio}>
-        <RadioButton value={data[5].opone} color="#FFAA00"/>
+        <RadioButton value={data[5].valone} color="#FFAA00"/>
         <Text style={styles.entry}>{data[5].opone}</Text>
       </View>
       <View style={styles.radio}>
-        <RadioButton value={data[5].optwo} color="#FFAA00"/>
+        <RadioButton value={data[5].valtwo} color="#FFAA00"/>
         <Text style={styles.entry}>{data[5].optwo}</Text>
       </View>
       <View style={styles.radio}>
-        <RadioButton value={data[5].opthree} color="#FFAA00"/>
+        <RadioButton value={data[5].valthree} color="#FFAA00"/>
         <Text style={styles.entry}>{data[5].opthree}</Text>
       </View>
       <View style={styles.radio}>
-        <RadioButton value={data[5].opfour} color="#FFAA00"/>
+        <RadioButton value={data[5].valfour} color="#FFAA00"/>
         <Text style={styles.entry}>{data[5].opfour}</Text>
       </View>
       <View style={styles.radio}>
-        <RadioButton value={data[5].opfive} color="#FFAA00"/>
+        <RadioButton value={data[5].valfive} color="#FFAA00"/>
         <Text style={styles.entry}>{data[5].opfive}</Text>
       </View>
       <View style={styles.radio}>
-        <RadioButton value={data[5].opsix} color="#FFAA00"/>
+        <RadioButton value={data[5].valsix} color="#FFAA00"/>
         <Text style={styles.entry}>{data[5].opsix}</Text>
       </View>
     </RadioButton.Group>
@@ -220,23 +246,23 @@ const Questionnaire = () => {
       <Text style={styles.question}>{data[6].question}</Text>
       <RadioButton.Group onValueChange={newValue => setQRseven(newValue)} value={QRseven}>
       <View style={styles.radio}>
-        <RadioButton value={data[6].opone} color="#FFAA00"/>
+        <RadioButton value={data[6].valone} color="#FFAA00"/>
         <Text style={styles.entry}>{data[6].opone}</Text>
       </View>
       <View style={styles.radio}>
-        <RadioButton value={data[6].optwo} color="#FFAA00"/>
+        <RadioButton value={data[6].valtwo} color="#FFAA00"/>
         <Text style={styles.entry}>{data[6].optwo}</Text>
       </View>
       <View style={styles.radio}>
-        <RadioButton value={data[6].opthree} color="#FFAA00"/>
+        <RadioButton value={data[6].valthree} color="#FFAA00"/>
         <Text style={styles.entry}>{data[6].opthree}</Text>
       </View>
       <View style={styles.radio}>
-        <RadioButton value={data[6].opfour} color="#FFAA00"/>
+        <RadioButton value={data[6].valfour} color="#FFAA00"/>
         <Text style={styles.entry}>{data[6].opfour}</Text>
       </View>
       <View style={styles.radio}>
-        <RadioButton value={data[6].opfive} color="#FFAA00"/>
+        <RadioButton value={data[6].valfive} color="#FFAA00"/>
         <Text style={styles.entry}>{data[6].opfive}</Text>
       </View>
     </RadioButton.Group>
@@ -248,15 +274,15 @@ const Questionnaire = () => {
       <Text style={styles.question}>{data[7].question}</Text>
       <RadioButton.Group onValueChange={newValue => setQReight(newValue)} value={QReight}>
       <View style={styles.radio}>
-        <RadioButton value={data[7].opone} color="#FFAA00"/>
+        <RadioButton value={data[7].valone} color="#FFAA00"/>
         <Text style={styles.entry}>{data[7].opone}</Text>
       </View>
       <View style={styles.radio}>
-        <RadioButton value={data[7].optwo} color="#FFAA00"/>
+        <RadioButton value={data[7].valtwo} color="#FFAA00"/>
         <Text style={styles.entry}>{data[7].optwo}</Text>
       </View>
       <View style={styles.radio}>
-        <RadioButton value={data[7].opthree} color="#FFAA00"/>
+        <RadioButton value={data[7].valthree} color="#FFAA00"/>
         <Text style={styles.entry}>{data[7].opthree}</Text>
       </View>
       
@@ -269,19 +295,19 @@ const Questionnaire = () => {
       <Text style={styles.question}>{data[8].question}</Text>
       <RadioButton.Group onValueChange={newValue => setQRnine(newValue)} value={QRnine}>
       <View style={styles.radio}>
-        <RadioButton value={data[8].opone} color="#FFAA00"/>
+        <RadioButton value={data[8].valone} color="#FFAA00"/>
         <Text style={styles.entry}>{data[8].opone}</Text>
       </View>
       <View style={styles.radio}>
-        <RadioButton value={data[8].optwo} color="#FFAA00"/>
+        <RadioButton value={data[8].valtwo} color="#FFAA00"/>
         <Text style={styles.entry}>{data[8].optwo}</Text>
       </View>
       <View style={styles.radio}>
-        <RadioButton value={data[8].opthree} color="#FFAA00"/>
+        <RadioButton value={data[8].valthree} color="#FFAA00"/>
         <Text style={styles.entry}>{data[8].opthree}</Text>
       </View>
       <View style={styles.radio}>
-        <RadioButton value={data[8].opfour} color="#FFAA00"/>
+        <RadioButton value={data[8].valfour} color="#FFAA00"/>
         <Text style={styles.entry}>{data[8].opfour}</Text>
       </View>
     </RadioButton.Group>
@@ -293,19 +319,19 @@ const Questionnaire = () => {
       <Text style={styles.question}>{data[9].question}</Text>
       <RadioButton.Group onValueChange={newValue => setQRten(newValue)} value={QRten}>
       <View style={styles.radio}>
-        <RadioButton value={data[9].opone} color="#FFAA00"/>
+        <RadioButton value={data[9].valone} color="#FFAA00"/>
         <Text style={styles.entry}>{data[9].opone}</Text>
       </View>
       <View style={styles.radio}>
-        <RadioButton value={data[9].optwo} color="#FFAA00"/>
+        <RadioButton value={data[9].valtwo} color="#FFAA00"/>
         <Text style={styles.entry}>{data[9].optwo}</Text>
       </View>
       <View style={styles.radio}>
-        <RadioButton value={data[9].opthree} color="#FFAA00"/>
+        <RadioButton value={data[9].valthree} color="#FFAA00"/>
         <Text style={styles.entry}>{data[9].opthree}</Text>
       </View>
       <View style={styles.radio}>
-        <RadioButton value={data[9].opfour} color="#FFAA00"/>
+        <RadioButton value={data[9].valfour} color="#FFAA00"/>
         <Text style={styles.entry}>{data[9].opfour}</Text>
       </View>
     </RadioButton.Group>
@@ -317,16 +343,20 @@ const Questionnaire = () => {
       <Text style={styles.question}>{data[10].question}</Text>
       <RadioButton.Group onValueChange={newValue => setQReleven(newValue)} value={QReleven}>
       <View style={styles.radio}>
-        <RadioButton value={data[10].opone} color="#FFAA00"/>
+        <RadioButton value={data[10].valone} color="#FFAA00"/>
         <Text style={styles.entry}>{data[10].opone}</Text>
       </View>
       <View style={styles.radio}>
-        <RadioButton value={data[10].optwo} color="#FFAA00"/>
+        <RadioButton value={data[10].valtwo} color="#FFAA00"/>
         <Text style={styles.entry}>{data[10].optwo}</Text>
       </View>
       <View style={styles.radio}>
-        <RadioButton value={data[10].opthree} color="#FFAA00"/>
+        <RadioButton value={data[10].valthree} color="#FFAA00"/>
         <Text style={styles.entry}>{data[10].opthree}</Text>
+      </View>
+      <View style={styles.radio}>
+        <RadioButton value={data[10].valfour} color="#FFAA00"/>
+        <Text style={styles.entry}>{data[10].opfour}</Text>
       </View>
     </RadioButton.Group>
     </View>
@@ -337,15 +367,15 @@ const Questionnaire = () => {
       <Text style={styles.question}>{data[11].question}</Text>
       <RadioButton.Group onValueChange={newValue => setQRtwelve(newValue)} value={QRtwelve}>
       <View style={styles.radio}>
-        <RadioButton value={data[11].opone} color="#FFAA00"/>
+        <RadioButton value={data[11].valone} color="#FFAA00"/>
         <Text style={styles.entry}>{data[11].opone}</Text>
       </View>
       <View style={styles.radio}>
-        <RadioButton value={data[11].optwo} color="#FFAA00"/>
+        <RadioButton value={data[11].valtwo} color="#FFAA00"/>
         <Text style={styles.entry}>{data[11].optwo}</Text>
       </View>
       <View style={styles.radio}>
-        <RadioButton value={data[11].opthree} color="#FFAA00"/>
+        <RadioButton value={data[11].valthree} color="#FFAA00"/>
         <Text style={styles.entry}>{data[11].opthree}</Text>
       </View>
     </RadioButton.Group>

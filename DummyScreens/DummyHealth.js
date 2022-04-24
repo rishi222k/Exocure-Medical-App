@@ -1,7 +1,9 @@
 import { View, Text,Button,ScrollView,Image,StyleSheet,TouchableOpacity } from 'react-native'
 import React from 'react'
+import { useNavigation } from '@react-navigation/native';
 
 const DummyDiag = () => {
+  const navigation = useNavigation();
   return (
     <View style={{backgroundColor:"#fff",height:"100%",paddingHorizontal:"6%"}}>
     <Image 
@@ -10,7 +12,8 @@ const DummyDiag = () => {
       style={{width:155,height:155,alignSelf:"center",marginTop:60}}/>
       <Text style={{fontFamily:"SFNSBold",fontSize:26,marginBottom:5,color:"#CCCCCC",textAlign:"center",marginTop:45,}}>No Health Data</Text>
       <Text style={{fontFamily:"CircularXXTTMedium",fontSize:17,color:'#B1B1B1',lineHeight:25,marginTop:10,textAlign:"center",marginBottom:60,}}>You currently don't have any health reports. To generate health recommendations or diagnostic reports please start your diagnosis in the sense tab or click the button below.</Text>
-      <TouchableOpacity>
+      <TouchableOpacity
+      onPress={()=>{navigation.navigate('TabNavigation', { screen: 'Sense' })}}>
         <View style={styles.but2}>
             <Text style={{fontFamily:"CircularXXTTBold",color:"white", fontSize:18,textAlign:'center'}}>
             Start Diagnosis

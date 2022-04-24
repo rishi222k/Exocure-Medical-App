@@ -5,6 +5,7 @@ import {AuthContext} from '../Navigation/AuthProvider';
 import { useNavigation } from '@react-navigation/native';
 import FeetMap from '../Components/FeetMap'
 import DummyDiag from '../DummyScreens/DummyDiag';
+import data from '../QDictionary'
 
 const wait = (timeout) => {
   return new Promise(resolve => setTimeout(resolve, timeout));
@@ -25,23 +26,86 @@ const Diagnostics = () => {
   const [Footwear, setFootwear] = useState(); 
   const [Swell, setSwell] = useState(); 
   const [Hormone, setHormone] = useState(); 
+  const [countleft, setcountleft] = useState(0); 
+  const [countright, setcountright] = useState(0); 
+
+  const [senseone, setsenseone] = useState(true);
+  const [sensetwo, setsensetwo] = useState(true);
+  const [sensethree, setsensethree] = useState(true);
+  const [sensefour, setsensefour] = useState(true);
+  const [sensefive, setsensefive] = useState(true);
+  const [sensesix, setsensesix] = useState(true);
+  const [sensesevn, setsensesevn] = useState(true);
+  const [senseight, setsenseight] = useState(true);
+
+  const [sensedone, setsensedone] = useState(true);
+  const [sensedtwo, setsensedtwo] = useState(true);
+  const [sensedthree, setsensedthree] = useState(true);
+  const [sensedfour, setsensedfour] = useState(true);
+  const [sensedfive, setsensedfive] = useState(true);
+  const [sensedsix, setsensedsix] = useState(true);
+  const [sensedsevn, setsensedsevn] = useState(true);
+  const [sensedeight, setsensedeight] = useState(true);
+
+
+  const sensedata= async()=>{ 
+
+    const users = await firestore().collection('Diagnosis').doc(user.uid).get()
+    .then(documentSnapshot => {
+      
+      setsenseone(documentSnapshot.data().sense1);
+      setsensetwo(documentSnapshot.data().sense2);
+      setsensethree(documentSnapshot.data().sense3);
+      setsensefour(documentSnapshot.data().sense4);
+      setsensefive(documentSnapshot.data().sense5);
+      setsensesix(documentSnapshot.data().sense6);
+      setsensesevn(documentSnapshot.data().sense7);
+      setsenseight(documentSnapshot.data().sense8);
+
+      setsensedone(documentSnapshot.data().sense9);
+      setsensedtwo(documentSnapshot.data().sense10);
+      setsensedthree(documentSnapshot.data().sense11);
+      setsensedfour(documentSnapshot.data().sense12);
+      setsensedfive(documentSnapshot.data().sense13);
+      setsensedsix(documentSnapshot.data().sense14);
+      setsensedsevn(documentSnapshot.data().sense15);
+      setsensedeight(documentSnapshot.data().sense16);
+      
+    });
+  };
+
+  const countload=async()=>{
+
+  const left = [senseone, sensetwo, sensethree, sensefour, sensefive,sensesix,sensesevn,senseight];
+  const right = [sensedone, sensedtwo, sensedthree, sensedfour, sensedfive,sensedsix,sensedsevn,sensedeight];
+
+    await firestore().collection('Diagnosis').doc(user.uid).update({
+      cleft: 8-left.filter(Boolean).length,
+      cright: 8-right.filter(Boolean).length,
+    })
+    .then(() => {
+      console.log('Count updated on cloud firestore!');
+      setcountleft(8-left.filter(Boolean).length);
+      setcountright(8-right.filter(Boolean).length);
+    });
+  };
 
   const userdata= async()=>{ 
     const users = await firestore().collection('Users').doc(user.uid).get()
     .then(documentSnapshot => {
-      setCondition(documentSnapshot.data().question6);
-      setPain(documentSnapshot.data().question12);
-      setDeformity(documentSnapshot.data().question10);
-      setComorb(documentSnapshot.data().question7);
-      setAngle(documentSnapshot.data().question9);
-      setDuration(documentSnapshot.data().question4);
-      setFootwear(documentSnapshot.data().question5);
-      setSwell(documentSnapshot.data().question8);
-      setHormone(documentSnapshot.data().question11);
+      setCondition(data[5][documentSnapshot.data().question6]);
+      setPain(data[11][documentSnapshot.data().question12]);
+      setDeformity(data[9][documentSnapshot.data().question10]);
+      setComorb(data[6][documentSnapshot.data().question7]);
+      setAngle(data[8][documentSnapshot.data().question9]);
+      setDuration(data[3][documentSnapshot.data().question4]);
+      setFootwear(data[4][documentSnapshot.data().question5]);
+      setSwell(data[7][documentSnapshot.data().question8]);
+      setHormone(data[10][documentSnapshot.data().question11]);
     });
   };
 
-  const sensedata= async()=>{ 
+  const diagdata= async()=>{ 
     const users = await firestore().collection('Diagnosis').doc(user.uid).get()
     .then(documentSnapshot => {
       setdiagcheck(documentSnapshot.data().diagcheck);
@@ -51,15 +115,20 @@ const Diagnostics = () => {
 
   const onRefresh = React.useCallback(() => {
     setRefreshing(true);
-    userdata();
     sensedata();
+    diagdata();
+    countload();
     wait(2000).then(() => setRefreshing(false));
   }, []);
 
     useEffect(() => {
-      userdata();
       sensedata();
-      }, []);
+      userdata();
+      diagdata();
+      countload();
+      }, [sensedeight]);
+
+    
 
   return (
     <ScrollView 
@@ -71,7 +140,24 @@ const Diagnostics = () => {
     />}>
     {!diagcheck? <DummyDiag/>:<View style={{backgroundColor:"#fff",height:"100%",paddingHorizontal:"6%"}}>
     <Text style={{fontFamily:"SFNSBold",fontSize:25,marginVertical:30}}>Diagnostics Report</Text>
-    <FeetMap/>
+    <FeetMap 
+      senseone={senseone}
+      sensetwo={sensetwo}
+      sensethree={sensethree}
+      sensefour={sensefour}
+      sensefive={sensefive}
+      sensesix={sensesix}
+      sensesevn={sensesevn}
+      senseight={senseight}
+      sensedone={sensedone}
+      sensedtwo={sensedtwo}
+      sensedthree={sensedthree}
+      sensedfour={sensedfour}
+      sensedfive={sensedfive}
+      sensedsix={sensedsix}
+      sensedsevn={sensedsevn}
+      sensedeight={sensedeight}
+    />
 
     
     <View style={styles.container}>
@@ -80,7 +166,7 @@ const Diagnostics = () => {
     <View>
         <View style={styles.innercontainer}>
             <Text style={styles.title}>Affected Nodes</Text>
-            <Text style={styles.entry}>5</Text>
+            <Text style={styles.entry}>{countleft}</Text>
         </View>
         <View style={styles.innercontainer}>
             <Text style={styles.title}>Level of Severity</Text>
@@ -106,7 +192,7 @@ const Diagnostics = () => {
     <View>
         <View style={styles.innercontainer}>
             <Text style={styles.title}>Affected Nodes</Text>
-            <Text style={styles.entry}>2</Text>
+            <Text style={styles.entry}>{countright}</Text>
         </View>
         <View style={styles.innercontainer}>
             <Text style={styles.title}>Level of Severity</Text>
