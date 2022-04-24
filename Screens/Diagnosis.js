@@ -14,7 +14,7 @@ const Diagnosis = () => {
   useEffect(() => {
     const Mtimer= setTimeout(() => {
       navigation.navigate('Acknowledgment');
-    }, 82000); 
+    }, 83000); 
     return () => clearTimeout(Mtimer);
   });
 
