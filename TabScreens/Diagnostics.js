@@ -46,6 +46,7 @@ const Diagnostics = () => {
   const [sensedsix, setsensedsix] = useState(true);
   const [sensedsevn, setsensedsevn] = useState(true);
   const [sensedeight, setsensedeight] = useState(true);
+  const [Qcount, setQcount] = useState(0);
 
 
   const sensedata= async()=>{ 
@@ -70,6 +71,7 @@ const Diagnostics = () => {
       setsensedsix(documentSnapshot.data().sense14);
       setsensedsevn(documentSnapshot.data().sense15);
       setsensedeight(documentSnapshot.data().sense16);
+      setQcount(documentSnapshot.data().Qcount);
       
     });
   };
@@ -117,7 +119,6 @@ const Diagnostics = () => {
     setRefreshing(true);
     sensedata();
     diagdata();
-    countload();
     wait(2000).then(() => setRefreshing(false));
   }, []);
 
@@ -126,7 +127,7 @@ const Diagnostics = () => {
       userdata();
       diagdata();
       countload();
-      }, [sensedeight]);
+      }, [Qcount]);
 
     
 

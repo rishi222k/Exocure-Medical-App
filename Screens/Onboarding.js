@@ -1,10 +1,26 @@
 import { StyleSheet, Text, View,ScrollView,Image,TouchableOpacity } from 'react-native'
 import Frontarrow from '../Images/frontarrow.svg'
-import React from 'react'
+import firestore from '@react-native-firebase/firestore';
+import {AuthContext} from '../Navigation/AuthProvider';
+import React,{useState, useContext,useEffect,useRef} from 'react'
 import { useNavigation } from '@react-navigation/native';
 
 const Onboarding = () => {
     const navigation = useNavigation();
+    const {user,logout} = useContext(AuthContext);
+
+    const onPressone=()=>{
+      navigation.navigate("Diagnosis");
+    };
+
+    const onPresstwo= async()=>{
+      await firestore().collection('Diagnosis').doc(user.uid).update({
+        Qcount:firestore.FieldValue.increment(1),
+      }).then(() => {
+          console.log('Count updated on cloud firestore!');
+      });
+    };
+
   return (
     <ScrollView style={{backgroundColor:"#fff",height:"100%"}}>
     <View style={{backgroundColor:"#fff",height:"100%",paddingHorizontal:"6%"}}>
@@ -20,7 +36,9 @@ const Onboarding = () => {
       <Text style={{fontFamily:"CircularXXTTBold",fontSize:17,color:'#FFB31D',marginTop:35,marginBottom:7}}>Note: </Text>
       <Text style={{fontFamily:"CircularXXTTBold",fontSize:17,color:'#4B4B4B',}}>Make sure to finish scanning from all the 16 motors to get accurate results.</Text>
       <TouchableOpacity 
-         onPress={()=>{navigation.navigate("Diagnosis")}}>
+         onPress={()=>{
+           onPressone();
+           onPresstwo();}}>
           <View style={styles.but1}>
             <Text style={{fontFamily:"CircularXXTTBold",color:"white", fontSize:18,textAlign:'center',marginRight:10}}>
             Start 
