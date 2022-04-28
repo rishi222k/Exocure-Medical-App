@@ -127,6 +127,7 @@ def enableHermes = project.ext.react.get("enableHermes", false);
 
 android {
     compileSdkVersion rootProject.ext.compileSdkVersion
+    // ndkVersion rootProject.ext.ndkVersion
 
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
@@ -192,6 +193,7 @@ dependencies {
     implementation "com.facebook.react:react-native:0.64.3"  // From node_modules
     implementation project(':react-native-svg')
     implementation 'com.google.firebase:firebase-analytics'
+    implementation project(':react-native-bluetooth-serial')
 
     def isGifEnabled = (findProperty('expo.gif.enabled') ?: "") == "true";
     def isWebpEnabled = (findProperty('expo.webp.enabled') ?: "") == "true";
