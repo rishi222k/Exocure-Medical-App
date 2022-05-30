@@ -1,11 +1,13 @@
 import { StyleSheet, Text, View,Button,ScrollView,TouchableOpacity } from 'react-native'
 import DeviceIcon from '../Images/microchip.svg'
-import React,{useEffect} from 'react'
+import BluetoothSerial from 'react-native-bluetooth-serial'
+import React,{useEffect,useState} from 'react'
 
 
 const DeviceCard = ({device}) => {
 
-  
+  // const [name, setname] = useState(device.name);
+
     const Connection=(device)=>{
         BluetoothSerial.connect(device.id)
         .then((res) => {
@@ -17,6 +19,8 @@ const DeviceCard = ({device}) => {
     };
 
   return (
+    <>
+    { device.name && (
     <View style={{paddingHorizontal:25,paddingVertical:25,backgroundColor:"#F2F2F2",borderRadius:5, marginBottom:20}}>
       <View style={{flexDirection:"row",alignItems:"center"}}>
       <DeviceIcon
@@ -24,7 +28,7 @@ const DeviceCard = ({device}) => {
         height={40}
         style={{marginRight:30}}
       />
-      <Text style={{fontFamily:"CircularXXTTBold",fontSize:18,color:'black'}}>{device.name}</Text>
+      <Text style={{fontFamily:"CircularXXTTBold",fontSize:18,color:'black',width:200}}>{device.name}</Text>
       </View>
       <TouchableOpacity 
       onPress={() => {Connection(device);}}>
@@ -35,6 +39,8 @@ const DeviceCard = ({device}) => {
           </View>
         </TouchableOpacity>
     </View>
+    )}
+  </>
   )
 }
 
