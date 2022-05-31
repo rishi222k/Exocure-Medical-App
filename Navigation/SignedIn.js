@@ -13,6 +13,7 @@ import Acknowledgment from '../Screens/Acknowledgment';
 import MedicalInfo from '../Screens/MedicalInfo';
 import Diagnosis from '../Screens/Diagnosis';
 import Questionnaire from '../Screens/Questionnaire';
+import Maps from '../Components/Maps';
 
 const SignedIn = () => {
     const Stack = createStackNavigator();
@@ -49,6 +50,7 @@ const SignedIn = () => {
         <Stack.Screen name='Acknowledgment' component={Acknowledgment} options={{headerShown:false}}/>
         <Stack.Screen name='MedicalInfo' component={MedicalInfo} options={{headerShown:false}}/>
         <Stack.Screen name='Diagnosis' component={Diagnosis} options={{headerShown:false}} />
+        <Stack.Screen name='Map' component={Maps} options={{headerShown:false}} />
     </Stack.Navigator>
     </NavigationContainer>
     </>
