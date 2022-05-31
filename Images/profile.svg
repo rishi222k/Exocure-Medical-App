@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="62" height="62" viewBox="0 0 62 62">
+  <g id="profile" transform="translate(-48.702 -164.702)">
+    <g id="Ellipse_58" data-name="Ellipse 58" transform="translate(48.702 164.702)" fill="#fff" stroke="#ffe5b0" stroke-width="2">
+      <circle cx="31" cy="31" r="31" stroke="none"/>
+      <circle cx="31" cy="31" r="30" fill="none"/>
+    </g>
+    <g id="Profile-2" data-name="Profile" transform="translate(64.902 179.258)">
+      <ellipse id="Ellipse_57" data-name="Ellipse 57" cx="9.25" cy="9.136" rx="9.25" ry="9.136" transform="translate(5.55 0)" fill="#fa0"/>
+      <path id="Path_295" data-name="Path 295" d="M29.583,18.83h0a3.032,3.032,0,0,0,0-.39,3.521,3.521,0,0,0-.4-1.382c-.9-1.757-3.42-2.553-5.524-3a31.046,31.046,0,0,0-4.56-.6l-1.606-.12H12.1l-1.606.12a31.047,31.047,0,0,0-4.56.6c-2.1.39-4.624,1.2-5.524,3a3.524,3.524,0,0,0-.4,1.382,3.047,3.047,0,0,0,0,.39h0a3.3,3.3,0,0,0,0,.39,3.529,3.529,0,0,0,.417,1.367c.9,1.757,3.42,2.553,5.524,3a35.707,35.707,0,0,0,4.56.6l1.606.105h5.4l1.606-.105a35.709,35.709,0,0,0,4.56-.6c2.1-.406,4.624-1.2,5.524-3a3.894,3.894,0,0,0,.4-1.4A2.931,2.931,0,0,0,29.583,18.83Z" transform="translate(0 8.592)" fill="#ffdfa0"/>
+    </g>
+  </g>
+</svg>
