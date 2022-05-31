@@ -6,6 +6,7 @@ import Medical from '../Images/MedicalIcon.svg'
 import React,{useState, useContext,useEffect} from 'react'
 import { useNavigation } from '@react-navigation/native';
 import firestore from '@react-native-firebase/firestore';
+import ProfileImg from '../Images/profile.svg'
 import data from '../QDictionary'
 
 const Profile = () => {
@@ -42,10 +43,11 @@ const Profile = () => {
     <ScrollView style={{backgroundColor:"#fff",height:"100%"}}>
     <View style={{backgroundColor:"#fff",height:"100%",paddingHorizontal:"6%"}}>
     <View style={{flexDirection:"row",alignItems:"center",marginTop:40}}>
-      <Image 
-      source={require('../Images/SampleProfile.png')} 
-      resizeMode="contain" 
-      style={{width:75,height:75,marginRight:25}}/>
+      <ProfileImg
+      width={70}
+      height={70}
+      style={{marginRight:25}}
+      />
       <View>
         <Text style={{fontFamily:"CircularXXTTBold",fontSize:21, color:"#3A3A3A"}}>{name}</Text>
         <Text style={{fontFamily:"CircularXXTTMedium",fontSize:16,color:"#3A3A3A"}}>{email}</Text>
