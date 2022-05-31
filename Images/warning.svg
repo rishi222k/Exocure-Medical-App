@@ -1,0 +1,6 @@
+<svg id="warning" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+  <g id="alert-circle">
+    <rect id="Rectangle_74" data-name="Rectangle 74" width="24" height="24" fill="#fa0" opacity="0"/>
+    <path id="Path_294" data-name="Path 294" d="M12,2A10,10,0,1,0,22,12,10,10,0,0,0,12,2Zm0,15a1,1,0,1,1,1-1A1,1,0,0,1,12,17Zm1-4a1,1,0,0,1-2,0V8a1,1,0,0,1,2,0Z" fill="#fa0"/>
+  </g>
+</svg>
