@@ -6,6 +6,10 @@ import DummyHealth from '../DummyScreens/DummyHealth';
 import React,{useState, useContext,useEffect} from 'react'
 import firestore from '@react-native-firebase/firestore';
 import {AuthContext} from '../Navigation/AuthProvider';
+import Warning from '../Images/warning.svg'
+import Recommendations from '../Recommendations';
+
+
 
 const wait = (timeout) => {
   return new Promise(resolve => setTimeout(resolve, timeout));
@@ -14,6 +18,8 @@ const wait = (timeout) => {
 const Health = () => {
   const navigation = useNavigation();
   const [diagcheck, setdiagcheck] = useState(false);
+  const [severity, setseverity] = useState(null);
+  const [Rcheck, setRcheck] = useState(0);
   const {user,logout} = useContext(AuthContext);
   const [refreshing, setRefreshing] = React.useState(false);
 
@@ -21,20 +27,34 @@ const Health = () => {
     const users = await firestore().collection('Diagnosis').doc(user.uid).get()
     .then(documentSnapshot => {
       setdiagcheck(documentSnapshot.data().diagcheck);
+      setseverity(documentSnapshot.data().severity);
     });
   
   };
 
+  const CheckRecommendation =()=>{
+    if(severity>=0 && severity<=10)
+    {setRcheck(0);}
+    else if(severity>10 && severity<=50)
+    {setRcheck(1);}
+    else if(severity>0 && severity<=100)
+    {setRcheck(2);}
+  }
+
   const onRefresh = React.useCallback(() => {
     setRefreshing(true);
     sensedata();
+    // CheckRecommendation();
     wait(2000).then(() => setRefreshing(false));
   }, []);
+
 
   useEffect(() => {
 
   sensedata();
-  }, [])
+  CheckRecommendation();
+
+  }, [severity])
   
 
   return (
@@ -45,29 +65,44 @@ const Health = () => {
         refreshing={refreshing}
         onRefresh={onRefresh}/>
     }>
-    {!diagcheck? <DummyHealth/> :<View style={{backgroundColor:"#fff",height:"100%",paddingHorizontal:"6%"}}>
+    {!diagcheck? <DummyHealth/> :
+    <View style={{backgroundColor:"#fff",height:"100%",paddingHorizontal:"6%"}}>
     <Text style={{fontFamily:"SFNSBold",fontSize:25,marginTop:30}}>Healthcare Support</Text>
+    {severity==null? 
+    <View style={styles.warning}>
+      <View>
+      <Warning
+      width={30}
+      height={30}/>
+      </View>
+      <View style={{width:"90%"}}>
+        <Text style={styles.helptext}>Please review your diagnostics report from the diagnostics tab before receiving healthcare sypport. If you have already done so, kindly refresh and try again</Text>
+      </View>
+    </View>
+    :
     <View style={styles.container}>
       <View style={styles.innercontainer}>
         <Text style={styles.title}>Condition</Text>
-        <Text Text style={styles.entry}>Severe</Text>
+        <Text Text style={styles.entry}>{Recommendations[Rcheck].condition}</Text>
       </View>
       <View style={styles.innercontainer}>
         <Text style={styles.title}>Health Recommendations</Text>
-        <Text style={styles.entry}>By eliminating foot deformities, a surgeon can help relieve pressure surrounding your ulcer    </Text>
+        <Text style={styles.entry}>1. {Recommendations[Rcheck].recommendation1} {'\n'}{'\n'}2. {Recommendations[Rcheck].recommendation2} {'\n'}{'\n'}3. {Recommendations[Rcheck].recommendation3}</Text>
       </View>
       <View>
         <Text style={styles.title}>Medications</Text>
-        <Text Text style={styles.entry}>Dicloxacillin, Cephalexin, Clavulanate, Potassium</Text>
+        <Text Text style={styles.entry}>{Recommendations[Rcheck].medication}</Text>
       </View>
     </View>
+    }
     <HealthIllus
       width={230}
       height={230}
       style={{alignSelf:"center"}}
     />
     <Text style={{fontFamily:"CircularXXTTMedium",fontSize:17,color:"#3A3A3A",textAlign:"center",paddingHorizontal:25}}>Connect with podiatric specialists and healthcare providers near your area to get the best help </Text>
-    <TouchableOpacity>
+    <TouchableOpacity
+    onPress={()=>{navigation.navigate("Map")}}>
         <View style={styles.but2}>
             <Text style={{fontFamily:"CircularXXTTBold",color:"white", fontSize:17,textAlign:'center',marginRight:10}}>
             Find now
@@ -78,7 +113,9 @@ const Health = () => {
             />
           </View>
     </TouchableOpacity>
-    </View>}
+    </View>
+    }
+
     </ScrollView>
   )
 }
@@ -105,6 +142,22 @@ const styles = StyleSheet.create({
       paddingVertical:20,
       borderRadius:10,
       marginBottom:25,
+    },
+    warning:{
+      marginTop:20,
+      backgroundColor:"#FFEECD",
+      paddingHorizontal:15,
+      paddingVertical:20,
+      borderRadius:10,
+      marginBottom:25,
+      flexDirection:"row",
+    },
+    helptext:{
+      fontFamily:"CircularXXTTMedium",
+      fontSize:17,
+      marginLeft:10,
+      color:"#FFAA00",
+      lineHeight:24
     },
     innercontainer:{
       marginBottom:15
