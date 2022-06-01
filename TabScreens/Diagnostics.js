@@ -48,6 +48,15 @@ const Diagnostics = () => {
   const [sensedeight, setsensedeight] = useState(true);
   const [Qcount, setQcount] = useState(0);
 
+  const [leftperc, setleftperc] = useState(0);
+  const [rightperc, setrightperc] = useState(0);
+  const [leftcond, setleftcond] = useState(null);
+  const [rightcond, setrightcond] = useState(null);
+  const [med, setmed] = useState();
+  const [combine, setcombine] = useState(0);
+  
+
+
 
   const sensedata= async()=>{ 
 
@@ -72,7 +81,7 @@ const Diagnostics = () => {
       setsensedsevn(documentSnapshot.data().sense15);
       setsensedeight(documentSnapshot.data().sense16);
       setQcount(documentSnapshot.data().Qcount);
-      
+    
     });
   };
 
@@ -115,6 +124,51 @@ const Diagnostics = () => {
   
   };
 
+  const Measure =()=>{
+    
+    setleftperc(Number.parseFloat((countleft)*11.2 + 7.8).toFixed(1))
+    setrightperc(Number.parseFloat((countright)*11.2 + 7.8).toFixed(1))
+
+    if(countleft<=1){
+      setleftcond('Mild');
+    }
+    else if(countleft>1 && countleft<=4){
+      setleftcond('Moderate');
+    }
+    else if(countleft>4){
+      setleftcond('Severe');
+    }
+
+
+    if(countright<=1){
+      setrightcond('Mild');
+    }
+    else if(countright>1 && countright<=4){
+      setrightcond('Moderate');
+    }
+    else if(countright>4){
+      setrightcond('Severe');
+    }
+    
+  };
+
+
+  const CombinedData= async()=>{
+    
+    if(countleft+countright>3){
+      setmed('Recommended');
+    }
+    else{
+      setmed('Not Required');
+    }
+  await firestore().collection('Diagnosis').doc(user.uid).update({
+      severity:Math.round(((countright+countleft)*6.1 + 10.6)*10)/10,
+    }).then(() => {
+      console.log('Severity Updated!');
+      setcombine(Number.parseFloat((countright+countleft)*6.1 + 10.6).toFixed(1))
+    });
+  }
+
   const onRefresh = React.useCallback(() => {
     setRefreshing(true);
     sensedata();
@@ -129,7 +183,11 @@ const Diagnostics = () => {
       countload();
       }, [Qcount]);
 
-    
+    useEffect(()=>{
+      Measure();
+      CombinedData();
+    },[countleft,countright])
+
 
   return (
     <ScrollView 
@@ -171,17 +229,17 @@ const Diagnostics = () => {
         </View>
         <View style={styles.innercontainer}>
             <Text style={styles.title}>Level of Severity</Text>
-            <Text style={styles.entry}>75%</Text>
+            <Text style={styles.entry}>{leftperc}%</Text>
         </View>
     </View>
     <View>
         <View style={styles.innercontainer}>
             <Text style={styles.title}>Condition</Text>
-            <Text style={styles.entry}>Severe</Text>
+            <Text style={styles.entry}>{leftcond}</Text>
         </View>
         <View style={styles.innercontainer}>
-            <Text style={styles.title}>Region</Text>
-            <Text style={styles.entry}>Forefoot</Text>
+            <Text style={styles.title}></Text>
+            <Text style={styles.entry}></Text>
         </View>
     </View>
     </View>
@@ -197,17 +255,17 @@ const Diagnostics = () => {
         </View>
         <View style={styles.innercontainer}>
             <Text style={styles.title}>Level of Severity</Text>
-            <Text style={styles.entry}>35%</Text>
+            <Text style={styles.entry}>{rightperc}%</Text>
         </View>
     </View>
     <View>
         <View style={styles.innercontainer}>
             <Text style={styles.title}>Condition</Text>
-            <Text style={styles.entry}>Mild</Text>
+            <Text style={styles.entry}>{rightcond}</Text>
         </View>
         <View style={styles.innercontainer}>
-            <Text style={styles.title}>Region</Text>
-            <Text style={styles.entry}>Whole foot</Text>
+            <Text style={styles.title}></Text>
+            <Text style={styles.entry}></Text>
         </View>
     </View>
     </View>
@@ -261,11 +319,11 @@ const Diagnostics = () => {
     <View style={{flexDirection:"row",justifyContent:"space-between"}}>
     <View>
         <Text style={styles.ntitle}>Level of Severity</Text>
-        <Text style={styles.entry}>64%</Text>
+        <Text style={styles.entry}>{combine}%</Text>
     </View>
     <View>
       <Text style={styles.ntitle}>Medication</Text>
-      <Text style={styles.entry}>Recommended</Text>
+      <Text style={styles.entry}>{med}</Text>
     </View>
     </View>
     </View>
