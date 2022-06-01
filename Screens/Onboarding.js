@@ -48,7 +48,9 @@ const Onboarding = () => {
       <TouchableOpacity 
          onPress={()=>{
            onPressone();
-           onPresstwo();}}>
+           onPresstwo();
+           toggleSwitch();
+           }}>
           <View style={styles.but1}>
             <Text style={{fontFamily:"CircularXXTTBold",color:"white", fontSize:18,textAlign:'center',marginRight:10}}>
             Start 
