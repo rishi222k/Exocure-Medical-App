@@ -7,6 +7,7 @@ import Backarrow from '../Images/backarrow.svg'
 import DeviceIcon from '../Images/microchip.svg'
 import DeviceCard from '../Components/DeviceCard';
 import BluetoothSerial from 'react-native-bluetooth-serial'
+import Scanning from '../DummyScreens/Scanning';
 var _ = require('lodash');
 
 
@@ -20,12 +21,17 @@ const Connect = () => {
 
   useEffect(() => {
 
+    let cancel = false;
+
     BluetoothSerial.enable()
-    .then(() => console.log("Bluetooth is enabled"))
+    .then(() => {
+      if (cancel) return;
+      console.log("Bluetooth is enabled")})
     .catch((err) => Toast.showShortBottom(err.message))
 
     BluetoothSerial.discoverUnpairedDevices()
       .then((unpairedDevices) => {
+        if (cancel) return;
         const uniqueDevices = _.uniqBy(unpairedDevices, 'id');
         console.log(uniqueDevices);
         setunpaired(uniqueDevices)
@@ -37,77 +43,85 @@ const Connect = () => {
       BluetoothSerial.list()
     ])
     .then((values) => {
+      if (cancel) return;
       const [ isEnabled, devices ] = values
  
       setisEnabled(isEnabled);
       setdevices(devices);
     })
 
-    BluetoothSerial.on('bluetoothEnabled', () => {
+    // BluetoothSerial.on('bluetoothEnabled', () => {
  
-      Promise.all([
-        BluetoothSerial.isEnabled(),
-        BluetoothSerial.list()
-      ])
-      .then((values) => {
-        const [ isEnabled, devices ] = values
-        setdevices(devices);
-      })
+    //   Promise.all([
+    //     BluetoothSerial.isEnabled(),
+    //     BluetoothSerial.list()
+    //   ])
+    //   .then((values) => {
+    //     if (cancel) return;
+    //     const [ isEnabled, devices ] = values
+    //     setdevices(devices);
+    //   })
  
-      BluetoothSerial.on('bluetoothDisabled', () => {
+    //   BluetoothSerial.on('bluetoothDisabled', () => {
  
-        setdevices([]);
+    //     setdevices([]);
  
-      })
-      BluetoothSerial.on('error', (err) => console.log(`Error: ${err.message}`))
+    //   })
+    //   BluetoothSerial.on('error', (err) => console.log(`Error: ${err.message}`))
  
-    })
-    
+    // })
+    return () => { 
+    cancel = true;
+  }
   }, []);
 
 
-  const toggleSwitch=()=>{
-    BluetoothSerial.write("T")
-    .then((res) => {
-      console.log(res);
-      console.log('Successfuly wrote to device');
-    })
-    .catch((err) => console.log(err.message))
+  const disable =()=> {
+    BluetoothSerial.disable()
+    .then((res) => setisEnabled(false))
+    .catch((err) => Toast.showShortBottom(err.message))
   }
 
   
   return(
+    <>
+    {unpaired.length==0 ? <Scanning/>:
     <>
     <View style={{backgroundColor:"#fff",height:"100%"}}>
     <Backarrow
       width={25}
       height={25}
       style={{marginLeft:15,marginTop:20}}
-      onPress={()=>{navigation.navigate('TabNavigation', { screen: 'Sense' })}}
+      onPress={()=>{navigation.navigate('TabNavigation', { screen: 'Sense' })
+      disable();}}
     />
     <View style={{backgroundColor:"#fff",height:"100%",paddingHorizontal:"6%"}}>
     <Text style={{fontFamily:"SFNSBold",fontSize:25,marginVertical:25}}> Devices Nearby </Text>
 
     <FlatList
         keyExtractor={(item) => item.id}
-        data={devices}
+        data={unpaired}
         renderItem={({ item }) => <DeviceCard device={item} />}
+        style={{marginBottom:150}}
       />
 
     </View>
     </View>
     <View style={{height:"15%", position:"absolute",elevation:10,bottom:0,backgroundColor:"white",width:"100%"}}>
     <TouchableOpacity 
-    onPress={()=>{navigation.navigate("OnBoarding")}}>
+    onPress={()=>{
+      navigation.navigate("OnBoarding")}}>
           <View style={styles.but2}>
             <Text style={{fontFamily:"CircularXXTTBold",color:"white", fontSize:16,textAlign:'center'}}>
             Start Diagnosis 
             </Text>
           </View>
         </TouchableOpacity>
-    </View>
+    </View> 
     </>
-    
+
+    }
+    </>
   )
 }
 
