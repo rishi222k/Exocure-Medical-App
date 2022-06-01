@@ -2,6 +2,7 @@ import { StyleSheet, Text, View,ScrollView,Image,TouchableOpacity } from 'react-
 import { useNavigation } from '@react-navigation/native';
 import React from 'react'
 import BluetoothAnim from '../BluetoothAnim'
+import BluetoothSerial from 'react-native-bluetooth-serial'
 
 const Scanning = () => {
 
@@ -17,7 +18,10 @@ const Scanning = () => {
       Please wait for atleast 60 seconds before retrying </Text>
     </View>
     <TouchableOpacity
-      onPress={()=>{navigation.navigate('TabNavigation', { screen: 'Sense' })}}>
+      onPress={()=>{
+        navigation.navigate('TabNavigation', { screen: 'Sense' });
+        BluetoothSerial.disable();
+        }}>
         <View style={styles.but2}>
             <Text style={{fontFamily:"CircularXXTTBold",color:"white", fontSize:17,textAlign:'center'}}>
             Cancel
