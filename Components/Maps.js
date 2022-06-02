@@ -18,30 +18,6 @@ const Maps = () => {
   const navigation = useNavigation();
   const [location, setLocation] = useState(null) 
 
-  const handleLocationPermission = async () => { 
-    let permissionCheck = '';
-
-    if (Platform.OS === 'android') {
-      permissionCheck = await check(PERMISSIONS.ANDROID.ACCESS_FINE_LOCATION);
-
-      if (
-        permissionCheck === RESULTS.BLOCKED ||
-        permissionCheck === RESULTS.DENIED
-      ) {
-        const permissionRequest = await request(
-          PERMISSIONS.ANDROID.ACCESS_FINE_LOCATION,
-        );
-        permissionRequest === RESULTS.GRANTED
-          ? console.log('Location permission granted.')
-          : console.log('location permission denied.');
-      }
-    }
-  };
-
-  useEffect(() => {
-    handleLocationPermission()
-  }, [])
-
   useEffect(() => {
     Geolocation.getCurrentPosition(
       position => {
@@ -91,7 +67,6 @@ const Maps = () => {
       {Markers.map(marker =>(
         <Marker
           key={marker.key}
-          image={require('../Images/FootMarker.png')}
           coordinate={{
             latitude:marker.lat,
             longitude:marker.long,
@@ -99,7 +74,12 @@ const Maps = () => {
           identifier="Foot Clinic"
           title={marker.title}
           description={marker.address}
-        />
+        >
+        <Image 
+        source={require('../Images/FootMarker.png')} 
+        style={{height: 32, width:32}}
+        resizeMode="contain" />
+        </Marker>
       ))} 
       </MapView>
       )}
