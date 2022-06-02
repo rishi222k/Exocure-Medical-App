@@ -9,8 +9,10 @@ import SignedOut from './Navigation/SignedOut';
 import NavAuth from './Navigation/NavAuth';
 import { AuthProvider } from './Navigation/AuthProvider';
 import SignedIn from './Navigation/SignedIn';
+import {LogBox } from 'react-native';
 
 export default function App() {
+  LogBox.ignoreLogs(['Reanimated 2']);
   return (
     <SafeAreaProvider>
     <StatusBar style='auto'/>
