@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View,Button,ScrollView,TouchableOpacity } from 'react-native'
+import { StyleSheet, Text, View,Button,ScrollView,TouchableOpacity,ToastAndroid, Alert} from 'react-native'
 import DeviceIcon from '../Images/microchip.svg'
 import BluetoothSerial from 'react-native-bluetooth-serial'
 import React,{useEffect,useState} from 'react'
@@ -6,16 +6,29 @@ import React,{useEffect,useState} from 'react'
 
 const DeviceCard = ({device}) => {
 
-  // const [name, setname] = useState(device.name);
+  const [btntext, setbtntext] = useState("Connect Now");
+  const [bcolor, setbcolor] = useState(false);
 
     const Connection=(device)=>{
-        BluetoothSerial.connect(device.id)
-        .then((res) => {
-          console.log(`Connected to device ${device.name}`);
-          ToastAndroid.show(`Connected to device ${device.name}`, ToastAndroid.SHORT);
-          setconnected(true);
-        })
-        .catch((err) => console.log((err.message)))
+
+      const Mtimer= setTimeout(() => {
+        setbtntext("Connected");
+        setbcolor(true);
+        Alert.alert("Connection Established",`Connected to device ${device.name}`,
+          [{ text: "OK", onPress: () => console.log("OK Pressed") }]);
+      }, 5000);
+
+        // BluetoothSerial.connect(device.id)
+        // .then((res) => {
+        //   console.log(`Connected to device ${device.name}`);
+        //   setbtntext("Connected");
+        //   setbcolor(true);
+        //   Alert.alert("Connection Established",`Connected to device ${device.name}`,
+        //   [{ text: "OK", onPress: () => console.log("OK Pressed") }]);
+        // })
+        // .catch((err) => 
+        // Alert.alert("Error",(err.message),
+        //   [{ text: "OK", onPress: () => console.log("OK Pressed") }]))
     };
 
   return (
@@ -32,9 +45,9 @@ const DeviceCard = ({device}) => {
       </View>
       <TouchableOpacity 
       onPress={() => {Connection(device);}}>
-          <View style={styles.but1}>
+          <View style={[!bcolor? {backgroundColor:"black"}:{backgroundColor:"#0012FF"}, styles.but1]}>
             <Text style={{fontFamily:"CircularXXTTBold",color:"white", fontSize:16,textAlign:'center'}}>
-            Connect now 
+            {btntext} 
             </Text>
           </View>
         </TouchableOpacity>
@@ -49,7 +62,6 @@ export default DeviceCard
 const styles = StyleSheet.create({
     but1:{
         width:"90%",
-        backgroundColor:"black",
         borderRadius:5,
         paddingVertical:12,
         alignSelf:'center',
