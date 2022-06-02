@@ -19,9 +19,7 @@ const Scanning = () => {
     </View>
     <TouchableOpacity
       onPress={()=>{
-        navigation.navigate('TabNavigation', { screen: 'Sense' });
-        BluetoothSerial.disable();
-        }}>
+        navigation.navigate('TabNavigation', { screen: 'Sense' });}}>
         <View style={styles.but2}>
             <Text style={{fontFamily:"CircularXXTTBold",color:"white", fontSize:17,textAlign:'center'}}>
             Cancel
