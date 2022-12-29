@@ -50,26 +50,26 @@ const Connect = () => {
       setdevices(devices);
     })
 
-    // BluetoothSerial.on('bluetoothEnabled', () => {
+    BluetoothSerial.on('bluetoothEnabled', () => {
  
-    //   Promise.all([
-    //     BluetoothSerial.isEnabled(),
-    //     BluetoothSerial.list()
-    //   ])
-    //   .then((values) => {
-    //     if (cancel) return;
-    //     const [ isEnabled, devices ] = values
-    //     setdevices(devices);
-    //   })
+      Promise.all([
+        BluetoothSerial.isEnabled(),
+        BluetoothSerial.list()
+      ])
+      .then((values) => {
+        if (cancel) return;
+        const [ isEnabled, devices ] = values
+        setdevices(devices);
+      })
  
-    //   BluetoothSerial.on('bluetoothDisabled', () => {
+      BluetoothSerial.on('bluetoothDisabled', () => {
  
-    //     setdevices([]);
+        setdevices([]);
  
-    //   })
-    //   BluetoothSerial.on('error', (err) => console.log(`Error: ${err.message}`))
+      })
+      BluetoothSerial.on('error', (err) => console.log(`Error: ${err.message}`))
  
-    // })
+    })
     return () => { 
     cancel = true;
   }
@@ -85,22 +85,21 @@ const Connect = () => {
   
   return(
     <>
-    {unpaired.length==0 ? <Scanning/>:
+    {devices.length==0 ? <Scanning/>:
     <>
     <View style={{backgroundColor:"#fff",height:"100%"}}>
     <Backarrow
       width={25}
       height={25}
       style={{marginLeft:15,marginTop:20}}
-      onPress={()=>{navigation.navigate('TabNavigation', { screen: 'Sense' })
-      disable();}}
+      onPress={()=>{navigation.navigate('TabNavigation', { screen: 'Sense' })}}
     />
     <View style={{backgroundColor:"#fff",height:"100%",paddingHorizontal:"6%"}}>
     <Text style={{fontFamily:"SFNSBold",fontSize:25,marginVertical:25}}> Devices Nearby </Text>
 
     <FlatList
         keyExtractor={(item) => item.id}
-        data={unpaired}
+        data={devices}
         renderItem={({ item }) => <DeviceCard device={item} />}
         style={{marginBottom:150}}
       />
@@ -110,7 +109,8 @@ const Connect = () => {
     <View style={{height:"15%", position:"absolute",elevation:10,bottom:0,backgroundColor:"white",width:"100%"}}>
     <TouchableOpacity 
     onPress={()=>{
-      navigation.navigate("OnBoarding")}}>
+      navigation.navigate("OnBoarding")
+      disable();}}>
           <View style={styles.but2}>
             <Text style={{fontFamily:"CircularXXTTBold",color:"white", fontSize:16,textAlign:'center'}}>
             Start Diagnosis 

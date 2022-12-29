@@ -8,7 +8,7 @@ import firestore from '@react-native-firebase/firestore';
 import {AuthContext} from '../Navigation/AuthProvider';
 import Warning from '../Images/warning.svg'
 import Recommendations from '../Recommendations';
-
+import { check, request, PERMISSIONS, RESULTS } from "react-native-permissions"
 
 
 const wait = (timeout) => {
@@ -55,6 +55,28 @@ const Health = () => {
   CheckRecommendation();
 
   }, [severity])
+
+  const handleLocationPermission = async () => { 
+    let permissionCheck = '';
+
+    if (Platform.OS === 'android') {
+      permissionCheck = await check(PERMISSIONS.ANDROID.ACCESS_FINE_LOCATION);
+
+      if (
+        permissionCheck === RESULTS.BLOCKED ||
+        permissionCheck === RESULTS.DENIED
+      ) {
+        const permissionRequest = await request(
+          PERMISSIONS.ANDROID.ACCESS_FINE_LOCATION,
+        );
+        permissionRequest === RESULTS.GRANTED
+          ? navigation.navigate("Map")
+          : ToastAndroid.show(`Please enable location permissions to find footcare services near you`, ToastAndroid.SHORT);
+      }
+      else if(permissionCheck === RESULTS.GRANTED)
+      {navigation.navigate("Map")}
+    }
+  };
   
 
   return (
@@ -102,7 +124,7 @@ const Health = () => {
     />
     <Text style={{fontFamily:"CircularXXTTMedium",fontSize:17,color:"#3A3A3A",textAlign:"center",paddingHorizontal:25}}>Connect with podiatric specialists and healthcare providers near your area to get the best help </Text>
     <TouchableOpacity
-    onPress={()=>{navigation.navigate("Map")}}>
+    onPress={()=>{handleLocationPermission();}}>
         <View style={styles.but2}>
             <Text style={{fontFamily:"CircularXXTTBold",color:"white", fontSize:17,textAlign:'center',marginRight:10}}>
             Find now

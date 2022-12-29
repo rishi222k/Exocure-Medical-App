@@ -16,7 +16,7 @@ const DeviceCard = ({device}) => {
         setbcolor(true);
         Alert.alert("Connection Established",`Connected to device ${device.name}`,
           [{ text: "OK", onPress: () => console.log("OK Pressed") }]);
-      }, 5000);
+      }, 4000);
 
         // BluetoothSerial.connect(device.id)
         // .then((res) => {

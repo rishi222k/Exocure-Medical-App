@@ -49,7 +49,7 @@ const Onboarding = () => {
          onPress={()=>{
            onPressone();
            onPresstwo();
-           toggleSwitch();
+          //  toggleSwitch();
            }}>
           <View style={styles.but1}>
             <Text style={{fontFamily:"CircularXXTTBold",color:"white", fontSize:18,textAlign:'center',marginRight:10}}>
