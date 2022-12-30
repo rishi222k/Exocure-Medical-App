@@ -1,7 +1,7 @@
 {
   "expo": {
     "name": "Exocure",
-    "slug": "Exocure-Medical",
+    "slug": "exocure-medical-app",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/AppIcon.png",
@@ -44,6 +44,12 @@
     },
     "web": {
       "favicon": "./assets/AppIcon.png"
-    }
+    },
+    "extra": {
+      "eas": {
+        "projectId": "2a1800aa-0b3c-4965-83aa-0fd8e4d19a64"
+      }
+    },
+    "owner": "rishiraghu"
   }
 }
