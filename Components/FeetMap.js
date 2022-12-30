@@ -1,8 +1,6 @@
 import { StyleSheet, Text, View, Animated, Easing } from 'react-native'
 import Svg, {Path,Defs,Stop,RadialGradient,Ellipse,G} from 'react-native-svg';
-import firestore from '@react-native-firebase/firestore';
-import {AuthContext} from '../Navigation/AuthProvider';
-import React,{useState, useContext,useEffect,useRef} from 'react'
+import React from 'react'
 
 
 const FeetMap = ({senseone,sensetwo,sensethree,sensefour,sensefive,sensesix,sensesevn,senseight,sensedone,sensedtwo,sensedthree,sensedfour,sensedfive,sensedsix,sensedsevn,sensedeight}) => {

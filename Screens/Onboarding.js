@@ -1,34 +1,39 @@
 import { StyleSheet, Text, View,ScrollView,Image,TouchableOpacity } from 'react-native'
 import Frontarrow from '../Images/frontarrow.svg'
-import firestore from '@react-native-firebase/firestore';
+// import firestore from '@react-native-firebase/firestore';
+import { doc, updateDoc,increment} from "firebase/firestore";
+import {db} from "../firebaseConfig"
 import {AuthContext} from '../Navigation/AuthProvider';
 import React,{useState, useContext,useEffect,useRef} from 'react'
 import { useNavigation } from '@react-navigation/native';
-import BluetoothSerial from 'react-native-bluetooth-serial'
+// import BluetoothSerial from 'react-native-bluetooth-serial'
 
 const Onboarding = () => {
     const navigation = useNavigation();
     const {user,logout} = useContext(AuthContext);
 
-    const toggleSwitch=()=>{
-      BluetoothSerial.write("T")
-      .then((res) => {
-        console.log(res);
-        console.log('Successfuly wrote to device');
-      })
-      .catch((err) => console.log(err.message))
-    }
+    // const toggleSwitch=()=>{
+    //   BluetoothSerial.write("T")
+    //   .then((res) => {
+    //     console.log(res);
+    //     console.log('Successfuly wrote to device');
+    //   })
+    //   .catch((err) => console.log(err.message))
+    // }
 
     const onPressone=()=>{
       navigation.navigate("Diagnosis");
     };
 
     const onPresstwo= async()=>{
-      await firestore().collection('Diagnosis').doc(user.uid).update({
-        Qcount:firestore.FieldValue.increment(1),
+      const QRef = doc(db, "Diagnosis", user.uid);
+      await updateDoc(QRef,{
+        Qcount:increment(1),
       }).then(() => {
           console.log('Count updated on cloud firestore!');
-      });
+      }).catch((err=>{
+        console.log(err);
+      }));
     };
 
   return (

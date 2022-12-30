@@ -2,7 +2,9 @@ import { StyleSheet, Text, View,TouchableOpacity } from 'react-native'
 import React,{ useState,useEffect,useContext } from 'react'
 import { NavigationContainer, useNavigation } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-import firestore from '@react-native-firebase/firestore';
+// import firestore from '@react-native-firebase/firestore';
+import { doc, updateDoc } from "firebase/firestore";
+import {db} from "../firebaseConfig"
 import {AuthContext, AuthProvider} from '../Navigation/AuthProvider';
 
 
@@ -21,7 +23,8 @@ const QStack = () => {
 
       const timer= setTimeout(async() => {
         navigation.navigate('Ques2')
-        await firestore().collection('Diagnosis').doc(user.uid).update({
+        const QRef = doc(db, "Diagnosis", user.uid);
+        await updateDoc(QRef,{
           sense1: Qone,
           diagcheck:true,
         });
@@ -55,7 +58,8 @@ const QStack = () => {
     useEffect(() => {
       const timer= setTimeout(async() => {
         navigation.navigate('Ques3')
-        await firestore().collection('Diagnosis').doc(user.uid).update({
+        const QRef = doc(db, "Diagnosis", user.uid);
+        await updateDoc(QRef,{
           sense2: Qtwo,
         });
       }, 5000);
@@ -90,7 +94,8 @@ const QStack = () => {
      useEffect(() => {
       const timer= setTimeout(async() => {
         navigation.navigate('Ques4')
-        await firestore().collection('Diagnosis').doc(user.uid).update({
+        const QRef = doc(db, "Diagnosis", user.uid);
+        await updateDoc(QRef,{
           sense3: Qthree,
         });
       }, 5000);
@@ -125,7 +130,8 @@ const QStack = () => {
      useEffect(() => {
       const timer= setTimeout(async() => {
         navigation.navigate('Ques5')
-        await firestore().collection('Diagnosis').doc(user.uid).update({
+        const QRef = doc(db, "Diagnosis", user.uid);
+        await updateDoc(QRef,{
           sense4: Qfour,
         });
       }, 5000);
@@ -160,7 +166,8 @@ const QStack = () => {
      useEffect(() => {
       const timer= setTimeout(async() => {
         navigation.navigate('Ques6')
-        await firestore().collection('Diagnosis').doc(user.uid).update({
+        const QRef = doc(db, "Diagnosis", user.uid);
+        await updateDoc(QRef,{
           sense5: Qfive,
         });
       }, 5000);
@@ -195,7 +202,8 @@ const QStack = () => {
      useEffect(() => {
       const timer= setTimeout(async() => {
         navigation.navigate('Ques7')
-        await firestore().collection('Diagnosis').doc(user.uid).update({
+        const QRef = doc(db, "Diagnosis", user.uid);
+        await updateDoc(QRef,{
           sense6: Qsix,
         });
       }, 5000);
@@ -230,7 +238,8 @@ const QStack = () => {
      useEffect(() => {
       const timer= setTimeout(async() => {
         navigation.navigate('Ques8')
-        await firestore().collection('Diagnosis').doc(user.uid).update({
+        const QRef = doc(db, "Diagnosis", user.uid);
+        await updateDoc(QRef,{
           sense7: Qseven,
         });
       }, 5000);
@@ -265,7 +274,8 @@ const QStack = () => {
      useEffect(() => {
       const timer= setTimeout(async() => {
         navigation.navigate('Ques9')
-        await firestore().collection('Diagnosis').doc(user.uid).update({
+        const QRef = doc(db, "Diagnosis", user.uid);
+        await updateDoc(QRef,{
           sense8: Qeight,
         });
       }, 5000);
@@ -300,7 +310,8 @@ const QStack = () => {
      useEffect(() => {
       const timer= setTimeout(async() => {
         navigation.navigate('Ques10')
-        await firestore().collection('Diagnosis').doc(user.uid).update({
+        const QRef = doc(db, "Diagnosis", user.uid);
+        await updateDoc(QRef,{
           sense9: Qnine,
         });
       }, 5000);
@@ -335,7 +346,8 @@ const QStack = () => {
      useEffect(() => {
       const timer= setTimeout(async() => {
         navigation.navigate('Ques11')
-        await firestore().collection('Diagnosis').doc(user.uid).update({
+        const QRef = doc(db, "Diagnosis", user.uid);
+        await updateDoc(QRef,{
           sense10: Qten,
         });
       }, 5000);
@@ -370,7 +382,8 @@ const QStack = () => {
      useEffect(() => {
       const timer= setTimeout(async() => {
         navigation.navigate('Ques12')
-        await firestore().collection('Diagnosis').doc(user.uid).update({
+        const QRef = doc(db, "Diagnosis", user.uid);
+        await updateDoc(QRef,{
           sense11: Qelev,
         });
       }, 5000);
@@ -405,7 +418,8 @@ const QStack = () => {
      useEffect(() => {
       const timer= setTimeout(async() => {
         navigation.navigate('Ques13')
-        await firestore().collection('Diagnosis').doc(user.uid).update({
+        const QRef = doc(db, "Diagnosis", user.uid);
+        await updateDoc(QRef,{
           sense12: Qtwel,
         });
       }, 5000);
@@ -440,7 +454,8 @@ const QStack = () => {
      useEffect(() => {
       const timer= setTimeout(async() => {
         navigation.navigate('Ques14')
-        await firestore().collection('Diagnosis').doc(user.uid).update({
+        const QRef = doc(db, "Diagnosis", user.uid);
+        await updateDoc(QRef,{
           sense13: Qthir,
         });
       }, 5000);
@@ -475,7 +490,8 @@ const QStack = () => {
      useEffect(() => {
       const timer= setTimeout(async() => {
         navigation.navigate('Ques15')
-        await firestore().collection('Diagnosis').doc(user.uid).update({
+        const QRef = doc(db, "Diagnosis", user.uid);
+        await updateDoc(QRef,{
           sense14: Qfourt,
         });
       }, 5000);
@@ -510,7 +526,8 @@ const QStack = () => {
      useEffect(() => {
       const timer= setTimeout(async() => {
         navigation.navigate('Ques16')
-        await firestore().collection('Diagnosis').doc(user.uid).update({
+        const QRef = doc(db, "Diagnosis", user.uid);
+        await updateDoc(QRef,{
           sense15: Qfift,
         });
       }, 5000);
@@ -544,7 +561,8 @@ const QStack = () => {
 
     useEffect(() => {
       const timer= setTimeout(async() => {
-        await firestore().collection('Diagnosis').doc(user.uid).update({
+        const QRef = doc(db, "Diagnosis", user.uid);
+        await updateDoc(QRef,{
           sense16: Qsixt,
         });
       }, 5000);

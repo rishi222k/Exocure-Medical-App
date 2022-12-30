@@ -1,7 +1,9 @@
 import { View, Text,Button,ScrollView,Image,StyleSheet,TouchableOpacity } from 'react-native'
 import MedicalIcon2 from '../Images/MedicalIcon2.svg'
 import React,{useState, useContext,useEffect} from 'react'
-import firestore from '@react-native-firebase/firestore';
+// import firestore from '@react-native-firebase/firestore';
+import { doc, getDoc,updateDoc } from "firebase/firestore";
+import {db} from "../firebaseConfig"
 import {AuthContext} from '../Navigation/AuthProvider';
 import { useNavigation } from '@react-navigation/native';
 import data from '../QDictionary'
@@ -23,8 +25,8 @@ const MedicalInfo = () => {
 
     useEffect(() => {
         const userdata= async()=>{ 
-          const users = await firestore().collection('Users').doc(user.uid).get()
-          .then(documentSnapshot => {
+          const docRef = doc(db, 'Users', user.uid);
+          const users = await getDoc(docRef).then(documentSnapshot => {
             
             setCondition(data[5][documentSnapshot.data().question6]);
             setPain(data[11][documentSnapshot.data().question12]);

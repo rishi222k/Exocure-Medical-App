@@ -1,6 +1,8 @@
 import { RefreshControl,View, Text,Button,ScrollView,Image,StyleSheet,TouchableOpacity } from 'react-native'
 import React,{useState, useContext,useEffect} from 'react'
-import firestore from '@react-native-firebase/firestore';
+// import firestore from '@react-native-firebase/firestore';
+import { doc, getDoc,updateDoc } from "firebase/firestore";
+import {db} from "../firebaseConfig"
 import {AuthContext} from '../Navigation/AuthProvider';
 import { useNavigation } from '@react-navigation/native';
 import FeetMap from '../Components/FeetMap'
@@ -60,8 +62,8 @@ const Diagnostics = () => {
 
   const sensedata= async()=>{ 
 
-    const users = await firestore().collection('Diagnosis').doc(user.uid).get()
-    .then(documentSnapshot => {
+    const docRef = doc(db, 'Diagnosis', user.uid);
+    const users = await getDoc(docRef).then(documentSnapshot => {
       
       setsenseone(documentSnapshot.data().sense1);
       setsensetwo(documentSnapshot.data().sense2);
@@ -90,7 +92,8 @@ const Diagnostics = () => {
   const left = [senseone, sensetwo, sensethree, sensefour, sensefive,sensesix,sensesevn,senseight];
   const right = [sensedone, sensedtwo, sensedthree, sensedfour, sensedfive,sensedsix,sensedsevn,sensedeight];
 
-    await firestore().collection('Diagnosis').doc(user.uid).update({
+    const UpdateRef = doc(db, "Diagnosis", user.uid);
+    await updateDoc(UpdateRef,{
       cleft: 8-left.filter(Boolean).length,
       cright: 8-right.filter(Boolean).length,
     })
@@ -102,8 +105,8 @@ const Diagnostics = () => {
   };
 
   const userdata= async()=>{ 
-    const users = await firestore().collection('Users').doc(user.uid).get()
-    .then(documentSnapshot => {
+    const docRef = doc(db, 'Users', user.uid);
+    const users = await getDoc(docRef).then(documentSnapshot => {
       setCondition(data[5][documentSnapshot.data().question6]);
       setPain(data[11][documentSnapshot.data().question12]);
       setDeformity(data[9][documentSnapshot.data().question10]);
@@ -117,8 +120,8 @@ const Diagnostics = () => {
   };
 
   const diagdata= async()=>{ 
-    const users = await firestore().collection('Diagnosis').doc(user.uid).get()
-    .then(documentSnapshot => {
+    const docRef = doc(db, 'Diagnosis', user.uid);
+    const users = await getDoc(docRef).then(documentSnapshot => {
       setdiagcheck(documentSnapshot.data().diagcheck);
     });
   
@@ -161,7 +164,8 @@ const Diagnostics = () => {
     else{
       setmed('Not Required');
     }
-  await firestore().collection('Diagnosis').doc(user.uid).update({
+    const UpdateRef = doc(db, "Diagnosis", user.uid);
+    await updateDoc(UpdateRef,{
       severity:Math.round(((countright+countleft)*6.1 + 10.6)*10)/10,
     }).then(() => {
       console.log('Severity Updated!');

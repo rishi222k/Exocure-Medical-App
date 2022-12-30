@@ -203,7 +203,7 @@ const Donut = () => {
   return (
     <View>
     <View style={{flexDirection:"row",justifyContent:"center"}}>
-    <Text style={styles.head2}>Leg</Text>
+    <Text style={styles.head2}>Leg </Text>
     <AnimatedTextInput 
       ref={outInputRef}
       underlineColorAndroid="transparent"
@@ -340,6 +340,8 @@ const styles = StyleSheet.create({
     fontFamily:"SFProDisplaySemibold", 
     textAlign: 'center',
     color:"#AAAAAA",
-    fontWeight:"900"
+    fontWeight:"900",
+    marginTop:10,
+    marginBottom:10,
   },
 })

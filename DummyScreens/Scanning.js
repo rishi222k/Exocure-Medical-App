@@ -1,12 +1,21 @@
 import { StyleSheet, Text, View,ScrollView,Image,TouchableOpacity } from 'react-native'
 import { useNavigation } from '@react-navigation/native';
-import React from 'react'
+import React, { useEffect } from 'react'
 import BluetoothAnim from '../BluetoothAnim'
-import BluetoothSerial from 'react-native-bluetooth-serial'
+// import BluetoothSerial from 'react-native-bluetooth-serial'
 
 const Scanning = () => {
 
     const navigation = useNavigation();
+
+    useEffect(() => {
+
+      const timer= setTimeout(async() => {
+        navigation.navigate("Connect");
+      
+      }, 8000);
+      return () => clearTimeout(timer);
+    });
 
   return (
     <ScrollView style={{backgroundColor:"#fff",height:"100%"}}>

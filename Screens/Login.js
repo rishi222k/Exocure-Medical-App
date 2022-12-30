@@ -29,7 +29,7 @@ const Login = () => {
           resizeMode="contain" 
           style={{width:55,height:55,marginRight:5}}
           />
-          <Text style={{fontFamily:"SFNSBold",fontSize:30,marginTop:5,marginRight:15}}>MedFS</Text>
+          <Text style={{fontFamily:"SFNSBold",fontSize:30,marginTop:5,marginRight:15}}>Exocure</Text>
         </View>
 
         <Text style={{fontFamily:"SFNSBold",fontSize:25,marginBottom:20}}>Welcome Back !</Text>
@@ -63,7 +63,7 @@ const Login = () => {
           </View>
         </TouchableOpacity>
 
-        <View style={{flexDirection: 'row', alignItems: 'center'}}>
+        {/* <View style={{flexDirection: 'row', alignItems: 'center'}}>
           <View style={{flex: 1, height: 1, backgroundColor: '#CDCDCD',marginTop:1}} />
             <View>
             <Text 
@@ -90,7 +90,7 @@ const Login = () => {
             height={31}
             /></View>
         </TouchableOpacity>
-        </View>
+        </View> */}
       
       <Text style={{fontFamily:"CircularXXTTMedium",fontSize:17,width:"95%",color:"#6F6F6F", marginBottom:35,textAlign:'center'}}> Don't have an existing account? {'\n'} 
         <Text 

@@ -1,13 +1,18 @@
 {
   "expo": {
-    "name": "MedFS",
-    "slug": "MedFS",
+    "name": "Exocure",
+    "slug": "Exocure-Medical",
     "version": "1.0.0",
+    "orientation": "portrait",
     "icon": "./assets/AppIcon.png",
+    "userInterfaceStyle": "light",
     "splash": {
-      "image": "./assets/Splash.png",
+      "image": "./assets/splash.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
+    },
+    "updates": {
+      "fallbackToCacheTimeout": 0
     },
     "packagerOpts": {
       "config": "metro.config.js",
@@ -27,6 +32,18 @@
     },
     "assetBundlePatterns": [
       "**/*"
-    ]
+    ],
+    "ios": {
+      "supportsTablet": true
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#FFFFFF"
+      }
+    },
+    "web": {
+      "favicon": "./assets/AppIcon.png"
+    }
   }
 }

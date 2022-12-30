@@ -1,1 +1,1 @@
-# MedFS-MedicalApp
+# EXOCURE Medical App
