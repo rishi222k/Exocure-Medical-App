@@ -50,6 +50,9 @@
         "projectId": "2a1800aa-0b3c-4965-83aa-0fd8e4d19a64"
       }
     },
-    "owner": "rishiraghu"
+    "owner": "rishiraghu",
+    "plugins": [
+      "expo-font"
+    ]
   }
 }

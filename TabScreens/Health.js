@@ -12,6 +12,7 @@ import Warning from '../Images/warning.svg'
 import Recommendations from '../Recommendations';
 import * as Location from 'expo-location';
 import { Snackbar } from 'react-native-paper';
+import { Platform } from 'react-native';
 // import { check, request, PERMISSIONS, RESULTS } from "react-native-permissions"
 
 

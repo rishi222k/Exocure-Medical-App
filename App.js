@@ -11,6 +11,7 @@ import NavAuth from './Navigation/NavAuth';
 import { AuthProvider } from './Navigation/AuthProvider';
 import SignedIn from './Navigation/SignedIn';
 import {LogBox } from 'react-native';
+import { Platform } from 'react-native';
 
 export default function App() {
 
