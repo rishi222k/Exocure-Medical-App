@@ -17,7 +17,7 @@ const DeviceCard = params => {
         params.setconnected(true);
         Alert.alert("Connection Established",`Connected to Exocure Device`,
           [{ text: "OK", onPress: () => console.log("Connecting Bluetooth Device") }]);
-      }, 4000);
+      }, 2500);
 
         // BluetoothSerial.connect(device.id)
         // .then((res) => {

@@ -34,7 +34,7 @@ const QStack = () => {
     return (
       <View style={styles.stackscreen}>
         <Text style={styles.queshead}>Question 1 of 8</Text>
-        <Text style={styles.question}>Do you feel any pain, tingling sensations or vibrations on your right leg from motor 1 ?</Text>
+        <Text style={styles.question}>Do you feel a sensation or vibration on the bottom of your right foot?</Text>
         <View style={styles.ansrow}>
         <TouchableOpacity onPress={()=>{setQone(true);}}>
           <View style={[styles.but1, Qone ? styles.newbg : styles.oldbg]}>
@@ -70,7 +70,7 @@ const QStack = () => {
     return (
       <View style={styles.stackscreen}>
         <Text style={styles.queshead}>Question 2 of 8</Text>
-        <Text style={styles.question}>Do you feel any pain, tingling sensations or vibrations on your right leg from motor 2 ?</Text>
+        <Text style={styles.question}>Do you feel a sensation or vibration on the bottom of your right foot?</Text>
         <View style={styles.ansrow}>
         <TouchableOpacity onPress={()=>{setQtwo(true)}}>
           <View style={[styles.but1, Qtwo ? styles.newbg : styles.oldbg]}>
@@ -106,7 +106,7 @@ const QStack = () => {
     return (
       <View style={styles.stackscreen}>
         <Text style={styles.queshead}>Question 3 of 8</Text>
-        <Text style={styles.question}>Do you feel any pain, tingling sensations or vibrations on your right leg from motor 3 ?</Text>
+        <Text style={styles.question}>Do you feel a sensation or vibration on the bottom of your right foot?</Text>
         <View style={styles.ansrow}>
         <TouchableOpacity onPress={()=>{setQthree(true)}}>
           <View style={[styles.but1, Qthree ? styles.newbg : styles.oldbg]}>
@@ -142,7 +142,7 @@ const QStack = () => {
     return (
       <View style={styles.stackscreen}>
         <Text style={styles.queshead}>Question 4 of 8</Text>
-        <Text style={styles.question}>Do you feel any pain, tingling sensations or vibrations on your right leg from motor 4 ?</Text>
+        <Text style={styles.question}>Do you feel a sensation or vibration on the bottom of your right foot?</Text>
         <View style={styles.ansrow}>
         <TouchableOpacity onPress={()=>{setQfour(true)}}>
           <View style={[styles.but1, Qfour ? styles.newbg : styles.oldbg]}>
@@ -178,7 +178,7 @@ const QStack = () => {
     return (
       <View style={styles.stackscreen}>
         <Text style={styles.queshead}>Question 5 of 8</Text>
-        <Text style={styles.question}>Do you feel any pain, tingling sensations or vibrations on your right leg from motor 5 ?</Text>
+        <Text style={styles.question}>Do you feel a sensation or vibration on the bottom of your right foot?</Text>
         <View style={styles.ansrow}>
         <TouchableOpacity onPress={()=>{setQfive(true)}}>
           <View style={[styles.but1, Qfive ? styles.newbg : styles.oldbg]}>
@@ -214,7 +214,7 @@ const QStack = () => {
     return (
       <View style={styles.stackscreen}>
         <Text style={styles.queshead}>Question 6 of 8</Text>
-        <Text style={styles.question}>Do you feel any pain, tingling sensations or vibrations on your right leg from motor 6 ?</Text>
+        <Text style={styles.question}>Do you feel a sensation or vibration on the bottom of your right foot?</Text>
         <View style={styles.ansrow}>
         <TouchableOpacity onPress={()=>{setQsix(true)}}>
           <View style={[styles.but1, Qsix ? styles.newbg : styles.oldbg]}>
@@ -250,7 +250,7 @@ const QStack = () => {
     return (
       <View style={styles.stackscreen}>
         <Text style={styles.queshead}>Question 7 of 8</Text>
-        <Text style={styles.question}>Do you feel any pain, tingling sensations or vibrations on your right leg from motor 7 ?</Text>
+        <Text style={styles.question}>Do you feel a sensation or vibration on the bottom of your right foot?</Text>
         <View style={styles.ansrow}>
         <TouchableOpacity onPress={()=>{setQseven(true)}}>
           <View style={[styles.but1, Qseven ? styles.newbg : styles.oldbg]}>
@@ -286,7 +286,7 @@ const QStack = () => {
     return (
       <View style={styles.stackscreen}>
         <Text style={styles.queshead}>Question 8 of 8</Text>
-        <Text style={styles.question}>Do you feel any pain, tingling sensations or vibrations on your right leg from motor 8 ?</Text>
+        <Text style={styles.question}>Do you feel a sensation or vibration on the bottom of your right foot?</Text>
         <View style={styles.ansrow}>
         <TouchableOpacity onPress={()=>{setQeight(true)}}>
           <View style={[styles.but1, Qeight ? styles.newbg : styles.oldbg]}>
@@ -322,7 +322,7 @@ const QStack = () => {
     return (
       <View style={styles.stackscreen}>
         <Text style={styles.queshead}>Question 1 of 8</Text>
-        <Text style={styles.question}>Do you feel any pain, tingling sensations or vibrations on your left leg from motor 1 ?</Text>
+        <Text style={styles.question}>Do you feel a sensation or vibration on the bottom of your left foot?</Text>
         <View style={styles.ansrow}>
         <TouchableOpacity onPress={()=>{setQnine(true)}}>
           <View style={[styles.but1, Qnine ? styles.newbg : styles.oldbg]}>
@@ -358,7 +358,7 @@ const QStack = () => {
     return (
       <View style={styles.stackscreen}>
         <Text style={styles.queshead}>Question 2 of 8</Text>
-        <Text style={styles.question}>Do you feel any pain, tingling sensations or vibrations on your left leg from motor 2 ?</Text>
+        <Text style={styles.question}>Do you feel a sensation or vibration on the bottom of your left foot?</Text>
         <View style={styles.ansrow}>
         <TouchableOpacity onPress={()=>{setQten(true)}}>
           <View style={[styles.but1, Qten ? styles.newbg : styles.oldbg]}>
@@ -394,7 +394,7 @@ const QStack = () => {
     return (
       <View style={styles.stackscreen}>
         <Text style={styles.queshead}>Question 3 of 8</Text>
-        <Text style={styles.question}>Do you feel any pain, tingling sensations or vibrations on your left leg from motor 3 ?</Text>
+        <Text style={styles.question}>Do you feel a sensation or vibration on the bottom of your left foot?</Text>
         <View style={styles.ansrow}>
         <TouchableOpacity onPress={()=>{setQelev(true)}}>
           <View style={[styles.but1, Qelev ? styles.newbg : styles.oldbg]}>
@@ -430,7 +430,7 @@ const QStack = () => {
     return (
       <View style={styles.stackscreen}>
         <Text style={styles.queshead}>Question 4 of 8</Text>
-        <Text style={styles.question}>Do you feel any pain, tingling sensations or vibrations on your left leg from motor 4 ?</Text>
+        <Text style={styles.question}>Do you feel a sensation or vibration on the bottom of your left foot?</Text>
         <View style={styles.ansrow}>
         <TouchableOpacity onPress={()=>{setQtwel(true)}}>
           <View style={[styles.but1, Qtwel ? styles.newbg : styles.oldbg]}>
@@ -466,7 +466,7 @@ const QStack = () => {
     return (
       <View style={styles.stackscreen}>
         <Text style={styles.queshead}>Question 5 of 8</Text>
-        <Text style={styles.question}>Do you feel any pain, tingling sensations or vibrations on your left leg from motor 5 ?</Text>
+        <Text style={styles.question}>Do you feel a sensation or vibration on the bottom of your left foot?</Text>
         <View style={styles.ansrow}>
         <TouchableOpacity onPress={()=>{setQthir(true)}}>
           <View style={[styles.but1, Qthir ? styles.newbg : styles.oldbg]}>
@@ -502,7 +502,7 @@ const QStack = () => {
     return (
       <View style={styles.stackscreen}>
         <Text style={styles.queshead}>Question 6 of 8</Text>
-        <Text style={styles.question}>Do you feel any pain, tingling sensations or vibrations on your left leg from motor 6 ?</Text>
+        <Text style={styles.question}>Do you feel a sensation or vibration on the bottom of your left foot?</Text>
         <View style={styles.ansrow}>
         <TouchableOpacity onPress={()=>{setQfourt(true)}}>
           <View style={[styles.but1, Qfourt ? styles.newbg : styles.oldbg]}>
@@ -538,7 +538,7 @@ const QStack = () => {
     return (
       <View style={styles.stackscreen}>
         <Text style={styles.queshead}>Question 7 of 8</Text>
-        <Text style={styles.question}>Do you feel any pain, tingling sensations or vibrations on your left leg from motor 7 ?</Text>
+        <Text style={styles.question}>Do you feel a sensation or vibration on the bottom of your left foot?</Text>
         <View style={styles.ansrow}>
         <TouchableOpacity onPress={()=>{setQfift(true)}}>
           <View style={[styles.but1, Qfift ? styles.newbg : styles.oldbg]}>
@@ -571,7 +571,7 @@ const QStack = () => {
     return (
       <View style={styles.stackscreen}>
         <Text style={styles.queshead}>Question 8 of 8</Text>
-        <Text style={styles.question}>Do you feel any pain, tingling sensations or vibrations on your left leg from motor 8 ?</Text>
+        <Text style={styles.question}>Do you feel a sensation or vibration on the bottom of your left foot?</Text>
         <View style={styles.ansrow}>
         <TouchableOpacity onPress={()=>{setQsixt(true)}}>
           <View style={[styles.but1, Qsixt ? styles.newbg : styles.oldbg]}>
