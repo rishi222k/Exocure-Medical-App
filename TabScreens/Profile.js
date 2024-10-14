@@ -5,7 +5,9 @@ import Notification from '../Images/Notifications.svg'
 import Medical from '../Images/MedicalIcon.svg'
 import React,{useState, useContext,useEffect} from 'react'
 import { useNavigation } from '@react-navigation/native';
-import firestore from '@react-native-firebase/firestore';
+import { doc, getDoc } from "firebase/firestore";
+import {db} from "../firebaseConfig"
+// import firestore from '@react-native-firebase/firestore';
 import ProfileImg from '../Images/profile.svg'
 import data from '../QDictionary'
 
@@ -22,8 +24,8 @@ const Profile = () => {
 
    useEffect(() => {
     const userdata= async()=>{ 
-      const users = await firestore().collection('Users').doc(user.uid).get()
-      .then(documentSnapshot => {
+      const docRef = doc(db, 'Users', user.uid);
+      const users = await getDoc(docRef).then(documentSnapshot => {
         
         setname(documentSnapshot.data().name);
         setemail(documentSnapshot.data().email);
@@ -49,8 +51,8 @@ const Profile = () => {
       style={{marginRight:25}}
       />
       <View>
-        <Text style={{fontFamily:"CircularXXTTBold",fontSize:21, color:"#3A3A3A"}}>{name}</Text>
-        <Text style={{fontFamily:"CircularXXTTMedium",fontSize:16,color:"#3A3A3A"}}>{email}</Text>
+        <Text style={{fontFamily:"CircularXX-TTBold",fontSize:21, color:"#3A3A3A"}}>{name}</Text>
+        <Text style={{fontFamily:"CircularXX-TTMedium",fontSize:16,color:"#3A3A3A"}}>{email}</Text>
       </View>
     </View>
     
@@ -110,7 +112,7 @@ const Profile = () => {
     <TouchableOpacity 
     onPress={()=> logout()}>
         <View style={styles.but2}>
-            <Text style={{fontFamily:"CircularXXTTBold",color:"white", fontSize:18,textAlign:'center'}}>
+            <Text style={{fontFamily:"CircularXX-TTBold",color:"white", fontSize:18,textAlign:'center'}}>
             Logout
             </Text>
           </View>
@@ -124,13 +126,13 @@ export default Profile
 
 const styles = StyleSheet.create({
   title:{
-    fontFamily:"CircularXXTTBold",
+    fontFamily:"CircularXX-TTBold",
     fontSize:15,
     color:'#FFAA00',
 
   },
   entry:{
-    fontFamily:"CircularXXTTMedium",
+    fontFamily:"CircularXX-TTMedium",
     fontSize:17,
     color:'#3A3A3A',
   },
@@ -142,7 +144,7 @@ const styles = StyleSheet.create({
     alignItems:"center"
   },
   MenuBarText:{
-    fontFamily:"CircularXXTTMedium",
+    fontFamily:"CircularXX-TTMedium",
     fontSize:16,
     color:'#3A3A3A',
     marginLeft:22,

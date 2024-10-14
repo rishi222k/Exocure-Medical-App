@@ -27,12 +27,12 @@ const TabNavigation = () => {
       <Tab.Navigator 
       screenOptions={({route}) => ({
         tabBarStyle:{
-          height:67,
-          paddingTop:7,
-          elevation:0},
+          height:100,
+          paddingTop:15,},
         tabBarLabelStyle:{
-          marginBottom:9,
-          fontFamily:"SFProDisplaySemibold"
+          fontFamily:"SF-Pro-Semibold",
+          marginTop:5,
+          marginBottom:10,
         },
 
         tabBarIcon: ({ focused }) => {
@@ -71,7 +71,6 @@ const TabNavigation = () => {
         <Tab.Screen name="Diagnostics" component={Diagnostics}/>
         <Tab.Screen name="Profile" component={Profile}/>
       </Tab.Navigator>
-    
     </>
   )
 }

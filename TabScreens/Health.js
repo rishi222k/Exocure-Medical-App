@@ -4,11 +4,16 @@ import HealthIllus from '../Images/HealthIllus.svg'
 import Frontarrow from '../Images/frontarrow.svg'
 import DummyHealth from '../DummyScreens/DummyHealth';
 import React,{useState, useContext,useEffect} from 'react'
-import firestore from '@react-native-firebase/firestore';
+// import firestore from '@react-native-firebase/firestore';
+import { doc, getDoc } from "firebase/firestore";
+import {db} from "../firebaseConfig"
 import {AuthContext} from '../Navigation/AuthProvider';
 import Warning from '../Images/warning.svg'
 import Recommendations from '../Recommendations';
-import { check, request, PERMISSIONS, RESULTS } from "react-native-permissions"
+import * as Location from 'expo-location';
+import { Snackbar } from 'react-native-paper';
+import { Platform } from 'react-native';
+// import { check, request, PERMISSIONS, RESULTS } from "react-native-permissions"
 
 
 const wait = (timeout) => {
@@ -21,11 +26,12 @@ const Health = () => {
   const [severity, setseverity] = useState(null);
   const [Rcheck, setRcheck] = useState(0);
   const {user,logout} = useContext(AuthContext);
+  const [errorMsg, setErrorMsg] = useState(false);
   const [refreshing, setRefreshing] = React.useState(false);
 
   const sensedata= async()=>{ 
-    const users = await firestore().collection('Diagnosis').doc(user.uid).get()
-    .then(documentSnapshot => {
+    const docRef = doc(db, 'Diagnosis', user.uid);
+    const users = await getDoc(docRef).then(documentSnapshot => {
       setdiagcheck(documentSnapshot.data().diagcheck);
       setseverity(documentSnapshot.data().severity);
     });
@@ -33,9 +39,9 @@ const Health = () => {
   };
 
   const CheckRecommendation =()=>{
-    if(severity>=0 && severity<=10)
+    if(severity>=0 && severity<=20)
     {setRcheck(0);}
-    else if(severity>10 && severity<=50)
+    else if(severity>20 && severity<=50)
     {setRcheck(1);}
     else if(severity>0 && severity<=100)
     {setRcheck(2);}
@@ -57,25 +63,35 @@ const Health = () => {
   }, [severity])
 
   const handleLocationPermission = async () => { 
-    let permissionCheck = '';
+    
 
-    if (Platform.OS === 'android') {
-      permissionCheck = await check(PERMISSIONS.ANDROID.ACCESS_FINE_LOCATION);
-
-      if (
-        permissionCheck === RESULTS.BLOCKED ||
-        permissionCheck === RESULTS.DENIED
-      ) {
-        const permissionRequest = await request(
-          PERMISSIONS.ANDROID.ACCESS_FINE_LOCATION,
-        );
-        permissionRequest === RESULTS.GRANTED
-          ? navigation.navigate("Map")
-          : ToastAndroid.show(`Please enable location permissions to find footcare services near you`, ToastAndroid.SHORT);
+    let { status } = await Location.requestForegroundPermissionsAsync();
+      if (status !== 'granted') {
+        setErrorMsg(true);
+        return;
       }
-      else if(permissionCheck === RESULTS.GRANTED)
-      {navigation.navigate("Map")}
-    }
+      else if(status==='granted'){
+        navigation.navigate("Map");
+      }
+
+    // let permissionCheck = '';
+    // if (Platform.OS === 'android') {
+    //   permissionCheck = await check(PERMISSIONS.ANDROID.ACCESS_FINE_LOCATION);
+
+    //   if (
+    //     permissionCheck === RESULTS.BLOCKED ||
+    //     permissionCheck === RESULTS.DENIED
+    //   ) {
+    //     const permissionRequest = await request(
+    //       PERMISSIONS.ANDROID.ACCESS_FINE_LOCATION,
+    //     );
+    //     permissionRequest === RESULTS.GRANTED
+    //       ? navigation.navigate("Map")
+    //       : ToastAndroid.show(`Please enable location permissions to find footcare services near you`, ToastAndroid.SHORT);
+    //   }
+    //   else if(permissionCheck === RESULTS.GRANTED)
+    //   {navigation.navigate("Map")}
+    // }
   };
   
 
@@ -89,7 +105,7 @@ const Health = () => {
     }>
     {!diagcheck? <DummyHealth/> :
     <View style={{backgroundColor:"#fff",height:"100%",paddingHorizontal:"6%"}}>
-    <Text style={{fontFamily:"SFNSBold",fontSize:25,marginTop:30}}>Healthcare Support</Text>
+    <Text style={{fontFamily:"SF-Pro-Bold",fontSize:25,marginTop:30}}>Healthcare Support</Text>
     {severity==null? 
     <View style={styles.warning}>
       <View>
@@ -122,11 +138,11 @@ const Health = () => {
       height={230}
       style={{alignSelf:"center"}}
     />
-    <Text style={{fontFamily:"CircularXXTTMedium",fontSize:17,color:"#3A3A3A",textAlign:"center",paddingHorizontal:25}}>Connect with podiatric specialists and healthcare providers near your area to get the best help </Text>
+    <Text style={{fontFamily:"CircularXX-TTMedium",fontSize:17,color:"#3A3A3A",textAlign:"center",paddingHorizontal:25}}>Connect with podiatric specialists and healthcare providers near your area to get the best help </Text>
     <TouchableOpacity
     onPress={()=>{handleLocationPermission();}}>
         <View style={styles.but2}>
-            <Text style={{fontFamily:"CircularXXTTBold",color:"white", fontSize:17,textAlign:'center',marginRight:10}}>
+            <Text style={{fontFamily:"CircularXX-TTBold",color:"white", fontSize:17,textAlign:'center',marginRight:10}}>
             Find now
             </Text>
             <Frontarrow 
@@ -135,6 +151,12 @@ const Health = () => {
             />
           </View>
     </TouchableOpacity>
+    <Snackbar
+      visible={errorMsg}
+      onDismiss={() => setErrorMsg(false)}
+      duration={6000}>
+      Location Permission Denied! Please enable location permission to use this feature. 
+    </Snackbar>
     </View>
     }
 
@@ -146,13 +168,13 @@ export default Health
 
 const styles = StyleSheet.create({
   title:{
-      fontFamily:"CircularXXTTBold",
+      fontFamily:"CircularXX-TTBold",
       fontSize:17,
       color:'#FFAA00',
       marginBottom:1,
     },
     entry:{
-      fontFamily:"CircularXXTTMedium",
+      fontFamily:"CircularXX-TTMedium",
       fontSize:17,
       color:'#3A3A3A',
       lineHeight:25
@@ -175,7 +197,7 @@ const styles = StyleSheet.create({
       flexDirection:"row",
     },
     helptext:{
-      fontFamily:"CircularXXTTMedium",
+      fontFamily:"CircularXX-TTMedium",
       fontSize:17,
       marginLeft:10,
       color:"#FFAA00",

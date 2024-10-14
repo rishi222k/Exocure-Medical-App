@@ -27,10 +27,10 @@ const SignUp = () => {
       resizeMode="contain" 
       style={{width:55,height:55,marginRight:5}}
       />
-      <Text style={{fontFamily:"SFNSBold",fontSize:30,marginTop:5,marginRight:15}}>MedFS</Text>
+      <Text style={{fontFamily:"SF-Pro-Bold",fontSize:30,marginTop:5,marginRight:15}}>Exocure</Text>
     </View>
 
-    <Text style={{fontFamily:"SFNSBold",fontSize:25,marginBottom:20}}>Create an account</Text>
+    <Text style={{fontFamily:"SF-Pro-Bold",fontSize:25,marginBottom:20}}>Create an account</Text>
 
     <View style={{alignItems:'center'}}>
     <TextInput
@@ -70,25 +70,25 @@ const SignUp = () => {
       theme={{colors: { background: '#fff',primary:'#0012FF'},}}
       onChangeText={(text) => setPassword(text)}
     />
-    <Text style={{fontFamily:"CircularXXTTMedium",fontSize:15,width:"95%",color:"#6F6F6F", marginBottom:35,}}>By signing up, you agree to our <Text style={{color:"#FFB31D"}}> Terms & Conditions</Text> and <Text style={{color:"#FFB31D"}}>Privacy Policy </Text> </Text>
+    <Text style={{fontFamily:"CircularXX-TTMedium",fontSize:15,width:"95%",color:"#6F6F6F", marginBottom:35,}}>By signing up, you agree to our <Text style={{color:"#FFB31D"}}> Terms & Conditions</Text> and <Text style={{color:"#FFB31D"}}>Privacy Policy </Text> </Text>
     </View>
 
       <TouchableOpacity 
       onPress={()=>{register(name,age,email,password)}}>
         <View style={styles.but1}>
-          <Text style={{fontFamily:"CircularXXTTBold",color:"white", fontSize:18,textAlign:'center'}}>Sign up with email</Text>
+          <Text style={{fontFamily:"CircularXX-TTBold",color:"white", fontSize:18,textAlign:'center'}}>Sign up with email</Text>
         </View>
       </TouchableOpacity>
 
-      <View style={{flexDirection: 'row', alignItems: 'center'}}>
+      {/* <View style={{flexDirection: 'row', alignItems: 'center'}}>
         <View style={{flex: 1, height: 1, backgroundColor: '#CDCDCD',marginTop:1}} />
           <View>
-            <Text style={{fontFamily:"CircularXXTTMedium",paddingHorizontal:7,textAlign: 'center',color:"#CDCDCD",fontSize:17}}>Or signup with </Text>
+            <Text style={{fontFamily:"CircularXX-TTMedium",paddingHorizontal:7,textAlign: 'center',color:"#CDCDCD",fontSize:17}}>Or signup with </Text>
           </View>
         <View style={{flex: 1, height: 1, backgroundColor: '#CDCDCD',marginTop:1}} />
-      </View>
+      </View> */}
 
-      <View style={{flexDirection:'row',alignItems:'center',justifyContent:'space-around', marginTop:40,  marginBottom:40}}>
+      {/* <View style={{flexDirection:'row',alignItems:'center',justifyContent:'space-around', marginTop:40,  marginBottom:40}}>
       
       <TouchableOpacity>
       <View style={styles.ops}>
@@ -106,11 +106,11 @@ const SignUp = () => {
         /></View>
       </TouchableOpacity>
       
-      </View>
+      </View> */}
       
-      <Text style={{fontFamily:"CircularXXTTMedium",fontSize:17,width:"95%",color:"#6F6F6F", marginBottom:35,textAlign:'center'}}> Already have an account?  {'\n'} 
+      <Text style={{fontFamily:"CircularXX-TTMedium",fontSize:17,width:"95%",color:"#6F6F6F", marginBottom:35,textAlign:'center'}}> Already have an account?  {'\n'} 
         <Text 
-        style={{fontFamily:"CircularXXTTMedium",fontSize:17,color:"#FFB31D"}}
+        style={{fontFamily:"CircularXX-TTMedium",fontSize:17,color:"#FFB31D"}}
         onPress={()=> navigation.navigate("Login")}> Login here
         </Text>
       </Text>

@@ -2,7 +2,9 @@ import { StyleSheet, Text, View,TouchableOpacity } from 'react-native'
 import React,{ useState,useEffect,useContext } from 'react'
 import { NavigationContainer, useNavigation } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-import firestore from '@react-native-firebase/firestore';
+// import firestore from '@react-native-firebase/firestore';
+import { doc, updateDoc } from "firebase/firestore";
+import {db} from "../firebaseConfig"
 import {AuthContext, AuthProvider} from '../Navigation/AuthProvider';
 
 
@@ -21,7 +23,8 @@ const QStack = () => {
 
       const timer= setTimeout(async() => {
         navigation.navigate('Ques2')
-        await firestore().collection('Diagnosis').doc(user.uid).update({
+        const QRef = doc(db, "Diagnosis", user.uid);
+        await updateDoc(QRef,{
           sense1: Qone,
           diagcheck:true,
         });
@@ -31,7 +34,7 @@ const QStack = () => {
     return (
       <View style={styles.stackscreen}>
         <Text style={styles.queshead}>Question 1 of 8</Text>
-        <Text style={styles.question}>Can you feel sensory vibrations on your right leg from motor 1 ?</Text>
+        <Text style={styles.question}>Do you feel a sensation or vibration on the bottom of your right foot?</Text>
         <View style={styles.ansrow}>
         <TouchableOpacity onPress={()=>{setQone(true);}}>
           <View style={[styles.but1, Qone ? styles.newbg : styles.oldbg]}>
@@ -55,7 +58,8 @@ const QStack = () => {
     useEffect(() => {
       const timer= setTimeout(async() => {
         navigation.navigate('Ques3')
-        await firestore().collection('Diagnosis').doc(user.uid).update({
+        const QRef = doc(db, "Diagnosis", user.uid);
+        await updateDoc(QRef,{
           sense2: Qtwo,
         });
       }, 5000);
@@ -66,7 +70,7 @@ const QStack = () => {
     return (
       <View style={styles.stackscreen}>
         <Text style={styles.queshead}>Question 2 of 8</Text>
-        <Text style={styles.question}>Can you feel sensory vibrations on your right leg from motor 2 ?</Text>
+        <Text style={styles.question}>Do you feel a sensation or vibration on the bottom of your right foot?</Text>
         <View style={styles.ansrow}>
         <TouchableOpacity onPress={()=>{setQtwo(true)}}>
           <View style={[styles.but1, Qtwo ? styles.newbg : styles.oldbg]}>
@@ -90,7 +94,8 @@ const QStack = () => {
      useEffect(() => {
       const timer= setTimeout(async() => {
         navigation.navigate('Ques4')
-        await firestore().collection('Diagnosis').doc(user.uid).update({
+        const QRef = doc(db, "Diagnosis", user.uid);
+        await updateDoc(QRef,{
           sense3: Qthree,
         });
       }, 5000);
@@ -101,7 +106,7 @@ const QStack = () => {
     return (
       <View style={styles.stackscreen}>
         <Text style={styles.queshead}>Question 3 of 8</Text>
-        <Text style={styles.question}>Can you feel sensory vibrations on your right leg from motor 3 ?</Text>
+        <Text style={styles.question}>Do you feel a sensation or vibration on the bottom of your right foot?</Text>
         <View style={styles.ansrow}>
         <TouchableOpacity onPress={()=>{setQthree(true)}}>
           <View style={[styles.but1, Qthree ? styles.newbg : styles.oldbg]}>
@@ -125,7 +130,8 @@ const QStack = () => {
      useEffect(() => {
       const timer= setTimeout(async() => {
         navigation.navigate('Ques5')
-        await firestore().collection('Diagnosis').doc(user.uid).update({
+        const QRef = doc(db, "Diagnosis", user.uid);
+        await updateDoc(QRef,{
           sense4: Qfour,
         });
       }, 5000);
@@ -136,7 +142,7 @@ const QStack = () => {
     return (
       <View style={styles.stackscreen}>
         <Text style={styles.queshead}>Question 4 of 8</Text>
-        <Text style={styles.question}>Can you feel sensory vibrations on your right leg from motor 4 ?</Text>
+        <Text style={styles.question}>Do you feel a sensation or vibration on the bottom of your right foot?</Text>
         <View style={styles.ansrow}>
         <TouchableOpacity onPress={()=>{setQfour(true)}}>
           <View style={[styles.but1, Qfour ? styles.newbg : styles.oldbg]}>
@@ -160,7 +166,8 @@ const QStack = () => {
      useEffect(() => {
       const timer= setTimeout(async() => {
         navigation.navigate('Ques6')
-        await firestore().collection('Diagnosis').doc(user.uid).update({
+        const QRef = doc(db, "Diagnosis", user.uid);
+        await updateDoc(QRef,{
           sense5: Qfive,
         });
       }, 5000);
@@ -171,7 +178,7 @@ const QStack = () => {
     return (
       <View style={styles.stackscreen}>
         <Text style={styles.queshead}>Question 5 of 8</Text>
-        <Text style={styles.question}>Can you feel sensory vibrations on your right leg from motor 5 ?</Text>
+        <Text style={styles.question}>Do you feel a sensation or vibration on the bottom of your right foot?</Text>
         <View style={styles.ansrow}>
         <TouchableOpacity onPress={()=>{setQfive(true)}}>
           <View style={[styles.but1, Qfive ? styles.newbg : styles.oldbg]}>
@@ -195,7 +202,8 @@ const QStack = () => {
      useEffect(() => {
       const timer= setTimeout(async() => {
         navigation.navigate('Ques7')
-        await firestore().collection('Diagnosis').doc(user.uid).update({
+        const QRef = doc(db, "Diagnosis", user.uid);
+        await updateDoc(QRef,{
           sense6: Qsix,
         });
       }, 5000);
@@ -206,7 +214,7 @@ const QStack = () => {
     return (
       <View style={styles.stackscreen}>
         <Text style={styles.queshead}>Question 6 of 8</Text>
-        <Text style={styles.question}>Can you feel sensory vibrations on your right leg from motor 6 ?</Text>
+        <Text style={styles.question}>Do you feel a sensation or vibration on the bottom of your right foot?</Text>
         <View style={styles.ansrow}>
         <TouchableOpacity onPress={()=>{setQsix(true)}}>
           <View style={[styles.but1, Qsix ? styles.newbg : styles.oldbg]}>
@@ -230,7 +238,8 @@ const QStack = () => {
      useEffect(() => {
       const timer= setTimeout(async() => {
         navigation.navigate('Ques8')
-        await firestore().collection('Diagnosis').doc(user.uid).update({
+        const QRef = doc(db, "Diagnosis", user.uid);
+        await updateDoc(QRef,{
           sense7: Qseven,
         });
       }, 5000);
@@ -241,7 +250,7 @@ const QStack = () => {
     return (
       <View style={styles.stackscreen}>
         <Text style={styles.queshead}>Question 7 of 8</Text>
-        <Text style={styles.question}>Can you feel sensory vibrations on your right leg from motor 7 ?</Text>
+        <Text style={styles.question}>Do you feel a sensation or vibration on the bottom of your right foot?</Text>
         <View style={styles.ansrow}>
         <TouchableOpacity onPress={()=>{setQseven(true)}}>
           <View style={[styles.but1, Qseven ? styles.newbg : styles.oldbg]}>
@@ -265,7 +274,8 @@ const QStack = () => {
      useEffect(() => {
       const timer= setTimeout(async() => {
         navigation.navigate('Ques9')
-        await firestore().collection('Diagnosis').doc(user.uid).update({
+        const QRef = doc(db, "Diagnosis", user.uid);
+        await updateDoc(QRef,{
           sense8: Qeight,
         });
       }, 5000);
@@ -276,7 +286,7 @@ const QStack = () => {
     return (
       <View style={styles.stackscreen}>
         <Text style={styles.queshead}>Question 8 of 8</Text>
-        <Text style={styles.question}>Can you feel sensory vibrations on your right leg from motor 8 ?</Text>
+        <Text style={styles.question}>Do you feel a sensation or vibration on the bottom of your right foot?</Text>
         <View style={styles.ansrow}>
         <TouchableOpacity onPress={()=>{setQeight(true)}}>
           <View style={[styles.but1, Qeight ? styles.newbg : styles.oldbg]}>
@@ -300,7 +310,8 @@ const QStack = () => {
      useEffect(() => {
       const timer= setTimeout(async() => {
         navigation.navigate('Ques10')
-        await firestore().collection('Diagnosis').doc(user.uid).update({
+        const QRef = doc(db, "Diagnosis", user.uid);
+        await updateDoc(QRef,{
           sense9: Qnine,
         });
       }, 5000);
@@ -311,7 +322,7 @@ const QStack = () => {
     return (
       <View style={styles.stackscreen}>
         <Text style={styles.queshead}>Question 1 of 8</Text>
-        <Text style={styles.question}>Can you feel sensory vibrations on your left leg from motor 1 ?</Text>
+        <Text style={styles.question}>Do you feel a sensation or vibration on the bottom of your left foot?</Text>
         <View style={styles.ansrow}>
         <TouchableOpacity onPress={()=>{setQnine(true)}}>
           <View style={[styles.but1, Qnine ? styles.newbg : styles.oldbg]}>
@@ -335,7 +346,8 @@ const QStack = () => {
      useEffect(() => {
       const timer= setTimeout(async() => {
         navigation.navigate('Ques11')
-        await firestore().collection('Diagnosis').doc(user.uid).update({
+        const QRef = doc(db, "Diagnosis", user.uid);
+        await updateDoc(QRef,{
           sense10: Qten,
         });
       }, 5000);
@@ -346,7 +358,7 @@ const QStack = () => {
     return (
       <View style={styles.stackscreen}>
         <Text style={styles.queshead}>Question 2 of 8</Text>
-        <Text style={styles.question}>Can you feel sensory vibrations on your left leg from motor 2 ?</Text>
+        <Text style={styles.question}>Do you feel a sensation or vibration on the bottom of your left foot?</Text>
         <View style={styles.ansrow}>
         <TouchableOpacity onPress={()=>{setQten(true)}}>
           <View style={[styles.but1, Qten ? styles.newbg : styles.oldbg]}>
@@ -370,7 +382,8 @@ const QStack = () => {
      useEffect(() => {
       const timer= setTimeout(async() => {
         navigation.navigate('Ques12')
-        await firestore().collection('Diagnosis').doc(user.uid).update({
+        const QRef = doc(db, "Diagnosis", user.uid);
+        await updateDoc(QRef,{
           sense11: Qelev,
         });
       }, 5000);
@@ -381,7 +394,7 @@ const QStack = () => {
     return (
       <View style={styles.stackscreen}>
         <Text style={styles.queshead}>Question 3 of 8</Text>
-        <Text style={styles.question}>Can you feel sensory vibrations on your left leg from motor 3 ?</Text>
+        <Text style={styles.question}>Do you feel a sensation or vibration on the bottom of your left foot?</Text>
         <View style={styles.ansrow}>
         <TouchableOpacity onPress={()=>{setQelev(true)}}>
           <View style={[styles.but1, Qelev ? styles.newbg : styles.oldbg]}>
@@ -405,7 +418,8 @@ const QStack = () => {
      useEffect(() => {
       const timer= setTimeout(async() => {
         navigation.navigate('Ques13')
-        await firestore().collection('Diagnosis').doc(user.uid).update({
+        const QRef = doc(db, "Diagnosis", user.uid);
+        await updateDoc(QRef,{
           sense12: Qtwel,
         });
       }, 5000);
@@ -416,7 +430,7 @@ const QStack = () => {
     return (
       <View style={styles.stackscreen}>
         <Text style={styles.queshead}>Question 4 of 8</Text>
-        <Text style={styles.question}>Can you feel sensory vibrations on your left leg from motor 4 ?</Text>
+        <Text style={styles.question}>Do you feel a sensation or vibration on the bottom of your left foot?</Text>
         <View style={styles.ansrow}>
         <TouchableOpacity onPress={()=>{setQtwel(true)}}>
           <View style={[styles.but1, Qtwel ? styles.newbg : styles.oldbg]}>
@@ -440,7 +454,8 @@ const QStack = () => {
      useEffect(() => {
       const timer= setTimeout(async() => {
         navigation.navigate('Ques14')
-        await firestore().collection('Diagnosis').doc(user.uid).update({
+        const QRef = doc(db, "Diagnosis", user.uid);
+        await updateDoc(QRef,{
           sense13: Qthir,
         });
       }, 5000);
@@ -451,7 +466,7 @@ const QStack = () => {
     return (
       <View style={styles.stackscreen}>
         <Text style={styles.queshead}>Question 5 of 8</Text>
-        <Text style={styles.question}>Can you feel sensory vibrations on your left leg from motor 5 ?</Text>
+        <Text style={styles.question}>Do you feel a sensation or vibration on the bottom of your left foot?</Text>
         <View style={styles.ansrow}>
         <TouchableOpacity onPress={()=>{setQthir(true)}}>
           <View style={[styles.but1, Qthir ? styles.newbg : styles.oldbg]}>
@@ -475,7 +490,8 @@ const QStack = () => {
      useEffect(() => {
       const timer= setTimeout(async() => {
         navigation.navigate('Ques15')
-        await firestore().collection('Diagnosis').doc(user.uid).update({
+        const QRef = doc(db, "Diagnosis", user.uid);
+        await updateDoc(QRef,{
           sense14: Qfourt,
         });
       }, 5000);
@@ -486,7 +502,7 @@ const QStack = () => {
     return (
       <View style={styles.stackscreen}>
         <Text style={styles.queshead}>Question 6 of 8</Text>
-        <Text style={styles.question}>Can you feel sensory vibrations on your left leg from motor 6 ?</Text>
+        <Text style={styles.question}>Do you feel a sensation or vibration on the bottom of your left foot?</Text>
         <View style={styles.ansrow}>
         <TouchableOpacity onPress={()=>{setQfourt(true)}}>
           <View style={[styles.but1, Qfourt ? styles.newbg : styles.oldbg]}>
@@ -510,7 +526,8 @@ const QStack = () => {
      useEffect(() => {
       const timer= setTimeout(async() => {
         navigation.navigate('Ques16')
-        await firestore().collection('Diagnosis').doc(user.uid).update({
+        const QRef = doc(db, "Diagnosis", user.uid);
+        await updateDoc(QRef,{
           sense15: Qfift,
         });
       }, 5000);
@@ -521,7 +538,7 @@ const QStack = () => {
     return (
       <View style={styles.stackscreen}>
         <Text style={styles.queshead}>Question 7 of 8</Text>
-        <Text style={styles.question}>Can you feel sensory vibrations on your left leg from motor 7 ?</Text>
+        <Text style={styles.question}>Do you feel a sensation or vibration on the bottom of your left foot?</Text>
         <View style={styles.ansrow}>
         <TouchableOpacity onPress={()=>{setQfift(true)}}>
           <View style={[styles.but1, Qfift ? styles.newbg : styles.oldbg]}>
@@ -544,7 +561,8 @@ const QStack = () => {
 
     useEffect(() => {
       const timer= setTimeout(async() => {
-        await firestore().collection('Diagnosis').doc(user.uid).update({
+        const QRef = doc(db, "Diagnosis", user.uid);
+        await updateDoc(QRef,{
           sense16: Qsixt,
         });
       }, 5000);
@@ -553,7 +571,7 @@ const QStack = () => {
     return (
       <View style={styles.stackscreen}>
         <Text style={styles.queshead}>Question 8 of 8</Text>
-        <Text style={styles.question}>Can you feel sensory vibrations on your left leg from motor 8 ?</Text>
+        <Text style={styles.question}>Do you feel a sensation or vibration on the bottom of your left foot?</Text>
         <View style={styles.ansrow}>
         <TouchableOpacity onPress={()=>{setQsixt(true)}}>
           <View style={[styles.but1, Qsixt ? styles.newbg : styles.oldbg]}>
@@ -603,12 +621,12 @@ export default QStack
 const styles = StyleSheet.create({
     queshead:{
       fontSize: 20,
-      fontFamily:"SFProDisplayHeavy", 
+      fontFamily:"SF-Pro-Heavy", 
       color:"#3A3A3A",
       fontWeight:"900"
     },
     question:{
-      fontFamily:"CircularXXTTMedium",
+      fontFamily:"CircularXX-TTMedium",
       fontSize:17,
       lineHeight:23,
       color:'#8F8F8F',
@@ -640,7 +658,7 @@ const styles = StyleSheet.create({
       color:"#fff",
     },
     opstext:{
-        fontFamily:"CircularXXTTBold",
+        fontFamily:"CircularXX-TTBold",
         fontSize:18,
         textAlign:'center'
     },

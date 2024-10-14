@@ -1,7 +1,9 @@
 import { View, Text,Button,ScrollView,Image,StyleSheet,TouchableOpacity } from 'react-native'
 import MedicalIcon2 from '../Images/MedicalIcon2.svg'
 import React,{useState, useContext,useEffect} from 'react'
-import firestore from '@react-native-firebase/firestore';
+// import firestore from '@react-native-firebase/firestore';
+import { doc, getDoc,updateDoc } from "firebase/firestore";
+import {db} from "../firebaseConfig"
 import {AuthContext} from '../Navigation/AuthProvider';
 import { useNavigation } from '@react-navigation/native';
 import data from '../QDictionary'
@@ -23,8 +25,8 @@ const MedicalInfo = () => {
 
     useEffect(() => {
         const userdata= async()=>{ 
-          const users = await firestore().collection('Users').doc(user.uid).get()
-          .then(documentSnapshot => {
+          const docRef = doc(db, 'Users', user.uid);
+          const users = await getDoc(docRef).then(documentSnapshot => {
             
             setCondition(data[5][documentSnapshot.data().question6]);
             setPain(data[11][documentSnapshot.data().question12]);
@@ -51,7 +53,7 @@ const MedicalInfo = () => {
     height={30}
     style={{marginRight:10}}
     />
-    <Text style={{fontFamily:"SFNSBold",fontSize:25,color:"#3A3A3A"}}> Medical Information </Text>
+    <Text style={{fontFamily:"SF-Pro-Bold",fontSize:25,color:"#3A3A3A"}}> Medical Information </Text>
     </View>
     <View style={styles.container}>
     <View>
@@ -98,7 +100,7 @@ const MedicalInfo = () => {
     <TouchableOpacity 
     onPress={()=> navigation.navigate('TabNavigation', { screen: 'Profile' })}>
         <View style={styles.but2}>
-            <Text style={{fontFamily:"CircularXXTTBold",color:"white", fontSize:16,textAlign:'center'}}>
+            <Text style={{fontFamily:"CircularXX-TTBold",color:"white", fontSize:16,textAlign:'center'}}>
             Go Back
             </Text>
           </View>
@@ -112,13 +114,13 @@ export default MedicalInfo
 
 const styles = StyleSheet.create({
     title:{
-        fontFamily:"CircularXXTTBold",
+        fontFamily:"CircularXX-TTBold",
         fontSize:16,
         color:'#FFAA00',
         marginBottom:3,
       },
       entry:{
-        fontFamily:"CircularXXTTMedium",
+        fontFamily:"CircularXX-TTMedium",
         fontSize:17,
         color:'#3A3A3A',
       },

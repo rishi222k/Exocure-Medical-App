@@ -1,22 +1,23 @@
 import { StyleSheet, Text, View,Button,ScrollView,TouchableOpacity,ToastAndroid, Alert} from 'react-native'
 import DeviceIcon from '../Images/microchip.svg'
-import BluetoothSerial from 'react-native-bluetooth-serial'
+// import BluetoothSerial from 'react-native-bluetooth-serial'
 import React,{useEffect,useState} from 'react'
 
 
-const DeviceCard = ({device}) => {
+const DeviceCard = params => {
 
   const [btntext, setbtntext] = useState("Connect Now");
   const [bcolor, setbcolor] = useState(false);
 
-    const Connection=(device)=>{
+    const Connection=()=>{
 
       const Mtimer= setTimeout(() => {
         setbtntext("Connected");
         setbcolor(true);
-        Alert.alert("Connection Established",`Connected to device ${device.name}`,
-          [{ text: "OK", onPress: () => console.log("OK Pressed") }]);
-      }, 4000);
+        params.setconnected(true);
+        Alert.alert("Connection Established",`Connected to Exocure Device`,
+          [{ text: "OK", onPress: () => console.log("Connecting Bluetooth Device") }]);
+      }, 2500);
 
         // BluetoothSerial.connect(device.id)
         // .then((res) => {
@@ -33,7 +34,7 @@ const DeviceCard = ({device}) => {
 
   return (
     <>
-    { device.name && (
+    {/* { device.name && ( */}
     <View style={{paddingHorizontal:25,paddingVertical:25,backgroundColor:"#F2F2F2",borderRadius:5, marginBottom:20}}>
       <View style={{flexDirection:"row",alignItems:"center"}}>
       <DeviceIcon
@@ -41,18 +42,18 @@ const DeviceCard = ({device}) => {
         height={40}
         style={{marginRight:30}}
       />
-      <Text style={{fontFamily:"CircularXXTTBold",fontSize:18,color:'black',width:200}}>{device.name}</Text>
+      <Text style={{fontFamily:"CircularXX-TTBold",fontSize:18,color:'black',width:200}}>Exocure Device</Text>
       </View>
       <TouchableOpacity 
-      onPress={() => {Connection(device);}}>
+      onPress={() => {Connection();}}>
           <View style={[!bcolor? {backgroundColor:"black"}:{backgroundColor:"#0012FF"}, styles.but1]}>
-            <Text style={{fontFamily:"CircularXXTTBold",color:"white", fontSize:16,textAlign:'center'}}>
+            <Text style={{fontFamily:"CircularXX-TTBold",color:"white", fontSize:16,textAlign:'center'}}>
             {btntext} 
             </Text>
           </View>
         </TouchableOpacity>
     </View>
-    )}
+    {/* )} */}
   </>
   )
 }

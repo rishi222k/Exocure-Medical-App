@@ -1,8 +1,6 @@
 import { StyleSheet, Text, View, Animated, Easing } from 'react-native'
 import Svg, {Path,Defs,Stop,RadialGradient,Ellipse,G} from 'react-native-svg';
-import firestore from '@react-native-firebase/firestore';
-import {AuthContext} from '../Navigation/AuthProvider';
-import React,{useState, useContext,useEffect,useRef} from 'react'
+import React from 'react'
 
 
 const FeetMap = ({senseone,sensetwo,sensethree,sensefour,sensefive,sensesix,sensesevn,senseight,sensedone,sensedtwo,sensedthree,sensedfour,sensedfive,sensedsix,sensedsevn,sensedeight}) => {
@@ -80,7 +78,7 @@ const FeetMap = ({senseone,sensetwo,sensethree,sensefour,sensefive,sensesix,sens
     </G>
     </G>
     </Svg>
-    <Text style={{textAlign:"center",marginTop:20,fontFamily:"CircularXXTTBold",fontSize:22,color:'#C2C2C2',}}>Left</Text>
+    <Text style={{textAlign:"center",marginTop:20,fontFamily:"CircularXX-TTBold",fontSize:22,color:'#C2C2C2',}}>Left</Text>
     </View>
 
 
@@ -170,7 +168,7 @@ const styles = StyleSheet.create({
   legend:{
     textAlign:"center",
     marginTop:20,
-    fontFamily:"CircularXXTTBold",
+    fontFamily:"CircularXX-TTBold",
     fontSize:22,
     color:'#C2C2C2',
     marginBottom:10
