@@ -14,8 +14,7 @@ import {LogBox } from 'react-native';
 import { Platform } from 'react-native';
 
 export default function App() {
-
-  const [loaded] = useFonts({
+  const [fontsLoaded] = useFonts({
     CircularXXTTBold: require('./assets/fonts/CircularXXTTBold.ttf'),
     CircularXXTTMedium: require('./assets/fonts/CircularXXTTMedium.ttf'),
     CircularXXTTRegular: require('./assets/fonts/CircularXXTTRegular.ttf'),
@@ -25,8 +24,8 @@ export default function App() {
     SFProDisplaySemibold: require('./assets/fonts/SFProDisplaySemibold.ttf'),
   });
 
-  if (!loaded) {
-    return null;
+  if (!fontsLoaded) {
+    return null; // or a loading screen
   }
 
   LogBox.ignoreLogs(['Reanimated 2']);

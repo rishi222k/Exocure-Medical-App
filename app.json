@@ -52,7 +52,20 @@
     },
     "owner": "rishiraghu",
     "plugins": [
-      "expo-font"
+      [
+        "expo-font",
+        {
+          "fonts": [
+            "./assets/fonts/CircularXXTTBold.ttf",
+            "./assets/fonts/CircularXXTTMedium.ttf",
+            "./assets/fonts/CircularXXTTRegular.ttf",
+            "./assets/fonts/SFNSBold.ttf",
+            "./assets/fonts/SFNSThin.ttf",
+            "./assets/fonts/SFProDisplayHeavy.ttf",
+            "./assets/fonts/SFProDisplaySemibold.ttf"
+          ]
+        }
+      ]
     ]
   }
 }
