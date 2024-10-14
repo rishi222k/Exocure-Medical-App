@@ -202,7 +202,7 @@ const Diagnostics = () => {
       onRefresh={onRefresh}
     />}>
     {!diagcheck? <DummyDiag/>:<View style={{backgroundColor:"#fff",height:"100%",paddingHorizontal:"6%"}}>
-    <Text style={{fontFamily:"SFNSBold",fontSize:25,marginVertical:30}}>Diagnostics Report</Text>
+    <Text style={{fontFamily:"SF-Pro-Bold",fontSize:25,marginVertical:30}}>Diagnostics Report</Text>
     <FeetMap 
       senseone={senseone}
       sensetwo={sensetwo}
@@ -336,7 +336,7 @@ const Diagnostics = () => {
     <TouchableOpacity
     onPress={()=>{navigation.navigate('TabNavigation', { screen: 'Health' })}}>
         <View style={[styles.but1]}>
-            <Text style={{fontFamily:"CircularXXTTBold",color:"white", fontSize:18,textAlign:'center'}}>
+            <Text style={{fontFamily:"CircularXX-TTBold",color:"white", fontSize:18,textAlign:'center'}}>
             Get Help
             </Text>
           </View>
@@ -344,7 +344,7 @@ const Diagnostics = () => {
     <TouchableOpacity 
     onPress={()=>{navigation.navigate('TabNavigation', { screen: 'Sense' })}}>
         <View style={[styles.but2]}>
-            <Text style={{fontFamily:"CircularXXTTBold",color:"#FFB31D", fontSize:18,textAlign:'center'}}>
+            <Text style={{fontFamily:"CircularXX-TTBold",color:"#FFB31D", fontSize:18,textAlign:'center'}}>
             New Diagnosis
             </Text>
           </View>
@@ -360,19 +360,19 @@ export default Diagnostics
 
 const styles = StyleSheet.create({
   title:{
-      fontFamily:"CircularXXTTBold",
+      fontFamily:"CircularXX-TTBold",
       fontSize:16.5,
       color:'#FFAA00',
       marginBottom:3,
     },
     ntitle:{
-      fontFamily:"CircularXXTTBold",
+      fontFamily:"CircularXX-TTBold",
       fontSize:16.5,
       color:'#0012FF',
       marginBottom:3,
     },
     entry:{
-      fontFamily:"CircularXXTTMedium",
+      fontFamily:"CircularXX-TTMedium",
       fontSize:18,
       color:'#3A3A3A',
     },
@@ -397,7 +397,7 @@ const styles = StyleSheet.create({
         width:"100%"
     },
     containertitle:{
-      fontFamily:"CircularXXTTBold",
+      fontFamily:"CircularXX-TTBold",
       fontSize:20,
       color:'#0012FF',
       marginBottom:20

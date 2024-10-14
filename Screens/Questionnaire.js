@@ -388,7 +388,7 @@ const Questionnaire = () => {
     <TouchableOpacity
     onPress={onSubmit}>
         <View style={styles.but2}>
-            <Text style={{fontFamily:"CircularXXTTBold",color:"white", fontSize:18,textAlign:'center'}}>
+            <Text style={{fontFamily:"CircularXX-TTBold",color:"white", fontSize:18,textAlign:'center'}}>
             Submit
             </Text>
           </View>
@@ -403,13 +403,13 @@ export default Questionnaire
 
 const styles = StyleSheet.create({
   questionhead:{
-    fontFamily:"CircularXXTTBold",
+    fontFamily:"CircularXX-TTBold",
     fontSize:16,
     color:'#FFAA00',
     marginBottom:5,
   },
   question:{
-    fontFamily:"CircularXXTTBold",
+    fontFamily:"CircularXX-TTBold",
     fontSize:18,
     color:'#3A3A3A',
     lineHeight:25,
@@ -420,7 +420,7 @@ const styles = StyleSheet.create({
     marginBottom:5,
   },
   entry:{
-    fontFamily:"CircularXXTTMedium",
+    fontFamily:"CircularXX-TTMedium",
     fontSize:17,
     color:'#3A3A3A',
     lineHeight:25,

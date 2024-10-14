@@ -40,7 +40,8 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#FFFFFF"
-      }
+      },
+      "package": "com.rishiraghu.exocuremedicalapp"
     },
     "web": {
       "favicon": "./assets/AppIcon.png"
@@ -50,6 +51,22 @@
         "projectId": "2a1800aa-0b3c-4965-83aa-0fd8e4d19a64"
       }
     },
-    "owner": "rishiraghu"
+    "owner": "rishiraghu",
+    "plugins": [
+      [
+        "expo-font",
+        {
+          "fonts": [
+            "./assets/fonts/CircularXXTTBold.ttf",
+            "./assets/fonts/CircularXXTTMedium.ttf",
+            "./assets/fonts/CircularXXTTRegular.ttf",
+            "./assets/fonts/SF-Pro-Text-Bold.otf",
+            "./assets/fonts/SF-Pro-Text-Thin.otf",
+            "./assets/fonts/SF-Pro-Display-Heavy.otf",
+            "./assets/fonts/SF-Pro-Display-Semibold.otf"
+          ]
+        }
+      ]
+    ]
   }
 }

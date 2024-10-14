@@ -30,7 +30,7 @@ const TabNavigation = () => {
           height:100,
           paddingTop:15,},
         tabBarLabelStyle:{
-          fontFamily:"SFProDisplaySemibold",
+          fontFamily:"SF-Pro-Semibold",
           marginTop:5,
           marginBottom:10,
         },

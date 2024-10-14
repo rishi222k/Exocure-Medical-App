@@ -94,7 +94,7 @@ const Connect = () => {
       onPress={()=>{navigation.navigate('TabNavigation', { screen: 'Sense' })}}
     />
     <View style={{backgroundColor:"#fff",height:"100%",paddingHorizontal:"6%"}}>
-    <Text style={{fontFamily:"SFNSBold",fontSize:25,marginVertical:25}}> Devices Nearby </Text>
+    <Text style={{fontFamily:"SF-Pro-Bold",fontSize:25,marginVertical:25}}> Devices Nearby </Text>
 
     {/* <FlatList
         keyExtractor={(item) => item.id}
@@ -110,7 +110,7 @@ const Connect = () => {
     onPress={()=>{
       navigation.navigate("OnBoarding")}}>
           <View style={styles.but2}>
-            <Text style={{fontFamily:"CircularXXTTBold",color:"white", fontSize:16,textAlign:'center'}}>
+            <Text style={{fontFamily:"CircularXX-TTBold",color:"white", fontSize:16,textAlign:'center'}}>
             Start Diagnosis 
             </Text>
           </View>

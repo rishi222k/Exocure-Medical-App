@@ -54,10 +54,10 @@ const Sense = () => {
   return (
     <ScrollView style={{backgroundColor:"#fff",height:"100%",}}>
     <View style={{backgroundColor:"#fff",height:"100%",paddingHorizontal:"7%",paddingVertical:"10%"}}>
-    <Text style={{fontFamily:"SFNSBold",fontSize:25}}>Connect a new device </Text>
-    <Text style={{fontFamily:"CircularXXTTRegular",fontSize:19,color:'#4C4C4C',lineHeight:27,marginTop:20}}>To begin the foot detection, an exocure device needs to be connected with the app via Bluetooth. Keep the device close to your mobile before establishing a connection. </Text>
+    <Text style={{fontFamily:"SF-Pro-Bold",fontSize:25}}>Connect a new device </Text>
+    <Text style={{fontFamily:"CircularXX-TTRegular",fontSize:19,color:'#4C4C4C',lineHeight:27,marginTop:20}}>To begin the foot detection, an exocure device needs to be connected with the app via Bluetooth. Keep the device close to your mobile before establishing a connection. </Text>
 
-    <View style={{width:"100%",alignItems:"center",marginTop:30,}}>
+    <View style={{width:"100%",alignItems:"center",marginTop:30, marginBottom:30}}>
     <SensIllus
       width={270}
       height={270}
@@ -66,7 +66,7 @@ const Sense = () => {
     <TouchableOpacity 
          onPress={()=>{navigation.navigate("Scanning")}}>
           <View style={styles.but1}>
-            <Text style={{fontFamily:"CircularXXTTBold",color:"white", fontSize:18,textAlign:'center',marginRight:10}}>
+            <Text style={{fontFamily:"CircularXX-TTBold",color:"white", fontSize:18,textAlign:'center',marginRight:10}}>
             Set up now 
             </Text>
             <Plus 
