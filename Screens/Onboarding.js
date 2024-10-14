@@ -45,11 +45,11 @@ const Onboarding = () => {
         resizeMode="contain" 
         style={{width:150,height:150,marginTop:35}}
       />
-      <Text style={{fontFamily:"SFNSBold",fontSize:30,marginBottom:25}}> Get Ready </Text>
+      <Text style={{fontFamily:"SF-Pro-Bold",fontSize:30,marginBottom:25}}> Get Ready </Text>
     </View>
-      <Text style={{fontFamily:"CircularXXTTMedium",fontSize:17,color:'#4B4B4B',lineHeight:27,marginTop:20}}>Place both your feet on top of the device and be still till the process is complete. Diagnosis for each leg is made sequentially (Right leg followed by the Left leg). Each of the eight motors on either leg run for 30 seconds. Est Time: 8 Min </Text>
-      <Text style={{fontFamily:"CircularXXTTBold",fontSize:17,color:'#FFB31D',marginTop:35,marginBottom:7}}>Note: </Text>
-      <Text style={{fontFamily:"CircularXXTTBold",fontSize:17,color:'#4B4B4B',}}>Make sure to finish scanning from all the 16 motors to get accurate results.</Text>
+      <Text style={{fontFamily:"CircularXX-TTMedium",fontSize:17,color:'#4B4B4B',lineHeight:27,marginTop:20}}>Place both your feet on top of the device and be still till the process is complete. Diagnosis for each leg is made sequentially (Right leg followed by the Left leg). Each of the eight motors on either leg run for 30 seconds. Est Time: 8 Min </Text>
+      <Text style={{fontFamily:"CircularXX-TTBold",fontSize:17,color:'#FFB31D',marginTop:35,marginBottom:7}}>Note: </Text>
+      <Text style={{fontFamily:"CircularXX-TTBold",fontSize:17,color:'#4B4B4B',}}>Make sure to finish scanning from all the 16 motors to get accurate results.</Text>
       <TouchableOpacity 
          onPress={()=>{
            onPressone();
@@ -57,7 +57,7 @@ const Onboarding = () => {
           //  toggleSwitch();
            }}>
           <View style={styles.but1}>
-            <Text style={{fontFamily:"CircularXXTTBold",color:"white", fontSize:18,textAlign:'center',marginRight:10}}>
+            <Text style={{fontFamily:"CircularXX-TTBold",color:"white", fontSize:18,textAlign:'center',marginRight:10}}>
             Start 
             </Text>
             <Frontarrow 

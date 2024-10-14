@@ -53,7 +53,7 @@ const MedicalInfo = () => {
     height={30}
     style={{marginRight:10}}
     />
-    <Text style={{fontFamily:"SFNSBold",fontSize:25,color:"#3A3A3A"}}> Medical Information </Text>
+    <Text style={{fontFamily:"SF-Pro-Bold",fontSize:25,color:"#3A3A3A"}}> Medical Information </Text>
     </View>
     <View style={styles.container}>
     <View>
@@ -100,7 +100,7 @@ const MedicalInfo = () => {
     <TouchableOpacity 
     onPress={()=> navigation.navigate('TabNavigation', { screen: 'Profile' })}>
         <View style={styles.but2}>
-            <Text style={{fontFamily:"CircularXXTTBold",color:"white", fontSize:16,textAlign:'center'}}>
+            <Text style={{fontFamily:"CircularXX-TTBold",color:"white", fontSize:16,textAlign:'center'}}>
             Go Back
             </Text>
           </View>
@@ -114,13 +114,13 @@ export default MedicalInfo
 
 const styles = StyleSheet.create({
     title:{
-        fontFamily:"CircularXXTTBold",
+        fontFamily:"CircularXX-TTBold",
         fontSize:16,
         color:'#FFAA00',
         marginBottom:3,
       },
       entry:{
-        fontFamily:"CircularXXTTMedium",
+        fontFamily:"CircularXX-TTMedium",
         fontSize:17,
         color:'#3A3A3A',
       },

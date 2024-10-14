@@ -15,13 +15,13 @@ import { Platform } from 'react-native';
 
 export default function App() {
   const [fontsLoaded] = useFonts({
-    CircularXXTTBold: require('./assets/fonts/CircularXXTTBold.ttf'),
-    CircularXXTTMedium: require('./assets/fonts/CircularXXTTMedium.ttf'),
-    CircularXXTTRegular: require('./assets/fonts/CircularXXTTRegular.ttf'),
-    SFNSBold: require('./assets/fonts/SFNSBold.ttf'),
-    SFNSThin: require('./assets/fonts/SFNSThin.ttf'),
-    SFProDisplayHeavy: require('./assets/fonts/SFProDisplayHeavy.ttf'),
-    SFProDisplaySemibold: require('./assets/fonts/SFProDisplaySemibold.ttf'),
+    'CircularXX-TTBold': require('./assets/fonts/CircularXXTTBold.ttf'),
+    'CircularXX-TTMedium': require('./assets/fonts/CircularXXTTMedium.ttf'),
+    'CircularXX-TTRegular': require('./assets/fonts/CircularXXTTRegular.ttf'),
+    'SF-Pro-Bold': require('./assets/fonts/SF-Pro-Text-Bold.otf'),
+    'SF-Pro-Thin': require('./assets/fonts/SF-Pro-Text-Thin.otf'),
+    'SF-Pro-Heavy': require('./assets/fonts/SF-Pro-Text-Heavy.otf'),
+    'SF-Pro-Semibold': require('./assets/fonts/SF-Pro-Text-Semibold.otf'),
   });
 
   if (!fontsLoaded) {

@@ -16,10 +16,10 @@ const Acknowledgment = () => {
         height={70}
         style={{marginTop:55,marginBottom:35}}
     />
-    <Text style={{fontFamily:"SFNSBold",fontSize:30,marginBottom:25}}> Diagnosis Complete </Text>
+    <Text style={{fontFamily:"SF-Pro-Bold",fontSize:30,marginBottom:25}}> Diagnosis Complete </Text>
     </View>
 
-    <Text style={{fontFamily:"CircularXXTTMedium",fontSize:17,color:'#4B4B4B',lineHeight:25,marginTop:20,textAlign:"center",marginBottom:60,}}>Check out the  
+    <Text style={{fontFamily:"CircularXX-TTMedium",fontSize:17,color:'#4B4B4B',lineHeight:25,marginTop:20,textAlign:"center",marginBottom:60,}}>Check out the  
     <Text style={{color:"#0012FF"}}
     onPress={()=> navigation.navigate('TabNavigation', { screen: 'Diagnostics' })}> diagnostics tab </Text>
     for the results of this diagnosis & check the 
@@ -30,14 +30,14 @@ const Acknowledgment = () => {
     <TouchableOpacity 
     onPress={()=> navigation.navigate('TabNavigation', { screen: 'Diagnostics' })}>
     <View style={styles.but1}>
-    <Text style={{fontFamily:"CircularXXTTBold",color:"white", fontSize:18,textAlign:'center'}}>Check your results</Text>
+    <Text style={{fontFamily:"CircularXX-TTBold",color:"white", fontSize:18,textAlign:'center'}}>Check your results</Text>
     </View>
     </TouchableOpacity>
 
     <TouchableOpacity
      onPress={()=> navigation.navigate('TabNavigation', { screen: 'Sense' })}>
     <View style={styles.but2}>
-    <Text style={{fontFamily:"CircularXXTTBold",color:"#FFB31D", fontSize:18,textAlign:'center',}}>Exit</Text>
+    <Text style={{fontFamily:"CircularXX-TTBold",color:"#FFB31D", fontSize:18,textAlign:'center',}}>Exit</Text>
     </View>
     </TouchableOpacity>
 

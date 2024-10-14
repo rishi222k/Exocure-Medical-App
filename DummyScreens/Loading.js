@@ -9,14 +9,14 @@ const Loading = () => {
     <ScrollView style={{backgroundColor:"#fff",height:"100%",}}>
     <View style={{alignItems:"center",marginTop:100}}>
       <LoadingAnim width={504} height={200} />
-      <Text style={{fontFamily:"CircularXXTTBold", color:"#3A3A3A", fontSize:19, width:"70%",textAlign:"center",marginTop:10}}>
+      <Text style={{fontFamily:"CircularXX-TTBold", color:"#3A3A3A", fontSize:19, width:"70%",textAlign:"center",marginTop:10}}>
       Looking for footcare services near you ... </Text>
       
     </View>
     <TouchableOpacity
       onPress={()=>{navigation.navigate('TabNavigation', { screen: 'Health' })}}>
         <View style={styles.but2}>
-            <Text style={{fontFamily:"CircularXXTTBold",color:"white", fontSize:17,textAlign:'center'}}>
+            <Text style={{fontFamily:"CircularXX-TTBold",color:"white", fontSize:17,textAlign:'center'}}>
             Exit
             </Text>
           </View>

@@ -621,12 +621,12 @@ export default QStack
 const styles = StyleSheet.create({
     queshead:{
       fontSize: 20,
-      fontFamily:"SFProDisplayHeavy", 
+      fontFamily:"SF-Pro-Heavy", 
       color:"#3A3A3A",
       fontWeight:"900"
     },
     question:{
-      fontFamily:"CircularXXTTMedium",
+      fontFamily:"CircularXX-TTMedium",
       fontSize:17,
       lineHeight:23,
       color:'#8F8F8F',
@@ -658,7 +658,7 @@ const styles = StyleSheet.create({
       color:"#fff",
     },
     opstext:{
-        fontFamily:"CircularXXTTBold",
+        fontFamily:"CircularXX-TTBold",
         fontSize:18,
         textAlign:'center'
     },

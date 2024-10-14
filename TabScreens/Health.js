@@ -105,7 +105,7 @@ const Health = () => {
     }>
     {!diagcheck? <DummyHealth/> :
     <View style={{backgroundColor:"#fff",height:"100%",paddingHorizontal:"6%"}}>
-    <Text style={{fontFamily:"SFNSBold",fontSize:25,marginTop:30}}>Healthcare Support</Text>
+    <Text style={{fontFamily:"SF-Pro-Bold",fontSize:25,marginTop:30}}>Healthcare Support</Text>
     {severity==null? 
     <View style={styles.warning}>
       <View>
@@ -138,11 +138,11 @@ const Health = () => {
       height={230}
       style={{alignSelf:"center"}}
     />
-    <Text style={{fontFamily:"CircularXXTTMedium",fontSize:17,color:"#3A3A3A",textAlign:"center",paddingHorizontal:25}}>Connect with podiatric specialists and healthcare providers near your area to get the best help </Text>
+    <Text style={{fontFamily:"CircularXX-TTMedium",fontSize:17,color:"#3A3A3A",textAlign:"center",paddingHorizontal:25}}>Connect with podiatric specialists and healthcare providers near your area to get the best help </Text>
     <TouchableOpacity
     onPress={()=>{handleLocationPermission();}}>
         <View style={styles.but2}>
-            <Text style={{fontFamily:"CircularXXTTBold",color:"white", fontSize:17,textAlign:'center',marginRight:10}}>
+            <Text style={{fontFamily:"CircularXX-TTBold",color:"white", fontSize:17,textAlign:'center',marginRight:10}}>
             Find now
             </Text>
             <Frontarrow 
@@ -168,13 +168,13 @@ export default Health
 
 const styles = StyleSheet.create({
   title:{
-      fontFamily:"CircularXXTTBold",
+      fontFamily:"CircularXX-TTBold",
       fontSize:17,
       color:'#FFAA00',
       marginBottom:1,
     },
     entry:{
-      fontFamily:"CircularXXTTMedium",
+      fontFamily:"CircularXX-TTMedium",
       fontSize:17,
       color:'#3A3A3A',
       lineHeight:25
@@ -197,7 +197,7 @@ const styles = StyleSheet.create({
       flexDirection:"row",
     },
     helptext:{
-      fontFamily:"CircularXXTTMedium",
+      fontFamily:"CircularXX-TTMedium",
       fontSize:17,
       marginLeft:10,
       color:"#FFAA00",

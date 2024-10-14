@@ -12,6 +12,7 @@ import Website from '../Images/globe.svg'
 import{GOOGLE_MAPS_APIKEY} from "@env"
 import { getDistance } from 'geolib';
 import Loading from '../DummyScreens/Loading'
+import Markers from '../Markers'
 
 
 const Maps = () => {
@@ -30,7 +31,7 @@ const Maps = () => {
     console.log("here");
     const url  = 'https://maps.googleapis.com/maps/api/place/nearbysearch/json?'
     const location = `location=${Latitude},${Longitude}`;
-    const radius = '&radius=1500';
+    const radius = '&radius=2500';
     const type = '&type=hospital';
     const keyWord='&keyword=podiatrist';
     const pagetoken='&pagetoken=ARywPAL6voF9hd_GYconiNOQzmUXkKX3e9BJ2PIv40zfcOAoHiyiU0hr9OGU8swDJWtCpOXMAbfCiY4-iLQ5VeAgMkwjzc5qxKSV92VG2ZuB626yrUBlaLSCKC6PEQJ7KRhdnElrkpkPqkzVhyeZ1WKoYrPS9c7mlThrQwgsV4RJLLZZQCOXihfnhtNPhOhggEXFfC8I9DvH-cHuDIYaZkYei3nKkfPeG05EKUcHMI9WMzuZSamocSpK_Mf6rBSkKg-ATDmZDZwBW58UIoIrnbxIqgbSHMP_sYmTkBV2_owdJX2rr3afjK6Vd4JA9eDtD_tZcvXo4FZ-VpvZBRllAncWK1szieXmcLm-GfIRIO_b-KFGWGTFqw7nBS2jXKN2yrl2Cs7XanLxl2qECmAAgkkXcIxFZAFehCL-STmpNP-o7G5VZc7D4zEnwMqjBQ';
@@ -90,7 +91,7 @@ const Maps = () => {
     var dist= getDistance(
       {latitude: Latitude, longitude: Longitude},
       {latitude: latitude, longitude: longitude },
-    )/1000
+    )/1000 * 0.621371;
 
     return dist;
   }
@@ -115,26 +116,25 @@ const Maps = () => {
       initialRegion={{
       latitude: Latitude,
       longitude: Longitude,
-      latitudeDelta: 0.018,
-      longitudeDelta: 0.018,
+      latitudeDelta: 0.045,
+      longitudeDelta: 0.045,
       }}>
-      {places?.map(place =>(
+      {Markers.map(marker => (
         <Marker
-          key={place.placeId}
+          key={marker.key}
           coordinate={{
-            latitude:place.coordinate.latitude,
-            longitude:place.coordinate.longitude,
+            latitude: marker.lat,
+            longitude: marker.long,
           }}
-          identifier="Foot Clinic"
-          title={place.placeName}
-          description={place.address}
+          title={marker.title}
+          description={marker.address}
         >
-        <Image 
-        source={require('../Images/FootMarker.png')} 
-        style={{height: 32, width:32}}
-        resizeMode="contain" />
+          <Image 
+            source={require('../Images/FootMarker.png')} 
+            style={{height: 32, width:32}}
+            resizeMode="contain" />
         </Marker>
-      ))} 
+      ))}
       </MapView>
       )}
 
@@ -144,18 +144,18 @@ const Maps = () => {
       <View style={{backgroundColor:"#fff",height:"100%"}}>
       <Text style={styles.head}>Footcare Clinics Near You</Text>
       
-      {places?.map(place =>{
+      {Markers?.map(marker =>{
 
-        return distance(place.coordinate.latitude,place.coordinate.longitude)<5 ?
+        return distance(marker.lat,marker.long)<5 ?
 
       <TouchableOpacity 
       style={styles.clinicList}
-      key={place.placeId}>
+      key={marker.key}>
       <Image source={require('../Images/hospital.png')} resizeMode="contain" style={{width:40,height:40}}/>
       <View style={{flexDirection:"column"}}>
-        <Text style={{fontFamily:"CircularXXTTMedium",fontSize:17,color:"#3A3A3A",width:170}}>{place.placeName}</Text>
-        <Text style={{fontFamily:"CircularXXTTMedium",fontSize:17,color:"#A3A3A3",}}>
-        {distance(place.coordinate.latitude,place.coordinate.longitude)} km
+        <Text style={{fontFamily:"CircularXX-TTMedium",fontSize:17,color:"#3A3A3A",width:170}}>{marker.title}</Text>
+        <Text style={{fontFamily:"CircularXX-TTMedium",fontSize:17,color:"#A3A3A3",}}>
+        {distance(marker.lat,marker.long).toFixed(2)} miles
         </Text>
       </View>
       <View style={{flexDirection:"row"}}>
@@ -171,7 +171,7 @@ const Maps = () => {
     <TouchableOpacity
       onPress={()=>{navigation.navigate('TabNavigation', { screen: 'Health' })}}>
         <View style={styles.but2}>
-            <Text style={{fontFamily:"CircularXXTTBold",color:"white", fontSize:17,textAlign:'center'}}>
+            <Text style={{fontFamily:"CircularXX-TTBold",color:"white", fontSize:17,textAlign:'center'}}>
             Exit
             </Text>
           </View>
@@ -191,7 +191,7 @@ export default Maps
 const styles = StyleSheet.create({
 
 head:{
-  fontFamily:"CircularXXTTBold",
+  fontFamily:"CircularXX-TTBold",
   color:"#3A3A3A", 
   fontSize:19,
   textAlign:'center',

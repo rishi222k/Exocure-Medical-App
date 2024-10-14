@@ -9,7 +9,7 @@ const NavHeader = () => {
     resizeMode="contain" 
     style={{width:55,height:55,marginRight:5}}
     />
-    <Text style={{fontFamily:"SFNSBold",fontSize:30,marginTop:5,marginRight:15}}>Exocure</Text>
+    <Text style={{fontFamily:"SF-Pro-Bold",fontSize:30,marginTop:5,marginRight:15}}>Exocure</Text>
     </View>
   )
 }

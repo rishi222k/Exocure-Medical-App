@@ -12,12 +12,12 @@ const DummyDiag = () => {
       source={require('../Images/dummydiag.png')} 
       resizeMode="contain" 
       style={{width:155,height:155,alignSelf:"center",marginTop:60}}/>
-      <Text style={{fontFamily:"SFNSBold",fontSize:26,marginBottom:5,color:"#CCCCCC",textAlign:"center",marginTop:45,}}>No Diagnostic Reports</Text>
-      <Text style={{fontFamily:"CircularXXTTMedium",fontSize:17,color:'#B1B1B1',lineHeight:25,marginTop:10,textAlign:"center",marginBottom:60,}}>You currently don't have any diagnosis reports. To generate health recommendations or diagnostic reports please start your diagnosis in the sense tab or click the button below.</Text>
+      <Text style={{fontFamily:"SF-Pro-Bold",fontSize:26,marginBottom:5,color:"#CCCCCC",textAlign:"center",marginTop:45,}}>No Diagnostic Reports</Text>
+      <Text style={{fontFamily:"CircularXX-TTMedium",fontSize:17,color:'#B1B1B1',lineHeight:25,marginTop:10,textAlign:"center",marginBottom:60,}}>You currently don't have any diagnosis reports. To generate health recommendations or diagnostic reports please start your diagnosis in the sense tab or click the button below.</Text>
       <TouchableOpacity
       onPress={()=>{navigation.navigate('TabNavigation', { screen: 'Sense' })}}>
         <View style={styles.but2}>
-            <Text style={{fontFamily:"CircularXXTTBold",color:"white", fontSize:18,textAlign:'center'}}>
+            <Text style={{fontFamily:"CircularXX-TTBold",color:"white", fontSize:18,textAlign:'center'}}>
             Start Diagnosis
             </Text>
           </View>

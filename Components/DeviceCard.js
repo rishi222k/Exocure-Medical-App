@@ -42,12 +42,12 @@ const DeviceCard = params => {
         height={40}
         style={{marginRight:30}}
       />
-      <Text style={{fontFamily:"CircularXXTTBold",fontSize:18,color:'black',width:200}}>Exocure Device</Text>
+      <Text style={{fontFamily:"CircularXX-TTBold",fontSize:18,color:'black',width:200}}>Exocure Device</Text>
       </View>
       <TouchableOpacity 
       onPress={() => {Connection();}}>
           <View style={[!bcolor? {backgroundColor:"black"}:{backgroundColor:"#0012FF"}, styles.but1]}>
-            <Text style={{fontFamily:"CircularXXTTBold",color:"white", fontSize:16,textAlign:'center'}}>
+            <Text style={{fontFamily:"CircularXX-TTBold",color:"white", fontSize:16,textAlign:'center'}}>
             {btntext} 
             </Text>
           </View>

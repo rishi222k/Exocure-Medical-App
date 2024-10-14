@@ -27,7 +27,7 @@ const Diagnosis = () => {
     <View style={{flexDirection:'row',alignItems:'center',justifyContent:'space-around',}}>
     {/* <TouchableOpacity>
         <View style={[styles.but1,{backgroundColor:"#FFB31D",}]}>
-            <Text style={{fontFamily:"CircularXXTTBold",color:"white", fontSize:18,textAlign:'center'}}>
+            <Text style={{fontFamily:"CircularXX-TTBold",color:"white", fontSize:18,textAlign:'center'}}>
             Pause
             </Text>
           </View>
@@ -38,7 +38,7 @@ const Diagnosis = () => {
     clearTimeout();
     }}>
         <View style={[styles.but1,{backgroundColor:"#FF5400",}]}>
-            <Text style={{fontFamily:"CircularXXTTBold",color:"white", fontSize:18,textAlign:'center'}}>
+            <Text style={{fontFamily:"CircularXX-TTBold",color:"white", fontSize:18,textAlign:'center'}}>
             Stop Diagnosis
             </Text>
           </View>

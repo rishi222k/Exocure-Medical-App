@@ -323,21 +323,21 @@ export default Donut
 
 const styles = StyleSheet.create({
   text:{
-    fontFamily:"SFNSThin",
+    fontFamily:"SF-Pro-Thin",
     textAlign: 'center',
     color:"#3A3A3A",
     marginTop:75
   },
   head1:{
     fontSize: 23,
-    fontFamily:"SFProDisplayHeavy", 
+    fontFamily:"SF-Pro-Heavy", 
     textAlign: 'center',
     color:"#3A3A3A",
     fontWeight:"900"
   },
   head2:{
     fontSize: 21,
-    fontFamily:"SFProDisplaySemibold", 
+    fontFamily:"SF-Pro-Semibold", 
     textAlign: 'center',
     color:"#AAAAAA",
     fontWeight:"900",

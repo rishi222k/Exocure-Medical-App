@@ -8,12 +8,12 @@ const PreHome = () => {
   const navigation = useNavigation();
 
   // const [loaded] = useFonts({
-  //   CircularXXTTBold: require('../assets/fonts/CircularXXTTBold.ttf'),
-  //   CircularXXTTMedium: require('../assets/fonts/CircularXXTTMedium.ttf'),
-  //   CircularXXTTRegular: require('../assets/fonts/CircularXXTTRegular.ttf'),
-  //   SFNSBold: require('../assets/fonts/SFNSBold.ttf'),
-  //   SFNSThin: require('../assets/fonts/SFNSThin.ttf'),
-  //   SFProDisplayHeavy: require('../assets/fonts/SFProDisplayHeavy.ttf'),
+  //   CircularXX-TTBold: require('../assets/fonts/CircularXX-TTBold.ttf'),
+  //   CircularXX-TTMedium: require('../assets/fonts/CircularXXTTMedium.ttf'),
+  //   CircularXX-TTRegular: require('../assets/fonts/CircularXXTTRegular.ttf'),
+  //   SF-Pro-Bold: require('../assets/fonts/SFNSBold.ttf'),
+  //   SF-Pro-Thin: require('../assets/fonts/SFNSThin.ttf'),
+  //   SF-Pro-Heavy: require('../assets/fonts/SFProDisplayHeavy.ttf'),
   // });
 
   // if (!loaded) {
@@ -25,22 +25,22 @@ const PreHome = () => {
     <ImageBackground source={require('../Images/PreHome-Bg.png')} resizeMode="cover" style={styles.imagebg}>
     <View style={styles.container}>
     <Image source={require('../Images/Logo.png')} resizeMode="contain" style={{width:140,height:140}}/>
-    <Text style={{fontFamily:"SFNSBold",fontSize:40,marginVertical:15}}>Exocure</Text>
-    <Text style={{fontFamily:"CircularXXTTRegular",fontSize:19,width:"90%",color:'#6F6F6F',lineHeight:27}}>A medical application to assess early signs of peripheral neuropathy and prevent Diabetic foot syndrome (DFS)</Text>
+    <Text style={{fontFamily:"SF-Pro-Bold",fontSize:40,marginVertical:15}}>Exocure</Text>
+    <Text style={{fontFamily:"CircularXX-TTRegular",fontSize:19,width:"90%",color:'#6F6F6F',lineHeight:27}}>A medical application to assess early signs of peripheral neuropathy and prevent Diabetic foot syndrome (DFS)</Text>
     </View>
     <View style={{height:'20%',width:'100%'}}>
 
     <TouchableOpacity 
     onPress={()=> navigation.navigate("SignUp")}>
     <View style={styles.but1}>
-    <Text style={{fontFamily:"CircularXXTTBold",color:"white", fontSize:18,textAlign:'center'}}>Create an account</Text>
+    <Text style={{fontFamily:"CircularXX-TTBold",color:"white", fontSize:18,textAlign:'center'}}>Create an account</Text>
     </View>
     </TouchableOpacity>
 
     <TouchableOpacity
      onPress={()=> navigation.navigate("Login")}>
     <View style={styles.but2}>
-    <Text style={{fontFamily:"CircularXXTTBold",color:"#FFB31D", fontSize:18,textAlign:'center',}}>Login</Text>
+    <Text style={{fontFamily:"CircularXX-TTBold",color:"#FFB31D", fontSize:18,textAlign:'center',}}>Login</Text>
     </View>
     </TouchableOpacity>
     

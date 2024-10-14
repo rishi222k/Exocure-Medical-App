@@ -78,7 +78,7 @@ const FeetMap = ({senseone,sensetwo,sensethree,sensefour,sensefive,sensesix,sens
     </G>
     </G>
     </Svg>
-    <Text style={{textAlign:"center",marginTop:20,fontFamily:"CircularXXTTBold",fontSize:22,color:'#C2C2C2',}}>Left</Text>
+    <Text style={{textAlign:"center",marginTop:20,fontFamily:"CircularXX-TTBold",fontSize:22,color:'#C2C2C2',}}>Left</Text>
     </View>
 
 
@@ -168,7 +168,7 @@ const styles = StyleSheet.create({
   legend:{
     textAlign:"center",
     marginTop:20,
-    fontFamily:"CircularXXTTBold",
+    fontFamily:"CircularXX-TTBold",
     fontSize:22,
     color:'#C2C2C2',
     marginBottom:10
